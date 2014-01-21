@@ -4,7 +4,9 @@ import urllib2
 import types
 import unicodedata
 import os
+import re
 
+#Global Variable for working directory
 DIRECTORY = os.getcwd()+'/SoupyFootballData.html'
 
 
@@ -29,7 +31,7 @@ def exportToFile(statPage):
     soup = BeautifulSoup(html)
     #Create file and allow it to be accessed by variable f                                                  
     f = open(DIRECTORY, 'w')
-    # Write soup to file                                                                                    
+    #Write soup to file                                                                                    
     f.write(str(soup))
 
 ##########################################################################################
@@ -37,7 +39,7 @@ def exportToFile(statPage):
 # ** discoverStatTypes **
 #
 # Arguments: 	List of String from HTML-GO Stat Table
-# Function: 	Finds out stat typees listed on page and removes them
+# Function: 	Finds out stat types listed on page and removes them
 # Returns: 		List of string, Stat Types
 #
 #
@@ -47,8 +49,10 @@ def discoverStatTypes(playerData, firstPlayer, statType=""):
 	#Record Stat Types in a list until we reach the first player in the table
 	type_List = []
 	for item in playerData:
+		#increment until we find our expected first player
 		if str(item) == firstPlayer:
 			break
+	#handles unneeded rows in misc scorers
 		if item!="TOUCHDOWNS" or item!="SCORING" and statType!="MiscScorers":
 			type_List.append(item)
 	if statType=="MiscScorers":
@@ -71,6 +75,8 @@ def removeStatTypes(playerData, typeList):
 	#Remove each stat-type from the list
 	for item in typeList:
 		while item in playerData: playerData.remove(item)
+
+	#handles extra rows in misc scorers page
 	while "TOUCHDOWNS" in playerData: playerData.remove("TOUCHDOWNS")
 	while "SCORING" in playerData: playerData.remove("SCORING")
 
@@ -123,22 +129,46 @@ def parseToString(statPage):
 
     # Searches the html for the tbody tag, which contains the entire table
 	tbody_tag = soup.tbody
-	try:
+	try:	
 		td_list = tbody_tag.find_all_next("td")
-	    # Creates a list of everything
+	    # Creates a list of everything in table
 		contents_list = []
-		#td_list = td_list.find_all(text = re.compile('&nbsp;'))
-		#for comment in findtoure:
-		#    fixed_text = unicode(comment).replace('&nbsp;', 'TEST TEST TEST')
-		#    comment.replace_with(fixed_text)
+
+		#for each <td> tag, get the value in the tags
 		for tds in td_list:
 			contents_list.append(tds.get_text())
 		stringContents = []
+
+		#encode in utf
 		for eachItem in contents_list:
 			stringContents.append(eachItem.encode('utf-8'))
 		return stringContents
 	except Exception, e:
 		return ""
+
+##########################################################################################
+#
+# ** fixAllData **
+#
+# Arguments: 	Data ripped from webpages
+# Function: 	Removes any text that would break SQL Lite Commands
+# Returns: 		Data in list of string format
+#
+#
+##########################################################################################
+def fixAllData(dataList):
+	i=0
+	for data in dataList:
+		data = data.replace('20', 'TWENTY')
+		data = data.replace('1DN', 'FIRST_DOWNS')
+		data = re.sub('[+]', '_PLUS', data)
+		testList = data.split("/")
+		for test in testList:
+			if len(testList)==2:
+				data = testList[0] + "_PER_" + testList[1]
+		dataList[i] = data
+		i = i + 1
+	return dataList
 
 ##########################################################################################
 #
@@ -155,8 +185,10 @@ def getAllPages(statPage, statType=""):
 	count = 0
 	allPlayers = []
 	while True:
+		#incremement the regular expression in the link
 		players = parseToString(statPage+str(1+count*40))
-		#Passers = scrapingFunctions.parseToString(Passing_Page)
+
+		#if no data in list, no players remain break loop
 		if not players:
 			break
 
@@ -164,13 +196,36 @@ def getAllPages(statPage, statType=""):
 		statTypeList = discoverStatTypes(players, str(1+(count*40)), statType)
 		removeStatTypes(players, statTypeList)
 
+		#handle extra columns in Misc page
 		if statType=="MiscScorers":
 			del players[0]
-		separatePlayerPosition(players, statTypeList, 1)
 
-		#Insert the POS into our stat type list
-		statTypeList.insert(1, "POS")
-		count = count + 1
+		#Call function to split the string which includes both player and position
+		separatePlayerPosition(players, statTypeList, 1)  
+		
+		#Append new list of string to total list
 		allPlayers += players
-	print(statTypeList)
+
+		#Increment Counter
+		count = count + 1
 	return allPlayers
+
+##########################################################################################
+#
+# ** getCorrectPositions **
+#
+# Arguments: 	Default setup of a ESPN-GO stat page
+# Function: 	Parses column from HTML file into a list of string fixes all columns
+# Returns: 		Column Data
+#
+#
+##########################################################################################
+
+def getCorrectPositions(statPage, statType=""):
+ 	players = parseToString(statPage)
+ 	count = 0
+ 	statTypeList = discoverStatTypes(players, str(1+(count*40)), statType)
+ 	# Insert POS 
+ 	statTypeList.insert(2, "POS")
+ 	statTypeList = fixAllData(statTypeList)
+ 	return statTypeList
