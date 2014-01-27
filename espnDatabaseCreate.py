@@ -53,14 +53,12 @@ def getSQLStr(listOfHeaders):
 ##########################################################################################
 
 def listToListOfLists(playerList, statTypeList, listOfLists):
-	for x in playerList:
+	while(len(playerList)!=0):
 		subList = []
 
 		while ((len(subList) < len(statTypeList)) and (len(playerList) != 0)):
 			subList.append(playerList.pop(0))
-
 		listOfLists.append(subList)
-
 	return listOfLists
 
 ##########################################################################################
@@ -82,8 +80,10 @@ def createESPNTable(statPage, nameOfTable):
 
 	#
 	allPlayers = scrapingFunctions.getAllPages(statPage)
+	print allPlayers
 	listOfLists = []
 	listOfLists = listToListOfLists(allPlayers, statTypeList, listOfLists)
+	print listOfLists
 	SQLString = getSQLStr(statTypeList)
 	tableHeaders = "CREATE TABLE " + nameOfTable + "("
 	dbFileName = "ESPN.db"
