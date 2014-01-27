@@ -80,10 +80,8 @@ def createESPNTable(statPage, nameOfTable):
 
 	#
 	allPlayers = scrapingFunctions.getAllPages(statPage)
-	print allPlayers
 	listOfLists = []
 	listOfLists = listToListOfLists(allPlayers, statTypeList, listOfLists)
-	print listOfLists
 	SQLString = getSQLStr(statTypeList)
 	tableHeaders = "CREATE TABLE " + nameOfTable + "("
 	dbFileName = "ESPN.db"
