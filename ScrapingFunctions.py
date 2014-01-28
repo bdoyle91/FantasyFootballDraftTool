@@ -148,7 +148,7 @@ def parseToString(statPage):
 
 ##########################################################################################
 #
-# ** fixAllData **
+# ** fixAllDataCol **
 #
 # Arguments: 	Data ripped from webpages
 # Function: 	Removes any text that would break SQL Lite Commands
@@ -156,16 +156,36 @@ def parseToString(statPage):
 #
 #
 ##########################################################################################
-def fixAllData(dataList):
+def fixAllDataCol(dataList):
 	i=0
 	for data in dataList:
 		data = data.replace('20', 'TWENTY')
 		data = data.replace('1DN', 'FIRST_DOWNS')
 		data = re.sub('[+]', '_PLUS', data)
+		data = re.sub('\'', '', data)
 		testList = data.split("/")
 		for test in testList:
 			if len(testList)==2:
 				data = testList[0] + "_PER_" + testList[1]
+		dataList[i] = data
+		i = i + 1
+	return dataList
+
+##########################################################################################
+#
+# ** fixAllDataPlayer **
+#
+# Arguments: 	Data ripped from webpages
+# Function: 	Removes any text that would break SQL Lite Commands
+# Returns: 		Data in list of string format
+#
+#
+##########################################################################################
+def fixAllDataPlayer(dataList):
+	i=0
+	for data in dataList:
+		data = re.sub('\'', '', data)
+		data = re.sub(',', '', data)
 		dataList[i] = data
 		i = i + 1
 	return dataList
@@ -201,7 +221,8 @@ def getAllPages(statPage, statType=""):
 			del players[0]
 
 		#Call function to split the string which includes both player and position
-		separatePlayerPosition(players, statTypeList, 1)  
+		separatePlayerPosition(players, statTypeList, 1)
+		fixAllDataPlayer(players)
 		
 		#Append new list of string to total list
 		allPlayers += players
@@ -227,5 +248,5 @@ def getCorrectPositions(statPage, statType=""):
  	statTypeList = discoverStatTypes(players, str(1+(count*40)), statType)
  	# Insert POS 
  	statTypeList.insert(2, "POS")
- 	statTypeList = fixAllData(statTypeList)
+ 	statTypeList = fixAllDataCol(statTypeList)
  	return statTypeList

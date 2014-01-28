@@ -100,6 +100,110 @@ def createESPNTable(statPage, nameOfTable):
 		conn.commit()
 	conn.close()
 
+##########################################################################################
+#
+# ** createFantasyPointTables **
+#
+# Arguments: 	name of all SQL tables containing player information. Year of information
+#				to be implemented once multiple years of data are stored.
+# Function: 	Calculates approximate fantasy point totals for each player based on
+#				season aggregates. Totals will not be exact due to season vs. weekly
+#				calculations, however can be used with accuracy of max 16 point difference.
+#				Then creates a FantasyPoints table in ESPN.db to be referenced when testbenching.		
+# Returns: 		None
+#
+#
+##########################################################################################
+
+def createFantasyPointTables(tableNames, year=""):
+	#initalize the allPlayers list of string
+	allPlayers =[]
+
+	#connect to our existed database and delete FantasyPoints table if it already exists
+	conn = lite.connect('ESPN.db')
+	dropTableCommand = "DROP TABLE IF EXISTS FantasyPoints"
+	c = conn.cursor()
+	c.execute(dropTableCommand)	# Recreate table so we don't have to keep deleting the .db file
+	conn.text_factory = str
+
+	#Create FantasyPoints Table
+	statTypeList = ["Player, Points"]
+	c.execute(addHeadersToTable(statTypeList, "CREATE TABLE FantasyPoints ("))
+	conn.close()
+
+	#Get all players from all tables, do not record any players twice
+	for name in tableNames:
+		command = "SELECT PLAYER FROM " + str(name)
+		conn = lite.connect('ESPN.db')
+		c = conn.cursor()
+		c.execute(command)
+		players = c.fetchall()
+		collision = 0
+		for player in players:
+			#check if player has allready been appended to list
+			for allPlayer in allPlayers:
+				if allPlayer == player[0]:
+					collision = 1
+			#if no collision, add player to allPlayers
+			if collision == 0:
+				allPlayers.append(player[0])
+
+			#if collision was detected, return collision back to zero for next player
+			else:
+				collision = 0
+		conn.close()
+	try:
+		for player in allPlayers:
+			fantasyPoint = 0
+			for name in tableNames:
+				conn = lite.connect('ESPN.db')
+				c = conn.cursor()
+				cols = []
+				command = "SELECT * FROM " + str(name)
+				c.execute(command)
+				for item in c.description:
+					cols.append(item[0])
+				for position in range(4, len(cols)):
+					cols[position] = name + "_" + cols[position]
+				command = "SELECT * FROM " + str(name) + " WHERE PLAYER= '" + str(player) + "'"		
+				c.execute(command)
+				stats = c.fetchall()
+				#check to see if player existed in table
+				if stats:
+					counter = 0
+					#Add fantasy points for ESPN default stats
+					for column in cols:
+						if column == "Passing_YDS":
+							fantasyPoint = fantasyPoint + (int(stats[0][counter])/25)
+						if column == "Passing_TD":
+							fantasyPoint = fantasyPoint + (int(stats[0][counter])*4)
+						if column == "Passing_INT":
+							fantasyPoint = fantasyPoint - (int(stats[0][counter])*2)
+						if column == "Rushing_YDS":
+							fantasyPoint = fantasyPoint + (int(stats[0][counter])/10)
+						if column == "Rushing_TD":
+							fantasyPoint = fantasyPoint + (int(stats[0][counter])*6)
+						if column == "Rushing_FUM":
+							fantasyPoint = fantasyPoint - (int(stats[0][counter])*2)
+						if column == "Receiving_YDS":
+							fantasyPoint = fantasyPoint + (int(stats[0][counter])/10)
+						if column == "Receiving_TD":
+							fantasyPoint = fantasyPoint + (int(stats[0][counter])*6)
+						if column == "Receiving_FUM":
+							fantasyPoint = fantasyPoint - (int(stats[0][counter])*2)
+						counter = counter + 1
+			#Insert player's calculated fantasy point into SQL Table
+			commandString = "INSERT INTO FantasyPoints VALUES (\'"+player+"\', \'"+str(fantasyPoint)+"\')"
+			conn.text_factory = str
+			c.execute(commandString)
+			conn.commit()
+		#If end of code reached successfully all entries successfully added
+		print "FantasyPoints Table Created"	
+		
+	#Print error of exception raised		
+	except Exception, e:
+		print "Error when attempting to create FantasyPoints SQL Table:"
+		raise
 
 ##########################################################################################
 #
@@ -123,6 +227,8 @@ createESPNTable(Rushing_Page, "Rushing")
 Receiving_Page = "http://espn.go.com/nfl/statistics/player/_/stat/receiving/seasontype/2/qualified/false/count/"
 createESPNTable(Receiving_Page, "Receiving")
 
+tableNames = ["Passing","Rushing","Receiving"]
+createFantasyPointTables(tableNames)
 
 ###### MORE TABLES TO BE ADDED ######
 
