@@ -121,19 +121,19 @@ def createFantasyPointTables(tableNames, year=""):
 
 	#connect to our existed database and delete FantasyPoints table if it already exists
 	conn = lite.connect('ESPN.db')
-	dropTableCommand = "DROP TABLE IF EXISTS FantasyPoints"
+	dropTableCommand = "DROP TABLE IF EXISTS FantasyPoints_"+str(year)
 	c = conn.cursor()
 	c.execute(dropTableCommand)	# Recreate table so we don't have to keep deleting the .db file
 	conn.text_factory = str
 
 	#Create FantasyPoints Table
 	statTypeList = ["Player, Points"]
-	c.execute(addHeadersToTable(statTypeList, "CREATE TABLE FantasyPoints ("))
+	c.execute(addHeadersToTable(statTypeList, "CREATE TABLE FantasyPoints_"+str(year)+" ("))
 	conn.close()
 
 	#Get all players from all tables, do not record any players twice
 	for name in tableNames:
-		command = "SELECT PLAYER FROM " + str(name)
+		command = "SELECT PLAYER FROM " + str(name)  + "_" + str(year)
 		conn = lite.connect('ESPN.db')
 		c = conn.cursor()
 		c.execute(command)
@@ -159,13 +159,13 @@ def createFantasyPointTables(tableNames, year=""):
 				conn = lite.connect('ESPN.db')
 				c = conn.cursor()
 				cols = []
-				command = "SELECT * FROM " + str(name)
+				command = "SELECT * FROM " + str(name) + "_" + str(year)
 				c.execute(command)
 				for item in c.description:
 					cols.append(item[0])
 				for position in range(4, len(cols)):
 					cols[position] = name + "_" + cols[position]
-				command = "SELECT * FROM " + str(name) + " WHERE PLAYER= '" + str(player) + "'"		
+				command = "SELECT * FROM " + str(name)  + "_" + str(year) +  " WHERE PLAYER= '" + str(player) + "'"		
 				c.execute(command)
 				stats = c.fetchall()
 				#check to see if player existed in table
@@ -193,16 +193,17 @@ def createFantasyPointTables(tableNames, year=""):
 							fantasyPoint = fantasyPoint - (int(stats[0][counter])*2)
 						counter = counter + 1
 			#Insert player's calculated fantasy point into SQL Table
-			commandString = "INSERT INTO FantasyPoints VALUES (\'"+player+"\', \'"+str(fantasyPoint)+"\')"
+			commandString = "INSERT INTO FantasyPoints_"+str(year)+ " VALUES (\'"+player+"\', \'"+str(fantasyPoint)+"\')"
 			conn.text_factory = str
 			c.execute(commandString)
 			conn.commit()
+			conn.close()
 		#If end of code reached successfully all entries successfully added
-		print "FantasyPoints Table Created"	
+		print "FantasyPoints_"+str(year)+" Table Created"	
 		
 	#Print error of exception raised		
 	except Exception, e:
-		print "Error when attempting to create FantasyPoints SQL Table:"
+		print "Error when attempting to create FantasyPoints_"+str(year)+" SQL Table:"
 		raise
 
 ##########################################################################################
@@ -215,20 +216,34 @@ def createFantasyPointTables(tableNames, year=""):
 #
 ##########################################################################################
 
-#Create Passing Table
-Passing_Page = "http://espn.go.com/nfl/statistics/player/_/stat/passing/sort/passingYards/seasontype/2/qualified/false/count/"
-createESPNTable(Passing_Page, "Passing")
+# #Create Passing Table
+# for year in range(2002, 2014):
+# 	if year == 2013:
+# 		Passing_Page = "http://espn.go.com/nfl/statistics/player/_/stat/passing/sort/passingYards/seasontype/2/qualified/false/count/"
+# 	else:
+# 		Passing_Page="http://espn.go.com/nfl/statistics/player/_/stat/passing/sort/passingYards/year/"+str(year)+"/seasontype/2/qualified/false/count/"
+# 	createESPNTable(Passing_Page, "Passing_"+str(year))
 
-#Create Rushing Table
-Rushing_Page = "http://espn.go.com/nfl/statistics/player/_/stat/rushing/seasontype/2/qualified/false/count/"
-createESPNTable(Rushing_Page, "Rushing")
+# #Create Rushing Table
+# for year in range(2002, 2014):
+# 	if year == 2013:
+# 		Rushing_Page = "http://espn.go.com/nfl/statistics/player/_/stat/rushing/seasontype/2/qualified/false/count/"
+# 	else:
+# 		Rushing_Page="http://espn.go.com/nfl/statistics/player/_/stat/rushing/sort/rushingYards/year/"+str(year)+"/seasontype/2/qualified/false/count/"
+# 	createESPNTable(Rushing_Page, "Rushing_"+str(year))
 
-#Create Receiving Table
-Receiving_Page = "http://espn.go.com/nfl/statistics/player/_/stat/receiving/seasontype/2/qualified/false/count/"
-createESPNTable(Receiving_Page, "Receiving")
+# #Create Receiving Table
+# for year in range(2002, 2014):
+# 	if year == 2013:
+# 		Receiving_Page = "http://espn.go.com/nfl/statistics/player/_/stat/receiving/seasontype/2/qualified/false/count/"
+# 	else:
+# 		Receiving_Page="http://espn.go.com/nfl/statistics/player/_/stat/receiving/sort/receivingYards/year/"+str(year)+"/seasontype/2/qualified/false/count/"
+# 	createESPNTable(Receiving_Page, "Receiving_"+str(year))
 
-tableNames = ["Passing","Rushing","Receiving"]
-createFantasyPointTables(tableNames)
+for year in range(2002, 2014):
+	i=0
+	tableNames = ["Passing","Rushing","Receiving"]
+	createFantasyPointTables(tableNames, year)
 
 ###### MORE TABLES TO BE ADDED ######
 
