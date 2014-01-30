@@ -216,29 +216,29 @@ def createFantasyPointTables(tableNames, year=""):
 #
 ##########################################################################################
 
-# #Create Passing Table
-# for year in range(2002, 2014):
-# 	if year == 2013:
-# 		Passing_Page = "http://espn.go.com/nfl/statistics/player/_/stat/passing/sort/passingYards/seasontype/2/qualified/false/count/"
-# 	else:
-# 		Passing_Page="http://espn.go.com/nfl/statistics/player/_/stat/passing/sort/passingYards/year/"+str(year)+"/seasontype/2/qualified/false/count/"
-# 	createESPNTable(Passing_Page, "Passing_"+str(year))
+#Create Passing Table
+for year in range(2002, 2014):
+	if year == 2013:
+		Passing_Page = "http://espn.go.com/nfl/statistics/player/_/stat/passing/sort/passingYards/seasontype/2/qualified/false/count/"
+	else:
+		Passing_Page="http://espn.go.com/nfl/statistics/player/_/stat/passing/sort/passingYards/year/"+str(year)+"/seasontype/2/qualified/false/count/"
+	createESPNTable(Passing_Page, "Passing_"+str(year))
 
-# #Create Rushing Table
-# for year in range(2002, 2014):
-# 	if year == 2013:
-# 		Rushing_Page = "http://espn.go.com/nfl/statistics/player/_/stat/rushing/seasontype/2/qualified/false/count/"
-# 	else:
-# 		Rushing_Page="http://espn.go.com/nfl/statistics/player/_/stat/rushing/sort/rushingYards/year/"+str(year)+"/seasontype/2/qualified/false/count/"
-# 	createESPNTable(Rushing_Page, "Rushing_"+str(year))
+#Create Rushing Table
+for year in range(2002, 2014):
+	if year == 2013:
+		Rushing_Page = "http://espn.go.com/nfl/statistics/player/_/stat/rushing/seasontype/2/qualified/false/count/"
+	else:
+		Rushing_Page="http://espn.go.com/nfl/statistics/player/_/stat/rushing/sort/rushingYards/year/"+str(year)+"/seasontype/2/qualified/false/count/"
+	createESPNTable(Rushing_Page, "Rushing_"+str(year))
 
-# #Create Receiving Table
-# for year in range(2002, 2014):
-# 	if year == 2013:
-# 		Receiving_Page = "http://espn.go.com/nfl/statistics/player/_/stat/receiving/seasontype/2/qualified/false/count/"
-# 	else:
-# 		Receiving_Page="http://espn.go.com/nfl/statistics/player/_/stat/receiving/sort/receivingYards/year/"+str(year)+"/seasontype/2/qualified/false/count/"
-# 	createESPNTable(Receiving_Page, "Receiving_"+str(year))
+#Create Receiving Table
+for year in range(2002, 2014):
+	if year == 2013:
+		Receiving_Page = "http://espn.go.com/nfl/statistics/player/_/stat/receiving/seasontype/2/qualified/false/count/"
+	else:
+		Receiving_Page="http://espn.go.com/nfl/statistics/player/_/stat/receiving/sort/receivingYards/year/"+str(year)+"/seasontype/2/qualified/false/count/"
+	createESPNTable(Receiving_Page, "Receiving_"+str(year))
 
 for year in range(2002, 2014):
 	i=0
