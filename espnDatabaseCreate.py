@@ -127,13 +127,13 @@ def createFantasyPointTables(tableNames, year=""):
 	conn.text_factory = str
 
 	#Create FantasyPoints Table
-	statTypeList = ["Player, Points"]
+	statTypeList = ["Player, Pos, Points"]
 	c.execute(addHeadersToTable(statTypeList, "CREATE TABLE FantasyPoints_"+str(year)+" ("))
 	conn.close()
 
 	#Get all players from all tables, do not record any players twice
 	for name in tableNames:
-		command = "SELECT PLAYER FROM " + str(name)  + "_" + str(year)
+		command = "SELECT PLAYER, POS FROM " + str(name)  + "_" + str(year)
 		conn = lite.connect('ESPN.db')
 		c = conn.cursor()
 		c.execute(command)
@@ -146,7 +146,7 @@ def createFantasyPointTables(tableNames, year=""):
 					collision = 1
 			#if no collision, add player to allPlayers
 			if collision == 0:
-				allPlayers.append(player[0])
+				allPlayers.append(player)
 
 			#if collision was detected, return collision back to zero for next player
 			else:
@@ -165,7 +165,7 @@ def createFantasyPointTables(tableNames, year=""):
 					cols.append(item[0])
 				for position in range(4, len(cols)):
 					cols[position] = name + "_" + cols[position]
-				command = "SELECT * FROM " + str(name)  + "_" + str(year) +  " WHERE PLAYER= '" + str(player) + "'"		
+				command = "SELECT * FROM " + str(name)  + "_" + str(year) +  " WHERE PLAYER= '" + str(player[0]) + "'"		
 				c.execute(command)
 				stats = c.fetchall()
 				#check to see if player existed in table
@@ -193,7 +193,7 @@ def createFantasyPointTables(tableNames, year=""):
 							fantasyPoint = fantasyPoint - (int(stats[0][counter])*2)
 						counter = counter + 1
 			#Insert player's calculated fantasy point into SQL Table
-			commandString = "INSERT INTO FantasyPoints_"+str(year)+ " VALUES (\'"+player+"\', \'"+str(fantasyPoint)+"\')"
+			commandString = "INSERT INTO FantasyPoints_"+str(year)+ " VALUES (\'"+player[0]+"\',\'"+player[1]+"\', \'"+str(fantasyPoint)+"\')"
 			conn.text_factory = str
 			c.execute(commandString)
 			conn.commit()
