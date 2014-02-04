@@ -38,7 +38,7 @@ class Team:
 ##########################################################################################
 
 class Player:
-	def __init__(self, fullName, position, points):
+	def __init__(self, fullName, points,position=""):
 		self.name = fullName
 		self.pos = position
 		self.fantasyPoints = points
