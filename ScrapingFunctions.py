@@ -5,6 +5,7 @@ import types
 import unicodedata
 import os
 import re
+import math
 
 #Global Variable for working directory
 DIRECTORY = os.getcwd()+'/SoupyFootballData.html'
@@ -161,6 +162,7 @@ def fixAllDataCol(dataList):
 	for data in dataList:
 		data = data.replace('20', 'TWENTY')
 		data = data.replace('1DN', 'FIRST_DOWNS')
+		data = data.replace('2PT', 'TWO_POINT_CONVS')
 		data = re.sub('[+]', '_PLUS', data)
 		data = re.sub('\'', '', data)
 		testList = data.split("/")
@@ -207,19 +209,16 @@ def getAllPages(statPage, statType=""):
 	while True:
 		#incremement the regular expression in the link
 		players = parseToString(statPage+str(1+count*40))
-
 		#if no data in list, no players remain break loop
 		if not players:
 			break
-
 		#Remove the state type information sprinkled in the list and store in secondary list
 		statTypeList = discoverStatTypes(players, str(1+(count*40)), statType)
 		removeStatTypes(players, statTypeList)
-
-		#handle extra columns in Misc page
+		#handle extra column in Misc page 
 		if statType=="MiscScorers":
-			del players[0]
-
+			for i in range(0, int(math.ceil((len(players)/len(statTypeList))/10.0))):
+				players.pop(i*(len(statTypeList)*10))
 		#Call function to split the string which includes both player and position
 		separatePlayerPosition(players, statTypeList, 1)
 		fixAllDataPlayer(players)
@@ -246,6 +245,10 @@ def getCorrectPositions(statPage, statType=""):
  	players = parseToString(statPage)
  	count = 0
  	statTypeList = discoverStatTypes(players, str(1+(count*40)), statType)
+ 	if statType == "MiscScoring":
+ 		statTypeList.pop(0)
+ 		statTypeList.pop(1)
+ 		statTypeList.pop(2)
  	# Insert POS 
  	statTypeList.insert(2, "POS")
  	statTypeList = fixAllDataCol(statTypeList)

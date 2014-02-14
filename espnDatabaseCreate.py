@@ -73,13 +73,16 @@ def listToListOfLists(playerList, statTypeList, listOfLists):
 #
 ##########################################################################################
 
-def createESPNTable(statPage, nameOfTable):
+def createESPNTable(statPage, nameOfTable, tableType=""):
 	#Get all the column info that will be used for this table with all fixing
 	#to be in userable SQL formats
-	statTypeList = scrapingFunctions.getCorrectPositions(statPage)
+	statTypeList = scrapingFunctions.getCorrectPositions(statPage, tableType)
 
 	#
-	allPlayers = scrapingFunctions.getAllPages(statPage)
+	if tableType=="MiscScoring":
+		allPlayers = scrapingFunctions.getAllPages(statPage, "MiscScorers")
+	else:
+		allPlayers = scrapingFunctions.getAllPages(statPage)
 	listOfLists = []
 	listOfLists = listToListOfLists(allPlayers, statTypeList, listOfLists)
 	SQLString = getSQLStr(statTypeList)
@@ -216,6 +219,15 @@ def createFantasyPointTables(tableNames, year=""):
 #
 ##########################################################################################
 
+#Create Misc Scoring Table
+for year in range(2002, 2014):
+	if year == 2013:
+		MiscScoring_Page = "http://espn.go.com/nfl/statistics/player/_/stat/scoring/seasontype/2/qualified/false/count/"
+	else:
+		MiscScoring_Page ="http://espn.go.com/nfl/statistics/player/_/stat/scoring/sort/totalPoints/year/"+str(year)+"/qualified/false/count/"
+	print MiscScoring_Page
+	createESPNTable(MiscScoring_Page, "MiscScoring_"+str(year), "MiscScoring")
+
 #Create Passing Table
 for year in range(2002, 2014):
 	if year == 2013:
@@ -240,15 +252,11 @@ for year in range(2002, 2014):
 		Receiving_Page="http://espn.go.com/nfl/statistics/player/_/stat/receiving/sort/receivingYards/year/"+str(year)+"/seasontype/2/qualified/false/count/"
 	createESPNTable(Receiving_Page, "Receiving_"+str(year))
 
+#Create FantasyPoints Table
 for year in range(2002, 2014):
 	i=0
 	tableNames = ["Passing","Rushing","Receiving"]
 	createFantasyPointTables(tableNames, year)
 
 ###### MORE TABLES TO BE ADDED ######
-
-# MiscScoring_Page = "http://espn.go.com/nfl/statistics/player/_/stat/scoring/seasontype/2/qualified/false/count/"
-# MiscScorers = scrapingFunctions.getAllPages(MiscScoring_Page,"MiscScorers")
-# print('\n\n\n\n-------------- MISC SCORING --------------------')
-# print(MiscScorers)
 

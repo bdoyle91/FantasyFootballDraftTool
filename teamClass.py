@@ -25,6 +25,9 @@ class Team:
 		for player in self.Players:
 			points = points + player.fantasyPoints
 		return points
+	def printTeam(self):
+		for player in self.Players:
+			print player.name + ", " + player.pos + ", " + str(player.fantasyPoints)
 
 ##########################################################################################
 #

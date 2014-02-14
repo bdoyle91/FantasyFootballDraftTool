@@ -18,13 +18,14 @@ def benchMark(players, year="2013"):
 	benchTeam = teamClass.Team()
 	for player in players:
 		c = conn.cursor()
-		command = "SELECT Player,Points FROM FantasyPoints_" + str(year) + " WHERE Player='" + str(player) + "'"
+		command = "SELECT Player,Pos,Points FROM FantasyPoints_" + str(year) + " WHERE Player='" + str(player) + "'"
 		c.execute(command)
 		data = c.fetchall()
-		newPlayer = teamClass.Player(data[0][0],int(data[0][1]))
+		newPlayer = teamClass.Player(data[0][0],int(data[0][2]),data[0][1])
 		benchTeam.addPlayer(newPlayer)
 	conn.close()
 	points = benchTeam.getTotalPoints()
+	print benchTeam.printTeam()
 	return points
 
 
