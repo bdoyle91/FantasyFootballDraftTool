@@ -53,9 +53,9 @@ def discoverStatTypes(playerData, firstPlayer, statType=""):
 		if str(item) == firstPlayer:
 			break
 	#handles unneeded rows in misc scorers
-		if item!="TOUCHDOWNS" or item!="SCORING" and statType!="MiscScorers":
+		if (item!="TOUCHDOWNS" or item!="SCORING"):
 			type_List.append(item)
-	if statType=="MiscScorers":
+	if statType=="MiscScorers" or statType=="Kicking":
 		del type_List[0]
 		del type_List[0]
 	return type_List
@@ -79,6 +79,8 @@ def removeStatTypes(playerData, typeList):
 	#handles extra rows in misc scorers page
 	while "TOUCHDOWNS" in playerData: playerData.remove("TOUCHDOWNS")
 	while "SCORING" in playerData: playerData.remove("SCORING")
+	while "FIELD GOALS" in playerData: playerData.remove("FIELD GOALS")
+	while "EXTRA POINTS" in playerData: playerData.remove("EXTRA POINTS")
 
 ##########################################################################################
 #
@@ -93,14 +95,30 @@ def removeStatTypes(playerData, typeList):
 ##########################################################################################
 
 def separatePlayerPosition(playerData, typeList, position):
+	# print "playerData"
+	# print playerData
+	# print "typelist"
+	# print typeList
+	# print "position"
+	# print position
 	numberOfTypes = len(typeList)
 	numberOfPlayers = len(playerData)/numberOfTypes
 	for i in range(0, numberOfPlayers):
 		#i+position = original offset plus insertion offset
 		#i*numberOfTypes = space each player has taken up thus far
+		# print "i: " + str(i)
 		player = playerData[i+position+(i*numberOfTypes)]
+		# print "player 1"
+		# print player
 		#Split position and name, change name/position field to just name, insert position
+
 		player = player.rsplit(",")
+
+		# print "len(player)"
+		# print len(player)
+
+		# print "player 2"
+		# print player
 		playerData[i+position+(i*numberOfTypes)]=player[1]
 		playerData.insert(i+position+(i*numberOfTypes),player[0])
 
