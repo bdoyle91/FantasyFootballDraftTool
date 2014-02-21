@@ -13,7 +13,7 @@ import sqlite3 as lite
 #
 ##########################################################################################
 
-def benchMark(players, year="2013"):
+def benchMark(players, year="2012"):
 	conn = lite.connect('ESPN.db')
 	benchTeam = teamClass.Team()
 	for player in players:

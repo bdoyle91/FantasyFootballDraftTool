@@ -1,4 +1,4 @@
-import scrapingFunctions
+import ScrapingFunctions
 import sqlite3 as lite
 
 ##########################################################################################
@@ -13,9 +13,12 @@ import sqlite3 as lite
 #
 ##########################################################################################
 
-def addHeadersToTable(listOfHeaders, stringOfHeaders, ):
+def addHeadersToTable(listOfHeaders, stringOfHeaders):
 	for title in listOfHeaders:
-		stringOfHeaders = stringOfHeaders + title + " TEXT, "
+		if title == "Points" or title == "WasSelected":
+			stringOfHeaders = stringOfHeaders + title + " INTEGER, "
+		else:
+			stringOfHeaders = stringOfHeaders + title + " TEXT, "
 	newString = stringOfHeaders[:len(stringOfHeaders)-2]
 	newString = newString + ")"
 	return newString
@@ -76,6 +79,7 @@ def listToListOfLists(playerList, statTypeList, listOfLists):
 def createESPNTable(statPage, nameOfTable, tableType=""):
 	#Get all the column info that will be used for this table with all fixing
 	#to be in userable SQL formats
+<<<<<<< HEAD
 	statTypeList = scrapingFunctions.getCorrectPositions(statPage, tableType)
 
 	#
@@ -83,6 +87,11 @@ def createESPNTable(statPage, nameOfTable, tableType=""):
 		allPlayers = scrapingFunctions.getAllPages(statPage, "MiscScorers")
 	else:
 		allPlayers = scrapingFunctions.getAllPages(statPage)
+=======
+	statTypeList = ScrapingFunctions.getCorrectPositions(statPage)
+
+	allPlayers = ScrapingFunctions.getAllPages(statPage)
+>>>>>>> BrendansBranch
 	listOfLists = []
 	listOfLists = listToListOfLists(allPlayers, statTypeList, listOfLists)
 	SQLString = getSQLStr(statTypeList)
@@ -130,8 +139,9 @@ def createFantasyPointTables(tableNames, year=""):
 	conn.text_factory = str
 
 	#Create FantasyPoints Table
-	statTypeList = ["Player, Pos, Points"]
-	c.execute(addHeadersToTable(statTypeList, "CREATE TABLE FantasyPoints_"+str(year)+" ("))
+	statTypeList = ["Player", "Pos", "Points", "WasSelected"]
+	print addHeadersToTable(statTypeList, "CREATE TABLE FantasyPoints_" + str(year) + " (")
+	c.execute(addHeadersToTable(statTypeList, "CREATE TABLE FantasyPoints_" + str(year) + " ("))
 	conn.close()
 
 	#Get all players from all tables, do not record any players twice
@@ -196,9 +206,12 @@ def createFantasyPointTables(tableNames, year=""):
 							fantasyPoint = fantasyPoint - (int(stats[0][counter])*2)
 						counter = counter + 1
 			#Insert player's calculated fantasy point into SQL Table
-			commandString = "INSERT INTO FantasyPoints_"+str(year)+ " VALUES (\'"+player[0]+"\',\'"+player[1]+"\', \'"+str(fantasyPoint)+"\')"
+			commandString = "INSERT INTO FantasyPoints_"+str(year)+ " VALUES (\'"+player[0]+"\',\'"+player[1]+"\', \'"+str(fantasyPoint)+"\', \'0\')"
 			conn.text_factory = str
 			c.execute(commandString)
+			c.execute("DROP TABLE IF EXISTS DraftList_"+str(year))
+
+			c.execute("CREATE TABLE DraftList_" + str(year) + " AS SELECT * FROM FantasyPoints_" + str(year)) 
 			conn.commit()
 			conn.close()
 		#If end of code reached successfully all entries successfully added
@@ -255,7 +268,7 @@ for year in range(2002, 2014):
 #Create FantasyPoints Table
 for year in range(2002, 2014):
 	i=0
-	tableNames = ["Passing","Rushing","Receiving"]
+	tableNames = ["Passing", "Rushing", "Receiving"]
 	createFantasyPointTables(tableNames, year)
 
 ###### MORE TABLES TO BE ADDED ######
