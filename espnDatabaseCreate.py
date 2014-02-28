@@ -76,22 +76,12 @@ def listToListOfLists(playerList, statTypeList, listOfLists):
 #
 ##########################################################################################
 
-def createESPNTable(statPage, nameOfTable, tableType=""):
+def createESPNTable(statPage, nameOfTable):
 	#Get all the column info that will be used for this table with all fixing
 	#to be in userable SQL formats
-<<<<<<< HEAD
-	statTypeList = scrapingFunctions.getCorrectPositions(statPage, tableType)
-
-	#
-	if tableType=="MiscScoring":
-		allPlayers = scrapingFunctions.getAllPages(statPage, "MiscScorers")
-	else:
-		allPlayers = scrapingFunctions.getAllPages(statPage)
-=======
 	statTypeList = ScrapingFunctions.getCorrectPositions(statPage)
 
 	allPlayers = ScrapingFunctions.getAllPages(statPage)
->>>>>>> BrendansBranch
 	listOfLists = []
 	listOfLists = listToListOfLists(allPlayers, statTypeList, listOfLists)
 	SQLString = getSQLStr(statTypeList)
