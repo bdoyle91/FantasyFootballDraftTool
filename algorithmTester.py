@@ -29,6 +29,10 @@ class algorithmTester:
 			for eachAlgorithm in self.algorithms:
 				eachAlgorithm.pickNextPlayer(year)
 			i = i - 1
+			if (i > 0):
+				for algs in reversed(self.algorithms):
+					algs.pickNextPlayer(year)
+				i = i - 1
 
 		
 
@@ -39,6 +43,4 @@ x = 0
 for a in algoTester.algorithms:
 	x = x + 1
 	# print a
-	print "Algorithm " + str(x)
-	for player in a.team.Players:
-	 	print player.name
+	a.printTeam(x)

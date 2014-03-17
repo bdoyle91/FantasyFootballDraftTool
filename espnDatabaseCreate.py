@@ -222,14 +222,14 @@ def createFantasyPointTables(tableNames, year=""):
 #
 ##########################################################################################
 
-#Create Misc Scoring Table
-for year in range(2002, 2014):
-	if year == 2013:
-		MiscScoring_Page = "http://espn.go.com/nfl/statistics/player/_/stat/scoring/seasontype/2/qualified/false/count/"
-	else:
-		MiscScoring_Page ="http://espn.go.com/nfl/statistics/player/_/stat/scoring/sort/totalPoints/year/"+str(year)+"/qualified/false/count/"
-	print MiscScoring_Page
-	createESPNTable(MiscScoring_Page, "MiscScoring_"+str(year), "MiscScoring")
+# #Create Misc Scoring Table
+# for year in range(2002, 2014):
+# 	if year == 2013:
+# 		MiscScoring_Page = "http://espn.go.com/nfl/statistics/player/_/stat/scoring/seasontype/2/qualified/false/count/"
+# 	else:
+# 		MiscScoring_Page ="http://espn.go.com/nfl/statistics/player/_/stat/scoring/sort/totalPoints/year/"+str(year)+"/qualified/false/count/"
+# 	print MiscScoring_Page
+# 	createESPNTable(MiscScoring_Page, "MiscScoring_"+str(year))
 
 #Create Passing Table
 for year in range(2002, 2014):

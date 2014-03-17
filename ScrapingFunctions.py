@@ -119,7 +119,7 @@ def separatePlayerPosition(playerData, typeList, position):
 		# print len(player)
 
 		# print "player 2"
-		# print player
+		print "player" + str(player)
 		playerData[i+position+(i*numberOfTypes)]=player[1]
 		playerData.insert(i+position+(i*numberOfTypes),player[0])
 
