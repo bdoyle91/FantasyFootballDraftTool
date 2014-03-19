@@ -54,11 +54,14 @@ def discoverStatTypes(playerData, firstPlayer, statType=""):
 		if str(item) == firstPlayer:
 			break
 	#handles unneeded rows in misc scorers
-		if (item!="TOUCHDOWNS" or item!="SCORING"):
+		if (item!="TOUCHDOWNS" or item!="SCORING" or item!="FIELD GOALS" or item!="EXTRA POINTS"):
 			type_List.append(item)
 	if statType=="MiscScorers" or statType=="Kicking":
-		del type_List[0]
-		del type_List[0]
+ 		type_List.pop(0)
+ 		type_List.pop(0)
+ 		type_List.pop(0)
+ 	if statType=="Kicking":
+ 		type_List[5] = "FGPCT"
 	return type_List
 
 ##########################################################################################
@@ -119,7 +122,7 @@ def separatePlayerPosition(playerData, typeList, position):
 		# print len(player)
 
 		# print "player 2"
-		print "player" + str(player)
+		# print "player" + str(player)
 		playerData[i+position+(i*numberOfTypes)]=player[1]
 		playerData.insert(i+position+(i*numberOfTypes),player[0])
 
@@ -178,10 +181,20 @@ def parseToString(statPage):
 def fixAllDataCol(dataList):
 	i=0
 	for data in dataList:
+		data = data.replace('10', 'TEN')
+		data = data.replace('19', 'NINETEEN')
 		data = data.replace('20', 'TWENTY')
+		data = data.replace('29', 'TWENTYNINE')
+		data = data.replace('30', 'THIRTY')
+		data = data.replace('39', 'THIRTYNINE')
+		data = data.replace('40', 'FORTY')
+		data = data.replace('49', 'FORTYNINE')
+		data = data.replace('50', 'FIFTY')
 		data = data.replace('1DN', 'FIRST_DOWNS')
 		data = data.replace('2PT', 'TWO_POINT_CONVS')
+		data = data.replace('1', 'ONE')
 		data = re.sub('[+]', '_PLUS', data)
+		data = re.sub('[-]', '_THROUGH_', data)
 		data = re.sub('\'', '', data)
 		testList = data.split("/")
 		for test in testList:
@@ -233,8 +246,8 @@ def getAllPages(statPage, statType=""):
 		#Remove the state type information sprinkled in the list and store in secondary list
 		statTypeList = discoverStatTypes(players, str(1+(count*40)), statType)
 		removeStatTypes(players, statTypeList)
-		#handle extra column in Misc page 
-		if statType=="MiscScorers":
+		#handle extra columns in Misc page 
+		if statType=="MiscScorers" or statType=="Kicking":
 			for i in range(0, int(math.ceil((len(players)/len(statTypeList))/10.0))):
 				players.pop(i*(len(statTypeList)*10))
 		#Call function to split the string which includes both player and position
@@ -263,10 +276,6 @@ def getCorrectPositions(statPage, statType=""):
  	players = parseToString(statPage)
  	count = 0
  	statTypeList = discoverStatTypes(players, str(1+(count*40)), statType)
- 	if statType == "MiscScoring":
- 		statTypeList.pop(0)
- 		statTypeList.pop(1)
- 		statTypeList.pop(2)
  	# Insert POS 
  	statTypeList.insert(2, "POS")
  	statTypeList = fixAllDataCol(statTypeList)

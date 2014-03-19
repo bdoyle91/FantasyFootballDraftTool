@@ -76,17 +76,29 @@ def listToListOfLists(playerList, statTypeList, listOfLists):
 #
 ##########################################################################################
 
-def createESPNTable(statPage, nameOfTable):
+def createESPNTable(statPage, nameOfTable,year=""):
 	#Get all the column info that will be used for this table with all fixing
 	#to be in userable SQL formats
-	statTypeList = ScrapingFunctions.getCorrectPositions(statPage)
+	if nameOfTable == "MiscScoring_"+year:
+		statTypeList = ScrapingFunctions.getCorrectPositions(statPage, "MiscScorers")
+	elif nameOfTable == "Kicking_"+year:
+		statTypeList = ScrapingFunctions.getCorrectPositions(statPage, "Kicking")
+	else:
+		statTypeList = ScrapingFunctions.getCorrectPositions(statPage)
 
-	allPlayers = ScrapingFunctions.getAllPages(statPage)
+	if nameOfTable == "MiscScoring_"+year:
+		allPlayers = ScrapingFunctions.getAllPages(statPage, "MiscScorers")
+	elif nameOfTable == "Kicking_"+year:
+		allPlayers = ScrapingFunctions.getAllPages(statPage, "Kicking")
+	else:
+		allPlayers = ScrapingFunctions.getAllPages(statPage)
 	listOfLists = []
 	listOfLists = listToListOfLists(allPlayers, statTypeList, listOfLists)
 	SQLString = getSQLStr(statTypeList)
 	tableHeaders = "CREATE TABLE " + nameOfTable + "("
 	dbFileName = "ESPN.db"
+	print allPlayers
+	print statTypeList
 	conn = lite.connect('ESPN.db')
 	conn.text_factory = str # set sqlite3 connection to use unicode instead of 8-bit byte strings. 
 							#Added to resolve an error with the c.executemany line below.
@@ -222,15 +234,6 @@ def createFantasyPointTables(tableNames, year=""):
 #
 ##########################################################################################
 
-# #Create Misc Scoring Table
-# for year in range(2002, 2014):
-# 	if year == 2013:
-# 		MiscScoring_Page = "http://espn.go.com/nfl/statistics/player/_/stat/scoring/seasontype/2/qualified/false/count/"
-# 	else:
-# 		MiscScoring_Page ="http://espn.go.com/nfl/statistics/player/_/stat/scoring/sort/totalPoints/year/"+str(year)+"/qualified/false/count/"
-# 	print MiscScoring_Page
-# 	createESPNTable(MiscScoring_Page, "MiscScoring_"+str(year))
-
 #Create Passing Table
 for year in range(2002, 2014):
 	if year == 2013:
@@ -255,11 +258,30 @@ for year in range(2002, 2014):
 		Receiving_Page="http://espn.go.com/nfl/statistics/player/_/stat/receiving/sort/receivingYards/year/"+str(year)+"/seasontype/2/qualified/false/count/"
 	createESPNTable(Receiving_Page, "Receiving_"+str(year))
 
+#Create Misc Scoring Table
+for year in range(2002, 2014):
+	if year == 2013:
+		MiscScoring_Page = "http://espn.go.com/nfl/statistics/player/_/stat/scoring/seasontype/2/qualified/false/count/"
+	else:
+		MiscScoring_Page ="http://espn.go.com/nfl/statistics/player/_/stat/scoring/sort/totalPoints/year/"+str(year)+"/qualified/false/count/"
+	createESPNTable(MiscScoring_Page, "MiscScoring_"+str(year),str(year))
+
+# Create Kicking Table
+for year in range(2002, 2014):
+	if year == 2013:
+		Kicking_Page = "http://espn.go.com/nfl/statistics/player/_/stat/kicking/sort/fieldGoalsMade/qualified/false/count/"
+	else:
+		Kicking_Page ="http://espn.go.com/nfl/statistics/player/_/stat/kicking/sort/fieldGoalsMade/year/"+str(year)+"/qualified/false/count/"
+	print Kicking_Page
+	createESPNTable(Kicking_Page, "Kicking_"+str(year),str(year))
+
 #Create FantasyPoints Table
 for year in range(2002, 2014):
 	i=0
 	tableNames = ["Passing", "Rushing", "Receiving"]
 	createFantasyPointTables(tableNames, year)
+
+
 
 ###### MORE TABLES TO BE ADDED ######
 
