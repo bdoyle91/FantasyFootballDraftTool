@@ -206,7 +206,25 @@ def createFantasyPointTables(tableNames, year=""):
 							fantasyPoint = fantasyPoint + (int(stats[0][counter])*6)
 						if column == "Receiving_FUM":
 							fantasyPoint = fantasyPoint - (int(stats[0][counter])*2)
+						if column == "Kicking_ONE_THROUGH_NINETEEN":
+							FGA = stats[0][counter].rsplit("-")
+							fantasyPoint = fantasyPoint + (3*int(FGA[0])) - (2*(int(FGA[1])-int(FGA[0])))
+						if column == "Kicking_TWENTY_THROUGH_TWENTYNINE":
+							FGA = stats[0][counter].rsplit("-")
+							fantasyPoint = fantasyPoint + (3*int(FGA[0])) - (2*(int(FGA[1])-int(FGA[0])))
+						if column == "Kicking_THIRTY_THROUGH_THIRTYNINE":
+							FGA = stats[0][counter].rsplit("-")
+							fantasyPoint = fantasyPoint + (3*int(FGA[0])) - (2*(int(FGA[1])-int(FGA[0])))
+						if column == "Kicking_FORTY_THROUGH_FORTYNINE":
+							FGA = stats[0][counter].rsplit("-")
+							fantasyPoint = fantasyPoint + (4*int(FGA[0])) - (int(FGA[1])-int(FGA[0]))
+						if column == "Kicking_FIFTY_PLUS":
+							FGA = stats[0][counter].rsplit("-")
+							fantasyPoint = fantasyPoint + (5*int(FGA[0])) - (int(FGA[1])-int(FGA[0]))
+						if column == "Kicking_XPM":
+							fantasyPoint = fantasyPoint + int(stats[0][counter])	
 						counter = counter + 1
+
 			#Insert player's calculated fantasy point into SQL Table
 			commandString = "INSERT INTO FantasyPoints_"+str(year)+ " VALUES (\'"+player[0]+"\',\'"+player[1]+"\', \'"+str(fantasyPoint)+"\', \'0\')"
 			conn.text_factory = str
@@ -278,7 +296,7 @@ for year in range(2002, 2014):
 #Create FantasyPoints Table
 for year in range(2002, 2014):
 	i=0
-	tableNames = ["Passing", "Rushing", "Receiving"]
+	tableNames = ["Passing","Rushing","Receiving","Kicking"]
 	createFantasyPointTables(tableNames, year)
 
 
