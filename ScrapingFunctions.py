@@ -9,7 +9,8 @@ import math
 
 #Global Variable for working directory
 DIRECTORY = os.getcwd()+'/SoupyFootballData.html'
-
+DEFENSE_DIRECTORY = os.getcwd()+'/SoupyDefenseData.html'
+ESPN_DEFENSE_DIRECTORY = os.getcwd() + '/SoupyESPNDefenseData'
 
 
 ##########################################################################################
@@ -25,13 +26,13 @@ DIRECTORY = os.getcwd()+'/SoupyFootballData.html'
 #                                                                                                  
 ##########################################################################################
 
-def exportToFile(statPage):
+def exportToFile(directoryName, statPage):
     #Pull html source code from website                                                                     
     html = urllib2.urlopen(statPage)
     #Turn source code into BeautifulSoup object                                                             
     soup = BeautifulSoup(html)
     #Create file and allow it to be accessed by variable f                                                  
-    f = open(DIRECTORY, 'w')
+    f = open(directoryName, 'w')
     #Write soup to file                                                                                    
     f.write(str(soup))
 
@@ -119,7 +120,7 @@ def separatePlayerPosition(playerData, typeList, position):
 		# print len(player)
 
 		# print "player 2"
-		print "player" + str(player)
+		# print "player" + str(player)
 		playerData[i+position+(i*numberOfTypes)]=player[1]
 		playerData.insert(i+position+(i*numberOfTypes),player[0])
 
@@ -137,7 +138,7 @@ def separatePlayerPosition(playerData, typeList, position):
 ##########################################################################################
 
 def parseToString(statPage):
-	exportToFile(statPage)
+	exportToFile(DIRECTORY, statPage)
 
     # Replace first argument to open() with whatever file holds the html source code
 	h = open(DIRECTORY, 'r+')
@@ -167,6 +168,78 @@ def parseToString(statPage):
 
 ##########################################################################################
 #
+# ** parseDefensePage **
+#
+# Arguments: 	Pro-Football-Reference Stat Page
+# Function: 	Parses text from HTML file into a list of string
+# Returns: 		Player Data
+#
+#
+##########################################################################################
+
+def parseDefensePage(directoryName, statPage):
+	exportToFile(directoryName, statPage)
+	# Replace first argument to open() with whatever file holds the html source code
+	h = open(directoryName, 'r+')
+	s = h.read()
+	h.close()
+	# Turns string s into a BeautifulSoup object
+	soup = BeautifulSoup(s)
+
+	teamStatsTable = soup.find("table", id="team_stats")
+	i = 0
+	for string in teamStatsTable.stripped_strings:
+		i = i + 1
+		if i == 63: 
+			pointsAllowed = string
+			# print pointsAllowed
+		elif i == 64:
+			yardsAllowed = string
+			# print yardsAllowed
+		# print repr(string)
+
+	defenseAndFumblesTable = soup.find("table", id="defense")
+	kickAndPuntReturnTable = soup.find("table", id="returns")
+
+##########################################################################################
+#
+# ** parseESPNDefensePage **
+#
+# Arguments: 	Pro-Football-Reference Stat Page
+# Function: 	Parses text from HTML file into a list of string
+# Returns: 		Player Data
+#
+#
+##########################################################################################
+
+# def parseESPNDefensePage(directoryName, statPage):
+# 	exportToFile(directoryName, statPage)
+# 	# Replace first argument to open() with whatever file holds the html source code
+# 	h = open(directoryName, 'r+')
+# 	s = h.read()
+# 	h.close()
+# 	# Turns string s into a BeautifulSoup object
+# 	soup = BeautifulSoup(s)
+# 	tbody_tag = soup.tbody
+# 	td_list = tbody_tag.find_all_next("td")
+# 	i = 0
+# 	# for string in statsTable.stripped_strings:
+# 	# 	# i = i + 1
+# 	# 	# if i == 63: 
+# 	# 	# 	pointsAllowed = string
+# 	# 	# 	print pointsAllowed
+# 	# 	# elif i == 64:
+# 	# 	# 	yardsAllowed = string
+# 	# 	# 	print yardsAllowed
+# 	# 	print repr(string)
+# 	print td_list
+
+# 	defenseAndFumblesTable = soup.find("table", id="defense")
+# 	kickAndPuntReturnTable = soup.find("table", id="returns")
+
+
+##########################################################################################
+#
 # ** fixAllDataCol **
 #
 # Arguments: 	Data ripped from webpages
@@ -175,12 +248,23 @@ def parseToString(statPage):
 #
 #
 ##########################################################################################
-def fixAllDataCol(dataList):
+def fixAllDataCol(dataList, statType=""):
 	i=0
 	for data in dataList:
 		data = data.replace('20', 'TWENTY')
 		data = data.replace('1DN', 'FIRST_DOWNS')
 		data = data.replace('2PT', 'TWO_POINT_CONVS')
+		if statType == "Defense":
+			data = data.replace('SOLO', 'TACKLES_SOLO')
+			data = data.replace('AST', 'TACKLES_AST')
+			data = data.replace('TOTAL', 'TACKLES_TOTAL')
+			data = data.replace('YDSL', 'SACKS_YARDSLOST')
+			data = data.replace('PD', 'PASSES_DEFENDED')
+			data = data.replace('YDS', 'INT_YARDS')
+			data = data.replace('LONG', 'INT_LONG')
+			data = data.replace('FF', 'FORCED_FUMBLES')
+			data = data.replace('REC', 'FUMBLES_RECOVERED')
+			data = data.replace('TD', 'FUMBLE_RECOVERY_TD')
 		data = re.sub('[+]', '_PLUS', data)
 		data = re.sub('\'', '', data)
 		testList = data.split("/")
@@ -189,6 +273,9 @@ def fixAllDataCol(dataList):
 				data = testList[0] + "_PER_" + testList[1]
 		dataList[i] = data
 		i = i + 1
+	if statType == "Defense":
+		dataList.remove("FUMBLE_RECOVERY_TD")
+		dataList.insert(11, "INT_TD")
 	return dataList
 
 ##########################################################################################
@@ -268,6 +355,17 @@ def getCorrectPositions(statPage, statType=""):
  		statTypeList.pop(1)
  		statTypeList.pop(2)
  	# Insert POS 
- 	statTypeList.insert(2, "POS")
- 	statTypeList = fixAllDataCol(statTypeList)
+ 	if statType != "Defense" and statType != "Defense Scoring":
+ 		statTypeList.insert(2, "POS")
+ 	if statType == "Defense":
+ 		statTypeList.pop(0)
+ 		statTypeList.pop(0)
+ 		statTypeList.pop(0)
+ 		statTypeList.pop(0)
+ 		statTypeList.pop(0)
+ 	elif statType == "Defense Scoring":
+ 		statTypeList.pop(0)
+ 		statTypeList.pop(0)
+ 		statTypeList.pop(0)
+ 	statTypeList = fixAllDataCol(statTypeList, statType)
  	return statTypeList

@@ -55,12 +55,17 @@ def getSQLStr(listOfHeaders):
 #
 ##########################################################################################
 
-def listToListOfLists(playerList, statTypeList, listOfLists):
+def listToListOfLists(playerList, statTypeList, listOfLists, statType=""):
+	i = 0
 	while(len(playerList)!=0):
+		i = i + 1
 		subList = []
-
+		if playerList[0] != str(i) and statType=="Defense":
+			playerList.insert(0, i)
 		while ((len(subList) < len(statTypeList)) and (len(playerList) != 0)):
 			subList.append(playerList.pop(0))
+		
+
 		listOfLists.append(subList)
 	return listOfLists
 
@@ -96,8 +101,98 @@ def createESPNTable(statPage, nameOfTable):
 		c.execute(dropTableCommand)	# Recreate table so we don't have to keep deleting the .db file
 		c.execute(addHeadersToTable(statTypeList, tableHeaders)) # Create the table
 		commandString = "INSERT INTO " + nameOfTable + " VALUES(" + SQLString + ")"
+		print "commandString " + commandString
+		print "listOfLists " + str(listOfLists)
 		c.executemany(commandString, listOfLists) # Add all values for each player into table
-		
+		commandString = "UPDATE " + nameOfTable + " SET POS = LTRIM(RTRIM(POS));"
+		c.execute(commandString)
+		commandString = "UPDATE " + nameOfTable + " SET POS = 'RB' WHERE POS = 'FB';"
+		c.execute(commandString)
+
+		print nameOfTable + " Table Created"
+		conn.commit()
+	conn.close()
+
+##########################################################################################
+#
+# ** createDefenseTable **
+#
+# Arguments: 	statPage URL to create Table from, name of table to be created
+# Function: 	Rips NFL Player info from ESPN-GO stat page and creates
+#				SQL table from them				
+# Returns: 		None
+#
+#
+##########################################################################################
+
+def createDefenseTable(statPage, nameOfTable):
+	#Get all the column info that will be used for this table with all fixing
+	#to be in usable SQL formats
+	statTypeList = ScrapingFunctions.getCorrectPositions(statPage, "Defense")
+	players = ScrapingFunctions.parseToString(statPage)
+	oldStatTypes = ScrapingFunctions.discoverStatTypes(players, str(1), "Defense")
+	ScrapingFunctions.removeStatTypes(players, oldStatTypes)
+	ScrapingFunctions.fixAllDataPlayer(players)
+	allPlayers = players
+	listOfLists = []
+	listOfLists = listToListOfLists(allPlayers, statTypeList, listOfLists)
+	SQLString = getSQLStr(statTypeList)
+	tableHeaders = "CREATE TABLE " + nameOfTable + "("
+	dbFileName = "ESPN.db"
+	conn = lite.connect('ESPN.db')
+	conn.text_factory = str # set sqlite3 connection to use unicode instead of 8-bit byte strings. 
+							#Added to resolve an error with the c.executemany line below.
+	with conn:
+		c = conn.cursor()	# Defines cursor
+		dropTableCommand = "DROP TABLE IF EXISTS " + nameOfTable
+		c.execute(dropTableCommand)	# Recreate table so we don't have to keep deleting the .db file
+		commandString = addHeadersToTable(statTypeList, tableHeaders)
+		c.execute(commandString) # Create the table
+		commandString = "INSERT INTO " + nameOfTable + " VALUES(" + SQLString + ")"
+		c.executemany(commandString, listOfLists) # Add all values for each player into table
+
+		print nameOfTable + " Table Created"
+		conn.commit()
+	conn.close()
+
+##########################################################################################
+#
+# ** createDefenseScoringTable **
+#
+# Arguments: 	statPage URL to create Table from, name of table to be created
+# Function: 	Rips NFL Player info from ESPN-GO stat page and creates
+#				SQL table from them				
+# Returns: 		None
+#
+#
+##########################################################################################
+
+def createDefenseTable(statPage, nameOfTable):
+	#Get all the column info that will be used for this table with all fixing
+	#to be in usable SQL formats
+	statTypeList = ScrapingFunctions.getCorrectPositions(statPage, "Defense")
+	players = ScrapingFunctions.parseToString(statPage)
+	oldStatTypes = ScrapingFunctions.discoverStatTypes(players, str(1), "Defense")
+	ScrapingFunctions.removeStatTypes(players, oldStatTypes)
+	ScrapingFunctions.fixAllDataPlayer(players)
+	allPlayers = players
+	listOfLists = []
+	listOfLists = listToListOfLists(allPlayers, statTypeList, listOfLists, "Defense")
+	SQLString = getSQLStr(statTypeList)
+	tableHeaders = "CREATE TABLE " + nameOfTable + "("
+	dbFileName = "ESPN.db"
+	conn = lite.connect('ESPN.db')
+	conn.text_factory = str # set sqlite3 connection to use unicode instead of 8-bit byte strings. 
+							#Added to resolve an error with the c.executemany line below.
+	with conn:
+		c = conn.cursor()	# Defines cursor
+		dropTableCommand = "DROP TABLE IF EXISTS " + nameOfTable
+		c.execute(dropTableCommand)	# Recreate table so we don't have to keep deleting the .db file
+		commandString = addHeadersToTable(statTypeList, tableHeaders)
+		c.execute(commandString) # Create the table
+		commandString = "INSERT INTO " + nameOfTable + " VALUES(" + SQLString + ")"
+		c.executemany(commandString, listOfLists) # Add all values for each player into table
+
 		print nameOfTable + " Table Created"
 		conn.commit()
 	conn.close()
@@ -196,7 +291,8 @@ def createFantasyPointTables(tableNames, year=""):
 							fantasyPoint = fantasyPoint - (int(stats[0][counter])*2)
 						counter = counter + 1
 			#Insert player's calculated fantasy point into SQL Table
-			commandString = "INSERT INTO FantasyPoints_"+str(year)+ " VALUES (\'"+player[0]+"\',\'"+player[1]+"\', \'"+str(fantasyPoint)+"\', \'0\')"
+
+			commandString = "INSERT INTO FantasyPoints_"+str(year)+ " VALUES (\'"+player[0]+"\',\'"+position+"\', \'"+str(fantasyPoint)+"\', \'0\')"
 			conn.text_factory = str
 			c.execute(commandString)
 			c.execute("DROP TABLE IF EXISTS DraftList_"+str(year))
@@ -256,10 +352,20 @@ for year in range(2002, 2014):
 	createESPNTable(Receiving_Page, "Receiving_"+str(year))
 
 #Create FantasyPoints Table
-for year in range(2002, 2014):
+for year in range(2002, 2014):#### CHANGE THIS BACK TO 2002, 2014
 	i=0
 	tableNames = ["Passing", "Rushing", "Receiving"]
 	createFantasyPointTables(tableNames, year)
+
+#Create Defense Table
+for year in range(2002, 2014):
+	Defense_Page="http://espn.go.com/nfl/statistics/team/_/stat/defense/year/"+str(year)
+	createDefenseTable(Defense_Page, "Defense_"+str(year))
+
+# #Create Defensive Scoring Table
+# for year in range(2002, 2014):
+# 	Defense_Scoring_Page="http://www.nfl.com/stats/categorystats?archive=false&conference=null&role=OPP&offensiveStatisticCategory=null&defensiveStatisticCategory=SCORING&season=" + str(year) + "&seasonType=REG&tabSeq=2&qualified=false&Submit=Go"
+# 	createDefenseTable(Defense_Scoring_Page, "Defense_Scoring_" + str(year))
 
 ###### MORE TABLES TO BE ADDED ######
 
