@@ -1,6 +1,8 @@
 import ScrapingFunctions
 import sqlite3 as lite
 
+TEAM_ABBREVIATIONS = ["crd","atl","rav","buf","car","chi","cin","cle","dal","den","det","gnb","htx","clt","jax","kan","mia","min","nwe","nor","nyg","nyj","rai","phi","pit","sdg","sfo","sea","ram","tam","oti","was"]
+
 ##########################################################################################
 #
 # ** addHeadersToTable **
@@ -308,6 +310,38 @@ def createFantasyPointTables(tableNames, year=""):
 		print "Error when attempting to create FantasyPoints_"+str(year)+" SQL Table:"
 		raise
 
+def getDefensiveFantasyPoints(page):
+	return 50
+
+
+##########################################################################################
+#
+# ** insertDefenseToTable **
+#
+# Arguments: 	
+#				
+# Function: 	
+#	
+# Returns: 		None
+#
+#
+##########################################################################################
+
+def insertDefenseToTable(teamPointList, year):
+	dbFileName = "ESPN.db"
+	conn = lite.connect('ESPN.db')
+	conn.text_factory = str # set sqlite3 connection to use unicode instead of 8-bit byte strings. 
+							#Added to resolve an error with the c.executemany line below.
+	with conn:
+		c = conn.cursor()	# Defines cursor
+		commandString = "INSERT INTO FantasyPoints_" + str(year) + " VALUES(?,?,?,?)"
+		c.executemany(commandString, teamPointList) # Add all values for each player into table
+		commandString = "INSERT INTO DraftList_" + str(year) + " VALUES(?,?,?,?)"
+		c.executemany(commandString, teamPointList) # Add all values for each player into table
+		print "Defensive Fatansy Points for " + str(year) + " added!"
+		conn.commit()
+	conn.close()
+
 ##########################################################################################
 #
 # ** MAIN **
@@ -352,20 +386,25 @@ def createFantasyPointTables(tableNames, year=""):
 # 	createESPNTable(Receiving_Page, "Receiving_"+str(year))
 
 #Create FantasyPoints Table
-for year in range(2002, 2014):#### CHANGE THIS BACK TO 2002, 2014
-	i=0
-	tableNames = ["Passing", "Rushing", "Receiving"]
-	createFantasyPointTables(tableNames, year)
+# for year in range(2002, 2014):
+# 	i=0
+# 	tableNames = ["Passing", "Rushing", "Receiving"]
+# 	createFantasyPointTables(tableNames, year)
 
 #Create Defense Table
-for year in range(2002, 2014):
-	Defense_Page="http://espn.go.com/nfl/statistics/team/_/stat/defense/year/"+str(year)
-	createDefenseTable(Defense_Page, "Defense_"+str(year))
-
-# #Create Defensive Scoring Table
 # for year in range(2002, 2014):
-# 	Defense_Scoring_Page="http://www.nfl.com/stats/categorystats?archive=false&conference=null&role=OPP&offensiveStatisticCategory=null&defensiveStatisticCategory=SCORING&season=" + str(year) + "&seasonType=REG&tabSeq=2&qualified=false&Submit=Go"
-# 	createDefenseTable(Defense_Scoring_Page, "Defense_Scoring_" + str(year))
+# 	Defense_Page="http://espn.go.com/nfl/statistics/team/_/stat/defense/year/"+str(year)
+# 	createDefenseTable(Defense_Page, "Defense_"+str(year))
+
+#Create Defensive Scoring Table
+for year in range(2002, 2014):
+	teamPointList = []
+	for team in TEAM_ABBREVIATIONS:
+		Defense_Scoring_Page="http://www.pro-football-reference.com/teams/"+team+"/"+str(year)+".htm"
+		points = getDefensiveFantasyPoints(Defense_Scoring_Page)
+		teamList = [team, "D/ST", points, 0]
+		teamPointList.append(teamList)
+	insertDefenseToTable(teamPointList,year)
 
 ###### MORE TABLES TO BE ADDED ######
 
