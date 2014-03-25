@@ -459,9 +459,9 @@ def getDefensivePtsYds(statPage):
 			else:
 				fantasyPoints = fantasyPoints - 7
 			print "fantasyPoints " + str(fantasyPoints)
-
 		x = x + 1
-	
+		if (x/24) >= 17:
+			break
 
 	print fantasyPoints
 	
