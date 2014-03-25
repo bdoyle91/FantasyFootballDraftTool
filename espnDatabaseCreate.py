@@ -1,7 +1,8 @@
 import ScrapingFunctions
 import sqlite3 as lite
 
-TEAM_ABBREVIATIONS = ["crd","atl","rav","buf","car","chi","cin","cle","dal","den","det","gnb","htx","clt","jax","kan","mia","min","nwe","nor","nyg","nyj","rai","phi","pit","sdg","sfo","sea","ram","tam","oti","was"]
+TEAM_ABBREVIATIONS = [["crd","Arizona"],["atl","Atlanta"],["rav","Baltimore"],["buf","Buffalo"],["car","Carolina"],["chi","Chicago"],["cin","Cincinnati"],["cle","Cleveland"],["dal","Dallas"],["den","Denver"],["det","Detroit"],["gnb","Green Bay"],["htx","Houston"],["clt","Indianapolis"],["jax","Jacksonville"],["kan","Kansas City"],["mia","Miami"],["min","Minnesota"],["nwe","New England"],["nor","New Orleans"],["nyg","NY Giants"],["nyj","NY Jets"],["rai","Oakland"],["phi","Philadelphia"],["pit","Pittsburgh"],["sdg","San Diego"],["sfo","San Francisco"],["sea","Seattle"],["ram","St. Louis"],["tam","Tampa Bay"],["oti","Tennessee"
+],["was","Washington"]]
 
 ##########################################################################################
 #
@@ -310,8 +311,44 @@ def createFantasyPointTables(tableNames, year=""):
 		print "Error when attempting to create FantasyPoints_"+str(year)+" SQL Table:"
 		raise
 
-def getDefensiveFantasyPoints(page):
-	return 50
+##########################################################################################
+#
+# ** getMiscDefenseFantasyPoints **
+#
+# Arguments: 	
+#				
+# Function: 	
+#	
+# Returns: 		FantasyPoints
+#
+#
+##########################################################################################
+
+def getMiscDefenseFantasyPoints(team, year):
+	conn = lite.connect('ESPN.db')
+	c = conn.cursor()
+	command = "SELECT SACK, FORCED_FUMBLES, INT FROM Defense_" + str(year) + " WHERE TEAM = '" + str(team) + "'"
+	c.execute(command)
+	teamInfo = c.fetchall()
+	points = team[0]*1 + team[1]*2 + team[2]*2
+	return points
+
+##########################################################################################
+#
+# ** getDefensiveFantasyPoints **
+#
+# Arguments: 	
+#				
+# Function: 	
+#	
+# Returns: 		FantasyPoints
+#
+#
+##########################################################################################
+
+def getDefensiveFantasyPoints(page, team, year):
+	miscFantasyPoints = getMiscDefenseFantasyPoints(team[1], year)
+	return miscFantasyPoints
 
 
 ##########################################################################################
@@ -400,9 +437,9 @@ def insertDefenseToTable(teamPointList, year):
 for year in range(2002, 2014):
 	teamPointList = []
 	for team in TEAM_ABBREVIATIONS:
-		Defense_Scoring_Page="http://www.pro-football-reference.com/teams/"+team+"/"+str(year)+".htm"
-		points = getDefensiveFantasyPoints(Defense_Scoring_Page)
-		teamList = [team, "D/ST", points, 0]
+		Defense_Scoring_Page="http://www.pro-football-reference.com/teams/"+team[0]+"/"+str(year)+".htm"
+		points = getDefensiveFantasyPoints(Defense_Scoring_Page, team, year)
+		teamList = [team[1], "D/ST", points, 0]
 		teamPointList.append(teamList)
 	insertDefenseToTable(teamPointList,year)
 
