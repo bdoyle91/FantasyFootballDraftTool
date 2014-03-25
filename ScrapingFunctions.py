@@ -10,7 +10,7 @@ import math
 #Global Variable for working directory
 DIRECTORY = os.getcwd()+'/SoupyFootballData.html'
 DEFENSE_DIRECTORY = os.getcwd()+'/SoupyDefenseData.html'
-ESPN_DEFENSE_DIRECTORY = os.getcwd() + '/SoupyESPNDefenseData'
+PFF_DEFENSE_DIRECTORY = os.getcwd() + '/SoupyPFFDefenseData'
 
 
 ##########################################################################################
@@ -369,3 +369,100 @@ def getCorrectPositions(statPage, statType=""):
  		statTypeList.pop(0)
  	statTypeList = fixAllDataCol(statTypeList, statType)
  	return statTypeList
+
+##########################################################################################
+#
+# ** getDefensivePtsYds **
+#
+# Arguments: 	Pro-Football-Reference statPage 
+# Function: 	Returns the number of Fantasy Points that a team's defense earns in a season,
+#					and the number total yar
+# Returns: 		The sum of the fantasy points
+#
+#
+##########################################################################################
+
+def getDefensivePtsYds(statPage):
+	exportToFile(PFF_DEFENSE_DIRECTORY, statPage)
+
+    # Replace first argument to open() with whatever file holds the html source code
+	h = open(PFF_DEFENSE_DIRECTORY, 'r+')
+	s = h.read()
+	h.close()
+	# Turns string s into a BeautifulSoup object
+	soup = BeautifulSoup(s)
+
+    # Searches the html for the tbody tag, which contains the entire table
+	teamStatsTable = soup.find("table", id="team_gamelogs")
+	td_list = teamStatsTable.find_all_next("td")
+
+	textList = []
+	for item in td_list:
+		textList.append(item.get_text())
+
+	x = 0
+	for item in textList:
+		if item == "Playoffs":
+			index = x
+			for i in range(index, len(textList)):
+				textList.pop(len(textList) - 1)
+		x = x + 1
+	# print textList
+
+	x = 0
+	fantasyPoints = 0
+	for item in textList:
+		if item == '':
+			x = x + 1
+			continue
+		if (x%24) == 10:
+			val = int(item)
+			print "points " + str(val)
+			if val == 0:
+				fantasyPoints = fantasyPoints + 5
+			elif val <= 6:
+				fantasyPoints = fantasyPoints + 4
+			elif val <= 13:
+				fantasyPoints = fantasyPoints + 3
+			elif val <= 17:
+				fantasyPoints = fantasyPoints + 1
+			elif val <= 27:
+				fantasyPoints = fantasyPoints + 0
+			elif val <= 34:
+				fantasyPoints = fantasyPoints - 1
+			elif val <= 45:
+				fantasyPoints = fantasyPoints - 3
+			else:
+				fantasyPoints = fantasyPoints - 5
+			print "fantasyPoints " + str(fantasyPoints)
+			
+
+		if (x%24) == 17:
+			val = int(item)
+			print "yards " + str(val)
+			if val <= 100:
+				fantasyPoints = fantasyPoints + 5
+			elif val <= 199:
+				fantasyPoints = fantasyPoints + 3
+			elif val <= 299:
+				fantasyPoints = fantasyPoints + 2
+			elif val <= 349:
+				fantasyPoints = fantasyPoints + 0
+			elif val <= 399:
+				fantasyPoints = fantasyPoints - 1
+			elif val <= 449:
+				fantasyPoints = fantasyPoints - 3
+			elif val <= 499:
+				fantasyPoints = fantasyPoints - 5	
+			elif val <= 549:
+				fantasyPoints = fantasyPoints - 6
+			else:
+				fantasyPoints = fantasyPoints - 7
+			print "fantasyPoints " + str(fantasyPoints)
+
+		x = x + 1
+	
+
+	print fantasyPoints
+	
+	return fantasyPoints
