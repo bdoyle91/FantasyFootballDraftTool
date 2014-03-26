@@ -9,7 +9,8 @@ import math
 
 #Global Variable for working directory
 DIRECTORY = os.getcwd()+'/SoupyFootballData.html'
-
+DEFENSE_DIRECTORY = os.getcwd()+'/SoupyDefenseData.html'
+PFF_DEFENSE_DIRECTORY = os.getcwd() + '/SoupyPFFDefenseData'
 
 
 ##########################################################################################
@@ -25,13 +26,13 @@ DIRECTORY = os.getcwd()+'/SoupyFootballData.html'
 #                                                                                                  
 ##########################################################################################
 
-def exportToFile(statPage):
+def exportToFile(directoryName, statPage):
     #Pull html source code from website                                                                     
     html = urllib2.urlopen(statPage)
     #Turn source code into BeautifulSoup object                                                             
     soup = BeautifulSoup(html)
     #Create file and allow it to be accessed by variable f                                                  
-    f = open(DIRECTORY, 'w')
+    f = open(directoryName, 'w')
     #Write soup to file                                                                                    
     f.write(str(soup))
 
@@ -140,7 +141,7 @@ def separatePlayerPosition(playerData, typeList, position):
 ##########################################################################################
 
 def parseToString(statPage):
-	exportToFile(statPage)
+	exportToFile(DIRECTORY, statPage)
 
     # Replace first argument to open() with whatever file holds the html source code
 	h = open(DIRECTORY, 'r+')
@@ -170,6 +171,78 @@ def parseToString(statPage):
 
 ##########################################################################################
 #
+# ** parseDefensePage **
+#
+# Arguments: 	Pro-Football-Reference Stat Page
+# Function: 	Parses text from HTML file into a list of string
+# Returns: 		Player Data
+#
+#
+##########################################################################################
+
+def parseDefensePage(directoryName, statPage):
+	exportToFile(directoryName, statPage)
+	# Replace first argument to open() with whatever file holds the html source code
+	h = open(directoryName, 'r+')
+	s = h.read()
+	h.close()
+	# Turns string s into a BeautifulSoup object
+	soup = BeautifulSoup(s)
+
+	teamStatsTable = soup.find("table", id="team_stats")
+	i = 0
+	for string in teamStatsTable.stripped_strings:
+		i = i + 1
+		if i == 63: 
+			pointsAllowed = string
+			# print pointsAllowed
+		elif i == 64:
+			yardsAllowed = string
+			# print yardsAllowed
+		# print repr(string)
+
+	defenseAndFumblesTable = soup.find("table", id="defense")
+	kickAndPuntReturnTable = soup.find("table", id="returns")
+
+##########################################################################################
+#
+# ** parseESPNDefensePage **
+#
+# Arguments: 	Pro-Football-Reference Stat Page
+# Function: 	Parses text from HTML file into a list of string
+# Returns: 		Player Data
+#
+#
+##########################################################################################
+
+# def parseESPNDefensePage(directoryName, statPage):
+# 	exportToFile(directoryName, statPage)
+# 	# Replace first argument to open() with whatever file holds the html source code
+# 	h = open(directoryName, 'r+')
+# 	s = h.read()
+# 	h.close()
+# 	# Turns string s into a BeautifulSoup object
+# 	soup = BeautifulSoup(s)
+# 	tbody_tag = soup.tbody
+# 	td_list = tbody_tag.find_all_next("td")
+# 	i = 0
+# 	# for string in statsTable.stripped_strings:
+# 	# 	# i = i + 1
+# 	# 	# if i == 63: 
+# 	# 	# 	pointsAllowed = string
+# 	# 	# 	print pointsAllowed
+# 	# 	# elif i == 64:
+# 	# 	# 	yardsAllowed = string
+# 	# 	# 	print yardsAllowed
+# 	# 	print repr(string)
+# 	print td_list
+
+# 	defenseAndFumblesTable = soup.find("table", id="defense")
+# 	kickAndPuntReturnTable = soup.find("table", id="returns")
+
+
+##########################################################################################
+#
 # ** fixAllDataCol **
 #
 # Arguments: 	Data ripped from webpages
@@ -178,7 +251,7 @@ def parseToString(statPage):
 #
 #
 ##########################################################################################
-def fixAllDataCol(dataList):
+def fixAllDataCol(dataList, statType=""):
 	i=0
 	for data in dataList:
 		data = data.replace('10', 'TEN')
@@ -193,6 +266,17 @@ def fixAllDataCol(dataList):
 		data = data.replace('1DN', 'FIRST_DOWNS')
 		data = data.replace('2PT', 'TWO_POINT_CONVS')
 		data = data.replace('1', 'ONE')
+		if statType == "Defense":
+			data = data.replace('SOLO', 'TACKLES_SOLO')
+			data = data.replace('AST', 'TACKLES_AST')
+			data = data.replace('TOTAL', 'TACKLES_TOTAL')
+			data = data.replace('YDSL', 'SACKS_YARDSLOST')
+			data = data.replace('PD', 'PASSES_DEFENDED')
+			data = data.replace('YDS', 'INT_YARDS')
+			data = data.replace('LONG', 'INT_LONG')
+			data = data.replace('FF', 'FORCED_FUMBLES')
+			data = data.replace('REC', 'FUMBLES_RECOVERED')
+			data = data.replace('TD', 'FUMBLE_RECOVERY_TD')
 		data = re.sub('[+]', '_PLUS', data)
 		data = re.sub('[-]', '_THROUGH_', data)
 		data = re.sub('\'', '', data)
@@ -202,6 +286,9 @@ def fixAllDataCol(dataList):
 				data = testList[0] + "_PER_" + testList[1]
 		dataList[i] = data
 		i = i + 1
+	if statType == "Defense":
+		dataList.remove("FUMBLE_RECOVERY_TD")
+		dataList.insert(11, "INT_TD")
 	return dataList
 
 ##########################################################################################
@@ -277,6 +364,108 @@ def getCorrectPositions(statPage, statType=""):
  	count = 0
  	statTypeList = discoverStatTypes(players, str(1+(count*40)), statType)
  	# Insert POS 
- 	statTypeList.insert(2, "POS")
- 	statTypeList = fixAllDataCol(statTypeList)
+ 	if statType != "Defense" and statType != "Defense Scoring":
+ 		statTypeList.insert(2, "POS")
+ 	if statType == "Defense":
+ 		statTypeList.pop(0)
+ 		statTypeList.pop(0)
+ 		statTypeList.pop(0)
+ 		statTypeList.pop(0)
+ 		statTypeList.pop(0)
+ 	elif statType == "Defense Scoring":
+ 		statTypeList.pop(0)
+ 		statTypeList.pop(0)
+ 		statTypeList.pop(0)
+ 	statTypeList = fixAllDataCol(statTypeList, statType)
  	return statTypeList
+
+##########################################################################################
+#
+# ** getDefensivePtsYds **
+#
+# Arguments: 	Pro-Football-Reference statPage 
+# Function: 	Returns the number of Fantasy Points that a team's defense earns in a season,
+#					and the number total yar
+# Returns: 		The sum of the fantasy points
+#
+#
+##########################################################################################
+
+def getDefensivePtsYds(statPage):
+	exportToFile(PFF_DEFENSE_DIRECTORY, statPage)
+
+    # Replace first argument to open() with whatever file holds the html source code
+	h = open(PFF_DEFENSE_DIRECTORY, 'r+')
+	s = h.read()
+	h.close()
+	# Turns string s into a BeautifulSoup object
+	soup = BeautifulSoup(s)
+
+    # Searches the html for the tbody tag, which contains the entire table
+	teamStatsTable = soup.find("table", id="team_gamelogs")
+	td_list = teamStatsTable.find_all_next("td")
+
+	textList = []
+	for item in td_list:
+		textList.append(item.get_text())
+
+	x = 0
+	for item in textList:
+		if item == "Playoffs":
+			index = x
+			for i in range(index, len(textList)):
+				textList.pop(len(textList) - 1)
+		x = x + 1
+	# print textList
+
+	x = 0
+	fantasyPoints = 0
+	for item in textList:
+		if item == '':
+			x = x + 1
+			continue
+		if (x%24) == 10:
+			val = int(item)
+			if val == 0:
+				fantasyPoints = fantasyPoints + 5
+			elif val <= 6:
+				fantasyPoints = fantasyPoints + 4
+			elif val <= 13:
+				fantasyPoints = fantasyPoints + 3
+			elif val <= 17:
+				fantasyPoints = fantasyPoints + 1
+			elif val <= 27:
+				fantasyPoints = fantasyPoints + 0
+			elif val <= 34:
+				fantasyPoints = fantasyPoints - 1
+			elif val <= 45:
+				fantasyPoints = fantasyPoints - 3
+			else:
+				fantasyPoints = fantasyPoints - 5
+			
+
+		if (x%24) == 17:
+			val = int(item)
+			if val <= 100:
+				fantasyPoints = fantasyPoints + 5
+			elif val <= 199:
+				fantasyPoints = fantasyPoints + 3
+			elif val <= 299:
+				fantasyPoints = fantasyPoints + 2
+			elif val <= 349:
+				fantasyPoints = fantasyPoints + 0
+			elif val <= 399:
+				fantasyPoints = fantasyPoints - 1
+			elif val <= 449:
+				fantasyPoints = fantasyPoints - 3
+			elif val <= 499:
+				fantasyPoints = fantasyPoints - 5	
+			elif val <= 549:
+				fantasyPoints = fantasyPoints - 6
+			else:
+				fantasyPoints = fantasyPoints - 7
+		x = x + 1
+		if (x/24) >= 17:
+			break
+	
+	return fantasyPoints
