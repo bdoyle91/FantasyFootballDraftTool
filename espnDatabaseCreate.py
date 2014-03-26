@@ -330,7 +330,7 @@ def getMiscDefenseFantasyPoints(team, year):
 	command = "SELECT SACK, FORCED_FUMBLES, INT FROM Defense_" + str(year) + " WHERE TEAM = '" + str(team) + "'"
 	c.execute(command)
 	teamInfo = c.fetchall()
-	points = team[0]*1 + team[1]*2 + team[2]*2
+	points = int(round(float(teamInfo[0][0]*1 + teamInfo[0][1]*2 + teamInfo[0][2]*2)))
 	return points
 
 ##########################################################################################
@@ -347,8 +347,10 @@ def getMiscDefenseFantasyPoints(team, year):
 ##########################################################################################
 
 def getDefensiveFantasyPoints(page, team, year):
-	miscFantasyPoints = getMiscDefenseFantasyPoints(team[1], year)
-	return miscFantasyPoints
+	fantasyPoints = ScrapingFunctions.getDefensivePtsYds(page)
+	fantasyPoints = fantasyPoints + getMiscDefenseFantasyPoints(team[1], year)
+	print team[1] + " " + str(fantasyPoints)
+	return fantasyPoints
 
 
 ##########################################################################################
@@ -372,9 +374,9 @@ def insertDefenseToTable(teamPointList, year):
 	with conn:
 		c = conn.cursor()	# Defines cursor
 		commandString = "INSERT INTO FantasyPoints_" + str(year) + " VALUES(?,?,?,?)"
-		c.executemany(commandString, teamPointList) # Add all values for each player into table
+		c.executemany(commandString, teamPointList) # Add all values for each team into table
 		commandString = "INSERT INTO DraftList_" + str(year) + " VALUES(?,?,?,?)"
-		c.executemany(commandString, teamPointList) # Add all values for each player into table
+		c.executemany(commandString, teamPointList) # Add all values for each team into table
 		print "Defensive Fatansy Points for " + str(year) + " added!"
 		conn.commit()
 	conn.close()
@@ -389,51 +391,51 @@ def insertDefenseToTable(teamPointList, year):
 #
 ##########################################################################################
 
-# #Create Misc Scoring Table
-# for year in range(2002, 2014):
-# 	if year == 2013:
-# 		MiscScoring_Page = "http://espn.go.com/nfl/statistics/player/_/stat/scoring/seasontype/2/qualified/false/count/"
-# 	else:
-# 		MiscScoring_Page ="http://espn.go.com/nfl/statistics/player/_/stat/scoring/sort/totalPoints/year/"+str(year)+"/qualified/false/count/"
-# 	print MiscScoring_Page
-# 	createESPNTable(MiscScoring_Page, "MiscScoring_"+str(year))
+#Create Misc Scoring Table
+for year in range(2002, 2014):
+	if year == 2013:
+		MiscScoring_Page = "http://espn.go.com/nfl/statistics/player/_/stat/scoring/seasontype/2/qualified/false/count/"
+	else:
+		MiscScoring_Page ="http://espn.go.com/nfl/statistics/player/_/stat/scoring/sort/totalPoints/year/"+str(year)+"/qualified/false/count/"
+	print MiscScoring_Page
+	createESPNTable(MiscScoring_Page, "MiscScoring_"+str(year))
 
-# #Create Passing Table
-# for year in range(2002, 2014):
-# 	if year == 2013:
-# 		Passing_Page = "http://espn.go.com/nfl/statistics/player/_/stat/passing/sort/passingYards/seasontype/2/qualified/false/count/"
-# 	else:
-# 		Passing_Page="http://espn.go.com/nfl/statistics/player/_/stat/passing/sort/passingYards/year/"+str(year)+"/seasontype/2/qualified/false/count/"
-# 	createESPNTable(Passing_Page, "Passing_"+str(year))
+#Create Passing Table
+for year in range(2002, 2014):
+	if year == 2013:
+		Passing_Page = "http://espn.go.com/nfl/statistics/player/_/stat/passing/sort/passingYards/seasontype/2/qualified/false/count/"
+	else:
+		Passing_Page="http://espn.go.com/nfl/statistics/player/_/stat/passing/sort/passingYards/year/"+str(year)+"/seasontype/2/qualified/false/count/"
+	createESPNTable(Passing_Page, "Passing_"+str(year))
 
-# #Create Rushing Table
-# for year in range(2002, 2014):
-# 	if year == 2013:
-# 		Rushing_Page = "http://espn.go.com/nfl/statistics/player/_/stat/rushing/seasontype/2/qualified/false/count/"
-# 	else:
-# 		Rushing_Page="http://espn.go.com/nfl/statistics/player/_/stat/rushing/sort/rushingYards/year/"+str(year)+"/seasontype/2/qualified/false/count/"
-# 	createESPNTable(Rushing_Page, "Rushing_"+str(year))
+#Create Rushing Table
+for year in range(2002, 2014):
+	if year == 2013:
+		Rushing_Page = "http://espn.go.com/nfl/statistics/player/_/stat/rushing/seasontype/2/qualified/false/count/"
+	else:
+		Rushing_Page="http://espn.go.com/nfl/statistics/player/_/stat/rushing/sort/rushingYards/year/"+str(year)+"/seasontype/2/qualified/false/count/"
+	createESPNTable(Rushing_Page, "Rushing_"+str(year))
 
-# #Create Receiving Table
-# for year in range(2002, 2014):
-# 	if year == 2013:
-# 		Receiving_Page = "http://espn.go.com/nfl/statistics/player/_/stat/receiving/seasontype/2/qualified/false/count/"
-# 	else:
-# 		Receiving_Page="http://espn.go.com/nfl/statistics/player/_/stat/receiving/sort/receivingYards/year/"+str(year)+"/seasontype/2/qualified/false/count/"
-# 	createESPNTable(Receiving_Page, "Receiving_"+str(year))
+#Create Receiving Table
+for year in range(2002, 2014):
+	if year == 2013:
+		Receiving_Page = "http://espn.go.com/nfl/statistics/player/_/stat/receiving/seasontype/2/qualified/false/count/"
+	else:
+		Receiving_Page="http://espn.go.com/nfl/statistics/player/_/stat/receiving/sort/receivingYards/year/"+str(year)+"/seasontype/2/qualified/false/count/"
+	createESPNTable(Receiving_Page, "Receiving_"+str(year))
 
 #Create FantasyPoints Table
-# for year in range(2002, 2014):
-# 	i=0
-# 	tableNames = ["Passing", "Rushing", "Receiving"]
-# 	createFantasyPointTables(tableNames, year)
+for year in range(2002, 2014):
+	i=0
+	tableNames = ["Passing", "Rushing", "Receiving"]
+	createFantasyPointTables(tableNames, year)
 
-#Create Defense Table
-# for year in range(2002, 2014):
-# 	Defense_Page="http://espn.go.com/nfl/statistics/team/_/stat/defense/year/"+str(year)
-# 	createDefenseTable(Defense_Page, "Defense_"+str(year))
+# Create Defense Table
+for year in range(2002, 2014):
+	Defense_Page="http://espn.go.com/nfl/statistics/team/_/stat/defense/year/"+str(year)
+	createDefenseTable(Defense_Page, "Defense_"+str(year))
 
-#Create Defensive Scoring Table
+#Add Defensive Fantasy Points
 for year in range(2002, 2014):
 	teamPointList = []
 	for team in TEAM_ABBREVIATIONS:
@@ -442,6 +444,4 @@ for year in range(2002, 2014):
 		teamList = [team[1], "D/ST", points, 0]
 		teamPointList.append(teamList)
 	insertDefenseToTable(teamPointList,year)
-
-###### MORE TABLES TO BE ADDED ######
 

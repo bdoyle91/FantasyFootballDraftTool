@@ -417,7 +417,6 @@ def getDefensivePtsYds(statPage):
 			continue
 		if (x%24) == 10:
 			val = int(item)
-			print "points " + str(val)
 			if val == 0:
 				fantasyPoints = fantasyPoints + 5
 			elif val <= 6:
@@ -434,12 +433,10 @@ def getDefensivePtsYds(statPage):
 				fantasyPoints = fantasyPoints - 3
 			else:
 				fantasyPoints = fantasyPoints - 5
-			print "fantasyPoints " + str(fantasyPoints)
 			
 
 		if (x%24) == 17:
 			val = int(item)
-			print "yards " + str(val)
 			if val <= 100:
 				fantasyPoints = fantasyPoints + 5
 			elif val <= 199:
@@ -458,11 +455,8 @@ def getDefensivePtsYds(statPage):
 				fantasyPoints = fantasyPoints - 6
 			else:
 				fantasyPoints = fantasyPoints - 7
-			print "fantasyPoints " + str(fantasyPoints)
 		x = x + 1
 		if (x/24) >= 17:
 			break
-
-	print fantasyPoints
 	
 	return fantasyPoints
