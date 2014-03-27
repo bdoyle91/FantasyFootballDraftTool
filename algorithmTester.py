@@ -33,14 +33,3 @@ class algorithmTester:
 				for algs in reversed(self.algorithms):
 					algs.pickNextPlayer(year)
 				i = i - 1
-
-		
-
-algoTester = algorithmTester([Algorithm(), Algorithm(), Algorithm(), Algorithm(), Algorithm(), Algorithm(), Algorithm(), Algorithm(), Algorithm(), Algorithm()])
-algoTester.runTest(2012)
-
-x = 0
-for a in algoTester.algorithms:
-	x = x + 1
-	# print a
-	a.printTeam(x)
