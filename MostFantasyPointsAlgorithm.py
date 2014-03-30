@@ -39,6 +39,7 @@ class SQL_HANDLER:
 		self.conn = lite.connect(database)
 		self.cursor = self.conn.cursor()
 		self.cursor.execute(command)
+		self.conn.commit()
 
 ##########################################################################################
 #
@@ -66,7 +67,7 @@ class SQL_HANDLER:
 #
 ##########################################################################################
 	def CALL_SQL_UPDATE(self, database, columns, value, table, clauses=""):
-		command = "UPDATE " + table + " SET "  + columns + "=\'" + value + "\' " + clauses
+		command = "UPDATE " + table + " SET "  + columns + " = \'" + value + "\' " + clauses
 		self.EXECUTE_SQL_COMMAND(database, command)
 		self.conn.close()
 

@@ -1,3 +1,4 @@
+from MostFantasyPointsAlgorithm import *
 from teamClass import *
 import sqlite3 as lite
 
@@ -28,17 +29,21 @@ class Algorithm:
 		c.execute(command)
 		conn.commit()
 		conn.close()
-	def pickNextPlayer(self, year, command1 = "SELECT Player, Pos, Points FROM DraftList_", command2 = " WHERE WasSelected=\'0\' ORDER BY Points DESC LIMIT \'1\'"):
-		conn = lite.connect('ESPN.db')
-		c = conn.cursor()
-		command = command1 + str(year) + command2 # Maybe pass this line into this version of the method (i.e. call super(pickNextPlayer(<THIS_STRING>)))
-		c.execute(command)
-		data = c.fetchall()
-		conn.close()
+	def pickNextPlayer(self, year):
+		sqlHandler = SQL_HANDLER()
+		data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(year),"WHERE WasSelected=\'0\' ORDER BY Points DESC LIMIT \'1\'")
+		print data
+		# command1 = "SELECT Player, Pos, Points FROM DraftList_"
+		# command2 = " WHERE WasSelected=\'0\' ORDER BY Points DESC LIMIT \'1\'"
+		# conn = lite.connect('ESPN.db')
+		# c = conn.cursor()
+		# command = command1 + str(year) + command2 # Maybe pass this line into this version of the method (i.e. call super(pickNextPlayer(<THIS_STRING>)))
+		# c.execute(command)
+		# data = c.fetchall()
+		# conn.close()
 		newPlayer = Player(data[0][0], int(data[0][2]), data[0][1])
 		self.team.addPlayer(newPlayer)
 		self.updateList(year, newPlayer)
-
 	def printTeam(self):
 		print "\n\n\nAlgorithm " + self.name
 		self.team.printTeam()
