@@ -24,7 +24,8 @@ class algorithmTester:
 		c.execute(command)
 		conn.commit()
 		conn.close()
-	def runTest(self, year):
+	def runTest(self, year, clear=True):
+		if clear==True
 			self.clearDraftList(year)
 		i = TEAM_SIZE
 		while (i > 0):
