@@ -21,7 +21,7 @@ TEAM_SIZE = 16
 #
 ##########################################################################################
 
-class SQL_HANDLER
+class SQL_HANDLER:
 	def __init__(self):
 		self.conn = []
 		self.cursor = []
@@ -35,9 +35,9 @@ class SQL_HANDLER
 #
 ##########################################################################################
 
-	def EXECUTE_SQL_COMMAND(database, command):
+	def EXECUTE_SQL_COMMAND(self, database, command):
 		self.conn = lite.connect(database)
-		self.cursor = conn.cursor()
+		self.cursor = self.conn.cursor()
 		self.cursor.execute(command)
 
 ##########################################################################################
@@ -49,11 +49,12 @@ class SQL_HANDLER
 # Returns:		Returns SQL Cursor
 #
 ##########################################################################################
-	def CALL_SQL_SELECT(database, columns, table, clauses=""):
+	def CALL_SQL_SELECT(self, database, columns, table, clauses=""):
 		command = "SELECT " + columns + " FROM "  + table + " " + clauses
-		EXECUTE_SQL_COMMAND(database, command)
+		self.EXECUTE_SQL_COMMAND(database, command)
 		info = self.cursor.fetchall()
 		return info
 	
-info = CALL_SQL_SELECT("ESPN.db", "Player, Pos, Points", "DraftList_2013")
-print info
+sqlHandler = SQL_HANDLER()
+playerInfo = sqlHandler.CALL_SQL_SELECT("ESPN.db", "Player, Pos, Points", "DraftList_2013")
+print playerInfo
