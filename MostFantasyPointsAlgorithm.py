@@ -37,5 +37,9 @@ def EXECUTE_SQL_COMMAND(database, command):
 ##########################################################################################
 def CALL_SQL_SELECT(database, columns, table, clauses=""):
 	command = "SELECT " + columns + " FROM "  + table + " " + clauses
+	c = EXECUTE_SQL_COMMAND(database, command)
+	info = c.fetchall()
+	return info
 	
-CALL_SQL_SELECT("ESPN.db", "Player, Pos, Points", "DraftList_2013")
+info = CALL_SQL_SELECT("ESPN.db", "Player, Pos, Points", "DraftList_2013")
+print info
