@@ -9,21 +9,23 @@ from MostFantasyPointsAlgorithm import *
 #
 # Members: 		algorithms
 #						
-# Functions:	runTest - simulates a draft using this algorithmTester's list of algorithms
-#						args:		year to be tested
-#						returns:	
+#
+#
+#
 #
 ##########################################################################################
 class algorithmTester:
 	def __init__(self, algorithms):
 		self.algorithms = algorithms
-	def runTest(self, year):
+	def clearDraftList(self,year):
 		conn = lite.connect('ESPN.db')
 		c = conn.cursor()
 		command = "UPDATE DraftList_" + str(year) + " SET WasSelected = \'0\'"
 		c.execute(command)
 		conn.commit()
 		conn.close()
+	def runTest(self, year):
+			self.clearDraftList(year)
 		i = TEAM_SIZE
 		while (i > 0):
 			for eachAlgorithm in self.algorithms:
