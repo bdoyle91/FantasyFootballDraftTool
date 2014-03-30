@@ -13,18 +13,29 @@ TEAM_SIZE = 16
 
 ##########################################################################################
 #
-# GLOBAL_FUNCTION: CALL_SQL_COMMAND
+# GLOBAL_FUNCTION: EXECUTE_SQL_COMMAND
 #		
 # ARGS:			Database Name, Command String
 # Returns:		Returns SQL Cursor
 #
 ##########################################################################################
 
-def CALL_SQL_COMMAND(database, command):
+def EXECUTE_SQL_COMMAND(database, command):
 	conn = lite.connect(database)
 	c = conn.cursor()
 	c.execute(command)
-	conn.close()
 	return c
 
-CALL_SQL_COMMAND("ESPN.db", "SELECT Player, Pos, Points FROM DraftList_2013")
+##########################################################################################
+#
+# GLOBAL_FUNCTION: CALL_SQL_SELECT
+#		
+# ARGS:			Database Name, Columns in comma separated format, table name, any and all
+#				where, orderby, etc clauses 
+# Returns:		Returns SQL Cursor
+#
+##########################################################################################
+def CALL_SQL_SELECT(database, columns, table, clauses=""):
+	command = "SELECT " + columns + " FROM "  + table + " " + clauses
+	
+CALL_SQL_SELECT("ESPN.db", "Player, Pos, Points", "DraftList_2013")
