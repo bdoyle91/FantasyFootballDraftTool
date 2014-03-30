@@ -52,7 +52,8 @@ class SQL_HANDLER:
 	def CALL_SQL_SELECT(self, database, columns, table, clauses=""):
 		command = "SELECT " + columns + " FROM "  + table + " " + clauses
 		self.EXECUTE_SQL_COMMAND(database, command)
-		info = self.cursor.fetchall()
+		info = self.cursor.fetchall()		
+		self.conn.close()
 		return info
 
 ##########################################################################################
