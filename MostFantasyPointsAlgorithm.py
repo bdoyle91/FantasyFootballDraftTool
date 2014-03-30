@@ -46,7 +46,7 @@ class SQL_HANDLER:
 #		
 # ARGS:			Database Name, Columns in comma separated format, table name, any and all
 #				where, orderby, etc clauses 
-# Returns:		Returns SQL Cursor
+# Returns:		Select Command info
 #
 ##########################################################################################
 	def CALL_SQL_SELECT(self, database, columns, table, clauses=""):
@@ -54,7 +54,20 @@ class SQL_HANDLER:
 		self.EXECUTE_SQL_COMMAND(database, command)
 		info = self.cursor.fetchall()
 		return info
-	
-sqlHandler = SQL_HANDLER()
-playerInfo = sqlHandler.CALL_SQL_SELECT("ESPN.db", "Player, Pos, Points", "DraftList_2013")
-print playerInfo
+
+##########################################################################################
+#
+# CLASS_FUNCTION: CALL_SQL_UPDATE
+#		
+# ARGS:			Database Name, Columns in comma separated format, value to set, 
+#				table name, any and all, where, orderby, etc clauses 
+# Returns:		Select Command info
+#
+##########################################################################################
+	def CALL_SQL_UPDATE(self, database, columns, value, table, clauses=""):
+		command = "UPDATE " + table + " SET "  + columns + "=\'" + value + "\' " + clauses
+		self.EXECUTE_SQL_COMMAND(database, command)
+		self.conn.close()
+
+
+

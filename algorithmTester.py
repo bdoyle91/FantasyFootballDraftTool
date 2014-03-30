@@ -11,19 +11,13 @@ from MostFantasyPointsAlgorithm import *
 #						
 #
 #
-#
-#
 ##########################################################################################
 class algorithmTester:
 	def __init__(self, algorithms):
 		self.algorithms = algorithms
 	def clearDraftList(self,year):
-		conn = lite.connect('ESPN.db')
-		c = conn.cursor()
-		command = "UPDATE DraftList_" + str(year) + " SET WasSelected = \'0\'"
-		c.execute(command)
-		conn.commit()
-		conn.close()
+		sqlHandler = SQL_HANDLER()
+		sqlHandler.CALL_SQL_UPDATE("ESPN.db","WasSelected","0","DraftList_2012")
 	def runTest(self, year, clear=True, currentDraftPick=1):
 		if clear==True:
 			self.clearDraftList(year)
