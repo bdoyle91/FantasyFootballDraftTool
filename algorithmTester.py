@@ -25,9 +25,9 @@ class algorithmTester:
 		conn.commit()
 		conn.close()
 	def runTest(self, year, clear=True, currentDraftPick=1):
-		if clear==True
+		if clear==True:
 			self.clearDraftList(year)
-		i = TEAM_SIZE - (remainingDraft-1)
+		i = TEAM_SIZE - (currentDraftPick-1)
 		while (i > 0):
 			for eachAlgorithm in self.algorithms:
 				eachAlgorithm.pickNextPlayer(year)
