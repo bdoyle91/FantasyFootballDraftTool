@@ -13,33 +13,47 @@ TEAM_SIZE = 16
 
 ##########################################################################################
 #
-# GLOBAL_FUNCTION: EXECUTE_SQL_COMMAND
+# CLASS: SQL_HANDLER
+#
+# Members: 		conn - connection string
+#				cursor - SQL cursor
+#
+#
+##########################################################################################
+
+class SQL_HANDLER
+	def __init__(self):
+		self.conn = []
+		self.cursor = []
+
+##########################################################################################
+#
+# CLASS_FUNCTION: EXECUTE_SQL_COMMAND
 #		
 # ARGS:			Database Name, Command String
-# Returns:		Returns SQL Cursor
+# Returns:		None
 #
 ##########################################################################################
 
-def EXECUTE_SQL_COMMAND(database, command):
-	conn = lite.connect(database)
-	c = conn.cursor()
-	c.execute(command)
-	return c
+	def EXECUTE_SQL_COMMAND(database, command):
+		self.conn = lite.connect(database)
+		self.cursor = conn.cursor()
+		self.cursor.execute(command)
 
 ##########################################################################################
 #
-# GLOBAL_FUNCTION: CALL_SQL_SELECT
+# CLASS_FUNCTION: CALL_SQL_SELECT
 #		
 # ARGS:			Database Name, Columns in comma separated format, table name, any and all
 #				where, orderby, etc clauses 
 # Returns:		Returns SQL Cursor
 #
 ##########################################################################################
-def CALL_SQL_SELECT(database, columns, table, clauses=""):
-	command = "SELECT " + columns + " FROM "  + table + " " + clauses
-	c = EXECUTE_SQL_COMMAND(database, command)
-	info = c.fetchall()
-	return info
+	def CALL_SQL_SELECT(database, columns, table, clauses=""):
+		command = "SELECT " + columns + " FROM "  + table + " " + clauses
+		EXECUTE_SQL_COMMAND(database, command)
+		info = self.cursor.fetchall()
+		return info
 	
 info = CALL_SQL_SELECT("ESPN.db", "Player, Pos, Points", "DraftList_2013")
 print info
