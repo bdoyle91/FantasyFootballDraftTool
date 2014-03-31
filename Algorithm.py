@@ -1,4 +1,4 @@
-from MostFantasyPointsAlgorithm import *
+from SQLHandler import *
 from teamClass import *
 import sqlite3 as lite
 

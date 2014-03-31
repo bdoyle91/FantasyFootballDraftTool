@@ -1,6 +1,6 @@
 from teamClass import *
 from Algorithm import *
-import sqlite3 as lite
+from MostFantasyPointsAlgorithm import *
 
 ##########################################################################################
 #
@@ -19,7 +19,6 @@ class algorithmTester:
 		sqlHandler.CALL_SQL_UPDATE("ESPN.db","WasSelected","0","DraftList_2012")
 	def runTest(self, year, clear=True, currentDraftPick=1):
 		if clear==True:
-			print "entered"
 			self.clearDraftList(year)
 		i = TEAM_SIZE - (currentDraftPick-1)
 		while (i > 0):

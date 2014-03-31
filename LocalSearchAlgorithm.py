@@ -1,5 +1,3 @@
-from MostFantasyPointsAlgorithm import *
-from Algorithm import *
 from algorithmTester import *
 
 ##########################################################################################
