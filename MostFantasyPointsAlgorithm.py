@@ -66,8 +66,11 @@ class SQL_HANDLER:
 # Returns:		Select Command info
 #
 ##########################################################################################
-	def CALL_SQL_UPDATE(self, database, columns, value, table, clauses=""):
-		command = "UPDATE " + table + " SET "  + columns + " = \'" + value + "\' " + clauses
+	def CALL_SQL_UPDATE(self, database, columns, value, table, whereColumn=False, whereValue=False):
+		if whereColumn==False:
+			command = "UPDATE " + table + " SET "  + columns + " = \'" + value + "\' "
+		else: 
+			command = "UPDATE " + table + " SET "  + columns + " = \'" + value + "\' WHERE " + whereColumn + "= \'" + whereValue + "\'"
 		self.EXECUTE_SQL_COMMAND(database, command)
 		self.conn.close()
 
