@@ -1,6 +1,6 @@
 from teamClass import *
 from Algorithm import *
-from MostFantasyPointsAlgorithm import *
+from GreedyByPositionAlgorithm import *
 
 ##########################################################################################
 #
@@ -23,9 +23,9 @@ class algorithmTester:
 		i = TEAM_SIZE - (currentDraftPick-1)
 		while (i > 0):
 			for eachAlgorithm in self.algorithms:
-				eachAlgorithm.pickNextPlayer(year)
+				eachAlgorithm.addNextPlayer(year)
 			i = i - 1
 			if (i > 0):
 				for algs in reversed(self.algorithms):
-					algs.pickNextPlayer(year)
+					algs.addNextPlayer(year)
 				i = i - 1

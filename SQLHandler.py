@@ -52,7 +52,7 @@ class SQL_HANDLER:
 #		
 # ARGS:			Database Name, Columns in comma separated format, value to set, 
 #				table name, any and all, where, orderby, etc clauses 
-# Returns:		Select Command info
+# Returns:		Returns SUCCESS or FAIL
 #
 ##########################################################################################
 	def CALL_SQL_UPDATE(self, database, columns, value, table, whereColumn=False, whereValue=False):
@@ -62,6 +62,7 @@ class SQL_HANDLER:
 			command = "UPDATE " + table + " SET "  + columns + " = \'" + value + "\' WHERE " + whereColumn + "= \'" + whereValue + "\'"
 		self.EXECUTE_SQL_COMMAND(database, command)
 		self.conn.close()
+		return 1
 
 
 
