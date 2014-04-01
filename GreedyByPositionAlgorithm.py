@@ -1,4 +1,5 @@
 import teamClass
+from Algorithm import *
 import sqlite3 as lite
 
 # Maximum Number of players from each position allowed on a roster
@@ -44,12 +45,6 @@ class greedyByPositionAlgorithm(Algorithm):
 		self.name = str(inputName)
 		self.team = Team()
 		self.filledPositions = []
-
-	def checkPositions
-
-	def choosePlayer(self,year)
-		sqlHandler = SQL_HANDLER()
-		data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(year),"WHERE WasSelected=\'0\' ORDER BY Points DESC LIMIT \'1\'")
 
 	def addNextPlayer(self, year):
 		sqlHandler = SQL_HANDLER()

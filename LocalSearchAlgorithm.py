@@ -25,7 +25,9 @@ class localSearchAlgorithm(Algorithm):
 		self.draftRound = 1
 		self.draftSelectionsBeforeSearch = []
 
-	def addNextPlayer(self, year):
+	def addNextPlayer(self, year):	
+		sqlHandler = SQL_HANDLER()
+		data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(year),"WHERE WasSelected=\'0\' ORDER BY Points DESC LIMIT \'1\'")
 		newPlayer = Player(data[0][0], int(data[0][2]), data[0][1])
 		self.team.addPlayer(newPlayer)
 		self.updateList(year, newPlayer)
