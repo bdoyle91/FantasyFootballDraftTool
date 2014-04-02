@@ -1,3 +1,5 @@
+from LeagueSettings import *
+
 ##########################################################################################
 #
 # CLASS: Team
@@ -49,6 +51,41 @@ class Team:
 			points = points + player.fantasyPoints
 		return points
 
+	def getStarterPoints(self):
+		points = 0
+		i = 1
+		for player in self.QBs:
+			if i > STARTING_QBS:
+				break
+			points = points + player.fantasyPoints
+			i = i + 1
+		i = 1
+		for player in self.RBs:
+			if i > STARTING_RBS:
+				break
+			points = points + player.fantasyPoints
+			i = i + 1
+		i = 1
+		for player in self.WRs:
+			if i > STARTING_WRS:
+				break
+			points = points + player.fantasyPoints
+			i = i + 1
+		i = 1
+		for player in self.TEs:
+			if i > STARTING_TES:
+				break
+			points = points + player.fantasyPoints
+			i = i + 1
+		i = 1
+		for player in self.PKs:
+			if i > STARTING_KS:
+				break
+			points = points + player.fantasyPoints
+			i = i + 1
+		i = 1
+		return points
+
 	def printTeam(self):
 		print "\n\nQuarterbacks\n"
 		for player in self.QBs:
@@ -65,7 +102,8 @@ class Team:
 		print "\n\nKickers\n"
 		for player in self.PKs:
 			print player.name + ", " + player.pos + ", " + str(player.fantasyPoints)
-		print "Total Points: " + str(self.getTotalPoints()) + "\n"
+		print "\nTotal Points: " + str(self.getTotalPoints())
+		print "Total Starter Points: " + str(self.getStarterPoints()) + "\n"
 
 ##########################################################################################
 #

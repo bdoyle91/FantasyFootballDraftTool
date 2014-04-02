@@ -1,25 +1,8 @@
 import teamClass
 from Algorithm import *
 import sqlite3 as lite
+from LeagueSettings import *
 
-# Maximum Number of players from each position allowed on a roster
-MAX_QBS_PER_TEAM = 4
-MAX_RBS_PER_TEAM = 8
-MAX_WRS_PER_TEAM = 8
-MAX_TES_PER_TEAM = 3
-MAX_DSTS_PER_TEAM = 3
-MAX_KS_PER_TEAM = 3
-
-#STARTING TEAM (standard)
-STARTING_QBS = 1
-STARTING_RBS = 2
-STARTING_WRS = 2
-STARTING_TES = 1
-STARTING_KS = 1
-STARTING_DEFS = 1 
-STARTING_FLEX = 1
-
-TEAM_SIZE = 16
 
 ##########################################################################################
 #
@@ -59,21 +42,25 @@ class GreedyByPositionAlgorithm(Algorithm):
 		if "PK" not in self.filledPositions and len(self.team.PKs) >= STARTING_KS:
 			self.filledPositions.append("PK")
 
+	def generateStarterDraftString(self):
+		positionString = ""
+		i = 1
+		for position in self.filledPositions:
+			print position
+			print len(self.filledPositions)
+			if i == 1:
+				positionString = "\'" + position + "\'"
+			else:
+				positionString = positionString + " AND Pos!=" + "\'" + position + "\'"
+			i = i + 1
+		return positionString
+
 	def chooseNextPlayer(self, year):
 		sqlHandler = SQL_HANDLER()
 		print len(self.filledPositions)
 		if len(self.filledPositions) != 0 and len(self.filledPositions) < 5:
-			positionString = ""
-			i = 1
-			for position in self.filledPositions:
-				print position
-				print len(self.filledPositions)
-				if i == 1:
-					positionString = "\'" + position + "\'"
-				else:
-					positionString = positionString + " AND Pos!=" + "\'" + position + "\'"
-				i = i + 1
-				data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(year),"WHERE WasSelected=\'0\' AND Pos!=" + positionString + " ORDER BY Points DESC LIMIT \'1\'")
+			excludedPositions = self.generateStarterDraftString()
+			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(year),"WHERE WasSelected=\'0\' AND Pos!=" + excludedPositions + " ORDER BY Points DESC LIMIT \'1\'")
 			self.checkFilledPositions()
 		else:
 			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(year),"WHERE WasSelected=\'0\' ORDER BY Points DESC LIMIT \'1\'")
