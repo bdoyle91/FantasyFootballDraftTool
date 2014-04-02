@@ -61,8 +61,16 @@ class GreedyByPositionAlgorithm(Algorithm):
 
 	def chooseNextPlayer(self, year):
 		sqlHandler = SQL_HANDLER()
-		data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(year),"WHERE WasSelected=\'0\' ORDER BY Points DESC LIMIT \'1\'")
-		self.checkFilledPositions()
+		if len(filledPositions < 5)
+			positionString = []
+			i = 1
+			for position in filledPositions:
+				if i == len(filledPositions):
+					positionString = positionString + " " + position
+				else:
+					positionString = positionString + " " + position + ","
+			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(year),"WHERE WasSelected=\'0\' AND POS <> " +  + " ORDER BY Points DESC LIMIT \'1\'")
+			self.checkFilledPositions()
 		return data
 
 	def addNextPlayer(self, year):	
