@@ -16,7 +16,7 @@ class algorithmTester:
 		self.algorithms = algorithms
 	def clearDraftList(self,year):
 		sqlHandler = SQL_HANDLER()
-		sqlHandler.CALL_SQL_UPDATE("ESPN.db","WasSelected","0","DraftList_2012")
+		sqlHandler.CALL_SQL_UPDATE("ESPN.db","WasSelected","0","DraftList_"+str(year))
 	def runTest(self, year, clear=True, currentDraftPick=1):
 		if clear==True:
 			self.clearDraftList(year)

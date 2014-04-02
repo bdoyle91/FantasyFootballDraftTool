@@ -24,11 +24,15 @@ class Algorithm:
 
 	def updateList(self, year, player):
 		sqlHandler = SQL_HANDLER()
-		sqlHandler.CALL_SQL_UPDATE("ESPN.db","WasSelected","1","DraftList_2012","Player",player.name)
+		sqlHandler.CALL_SQL_UPDATE("ESPN.db","WasSelected","1","DraftList_"+str(year),"Player",player.name)
 
-	def addNextPlayer(self, year):	
+	def chooseNextPlayer(self, year):
 		sqlHandler = SQL_HANDLER()
 		data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(year),"WHERE WasSelected=\'0\' ORDER BY Points DESC LIMIT \'1\'")
+		return data
+
+	def addNextPlayer(self, year):	
+		data = self.chooseNextPlayer(year)
 		newPlayer = Player(data[0][0], int(data[0][2]), data[0][1])
 		self.team.addPlayer(newPlayer)
 		self.updateList(year, newPlayer)
