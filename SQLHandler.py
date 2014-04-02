@@ -27,7 +27,6 @@ class SQL_HANDLER:
 	def EXECUTE_SQL_COMMAND(self, database, command):
 		self.conn = lite.connect(database)
 		self.cursor = self.conn.cursor()
-		print command
 		self.cursor.execute(command)
 		self.conn.commit()
 

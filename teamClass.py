@@ -24,6 +24,7 @@ class Team:
 		self.WRs = []
 		self.TEs = []
 		self.PKs = []
+		self.DEFs = []
 
 	def addPlayer(self, x):
 		if x.pos.strip() == "QB":
@@ -34,8 +35,10 @@ class Team:
 			self.WRs.append(x)
 		elif x.pos.strip() == "TE":
 			self.TEs.append(x)
-		else:
+		elif x.pos.strip() == "PK":
 			self.PKs.append(x)
+		else:
+			self.DEFs.append(x)
 		
 	def getTotalPoints(self):
 		points = 0
@@ -101,6 +104,9 @@ class Team:
 			print player.name + ", " + player.pos + ", " + str(player.fantasyPoints)
 		print "\n\nKickers\n"
 		for player in self.PKs:
+			print player.name + ", " + player.pos + ", " + str(player.fantasyPoints)
+		print "\n\nDefenses\n"
+		for player in self.DEFs:
 			print player.name + ", " + player.pos + ", " + str(player.fantasyPoints)
 		print "\nTotal Points: " + str(self.getTotalPoints())
 		print "Total Starter Points: " + str(self.getStarterPoints()) + "\n"
