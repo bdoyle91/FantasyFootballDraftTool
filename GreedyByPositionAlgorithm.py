@@ -48,28 +48,35 @@ class GreedyByPositionAlgorithm(Algorithm):
 		self.maxedPositions = []
 
 	def checkFilledPositions(self):
-		if "QBs" not in self.filledPositions and len(self.team.QBs) >= STARTING_QBS:
-			self.filledPositions.append("QBs")
-		if "RBs" not in self.filledPositions and len(self.team.RBs) >= STARTING_RBS:
-			self.filledPositions.append("RBs")
-		if "WRs" not in self.filledPositions and len(self.team.WRs) >= STARTING_WRS:
-			self.filledPositions.append("WRs")
-		if "TEs" not in self.filledPositions and len(self.team.TEs) >= STARTING_TES:
-			self.filledPositions.append("TEs")
-		if "PKs" not in self.filledPositions and len(self.team.PKs) >= STARTING_KS:
-			self.filledPositions.append("PKs")
+		if "QB" not in self.filledPositions and len(self.team.QBs) >= STARTING_QBS:
+			self.filledPositions.append("QB")
+		if "RB" not in self.filledPositions and len(self.team.RBs) >= STARTING_RBS:
+			self.filledPositions.append("RB")
+		if "WR" not in self.filledPositions and len(self.team.WRs) >= STARTING_WRS:
+			self.filledPositions.append("WR")
+		if "TE" not in self.filledPositions and len(self.team.TEs) >= STARTING_TES:
+			self.filledPositions.append("TE")
+		if "PK" not in self.filledPositions and len(self.team.PKs) >= STARTING_KS:
+			self.filledPositions.append("PK")
 
 	def chooseNextPlayer(self, year):
 		sqlHandler = SQL_HANDLER()
-		if len(filledPositions < 5)
-			positionString = []
+		print len(self.filledPositions)
+		if len(self.filledPositions) != 0 and len(self.filledPositions) < 5:
+			positionString = ""
 			i = 1
-			for position in filledPositions:
-				if i == len(filledPositions):
-					positionString = positionString + " " + position
+			for position in self.filledPositions:
+				print position
+				print len(self.filledPositions)
+				if i == 1:
+					positionString = "\'" + position + "\'"
 				else:
-					positionString = positionString + " " + position + ","
-			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(year),"WHERE WasSelected=\'0\' AND POS <> " +  + " ORDER BY Points DESC LIMIT \'1\'")
+					positionString = positionString + " AND Pos!=" + "\'" + position + "\'"
+				i = i + 1
+				data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(year),"WHERE WasSelected=\'0\' AND Pos!=" + positionString + " ORDER BY Points DESC LIMIT \'1\'")
+			self.checkFilledPositions()
+		else:
+			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(year),"WHERE WasSelected=\'0\' ORDER BY Points DESC LIMIT \'1\'")
 			self.checkFilledPositions()
 		return data
 
