@@ -16,6 +16,7 @@ class LocalSearchAlgorithm(GreedyByPositionAlgorithm):
 	def __init__(self):
 		self.name = ""
 		self.team = Team()
+		self.year = -1
 		self.filledPositions = []
 		self.maxedPositions = []
 		self.draftRound = 1
@@ -24,29 +25,30 @@ class LocalSearchAlgorithm(GreedyByPositionAlgorithm):
 	def __init__(self, inputName):
 		self.name = ""
 		self.team = Team()
+		self.year = -1
 		self.filledPositions = []
 		self.maxedPositions = []
 		self.draftRound = 1
 		self.draftSelectionsBeforeSearch = []
 
-	def saveDraftSelections(self, year):
+	def saveDraftSelections(self):
 		sqlHandler = SQL_HANDLER()
-		data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, WasSelected", "DraftList_"+str(year))
-		self.draftSelectionsBeforeSearch = dat
+		data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, WasSelected", "DraftList_"+str(self.year))
+		self.draftSelectionsBeforeSearch = data
 
-	def chooseNextPlayer(self, year):
+	def chooseNextPlayer(self):
 		sqlHandler = SQL_HANDLER()
 		if len(self.filledPositions) != 0 and len(self.filledPositions) < 6:
 			excludedPositions = self.generateStarterDraftString()
-			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(year),"WHERE WasSelected=\'0\' AND Pos!=" + excludedPositions + " ORDER BY Points DESC LIMIT \'1\'")
+			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' AND Pos!=" + excludedPositions + " ORDER BY Points DESC LIMIT \'1\'")
 			self.checkFilledPositions()
 		elif len(self.maxedPositions)==0:
-			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(year),"WHERE WasSelected=\'0\' ORDER BY Points DESC LIMIT \'1\'")
+			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' ORDER BY Points DESC LIMIT \'1\'")
 			self.checkFilledPositions()
 			self.checkMaxedPositions()
 		else:
 			excludedPositions = self.generateMaxedDraftString()
-			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(year),"WHERE WasSelected=\'0\' AND Pos!=" + excludedPositions + " ORDER BY Points DESC LIMIT \'1\'")
+			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' AND Pos!=" + excludedPositions + " ORDER BY Points DESC LIMIT \'1\'")
 			self.checkFilledPositions()
 			self.checkMaxedPositions()
 		return data

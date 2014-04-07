@@ -21,12 +21,14 @@ class GreedyByPositionAlgorithm(Algorithm):
 	def __init__(self):
 		self.name = ""
 		self.team = Team()
+		self.year = -1
 		self.filledPositions = []
 		self.maxedPositions = []
 
 	def __init__(self, inputName):
 		self.name = str(inputName)
 		self.team = Team()
+		self.year = -1
 		self.filledPositions = []
 		self.maxedPositions = []
 
@@ -80,25 +82,25 @@ class GreedyByPositionAlgorithm(Algorithm):
 			i = i + 1
 		return positionString
 
-	def chooseNextPlayer(self, year):
+	def chooseNextPlayer(self):
 		sqlHandler = SQL_HANDLER()
 		if len(self.filledPositions) != 0 and len(self.filledPositions) < 6:
 			excludedPositions = self.generateStarterDraftString()
-			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(year),"WHERE WasSelected=\'0\' AND Pos!=" + excludedPositions + " ORDER BY Points DESC LIMIT \'1\'")
+			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' AND Pos!=" + excludedPositions + " ORDER BY Points DESC LIMIT \'1\'")
 			self.checkFilledPositions()
 		elif len(self.maxedPositions)==0:
-			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(year),"WHERE WasSelected=\'0\' ORDER BY Points DESC LIMIT \'1\'")
+			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' ORDER BY Points DESC LIMIT \'1\'")
 			self.checkFilledPositions()
 			self.checkMaxedPositions()
 		else:
 			excludedPositions = self.generateMaxedDraftString()
-			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(year),"WHERE WasSelected=\'0\' AND Pos!=" + excludedPositions + " ORDER BY Points DESC LIMIT \'1\'")
+			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' AND Pos!=" + excludedPositions + " ORDER BY Points DESC LIMIT \'1\'")
 			self.checkFilledPositions()
 			self.checkMaxedPositions()
 		return data
 
-	def addNextPlayer(self, year):	
-		data = self.chooseNextPlayer(year)
+	def addNextPlayer(self):	
+		data = self.chooseNextPlayer(self.year)
 		newPlayer = Player(data[0][0], int(data[0][2]), data[0][1])
 		self.team.addPlayer(newPlayer)
-		self.updateList(year, newPlayer)
+		self.updateList(self.year, newPlayer)
