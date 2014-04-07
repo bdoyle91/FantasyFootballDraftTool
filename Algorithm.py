@@ -24,6 +24,20 @@ class Algorithm:
 		self.team = Team()
 		self.year = -1
 
+	def setTeam(self, inputTeam):
+		for eachPlayer in inputTeam.QBs:
+			self.team.addPlayer(eachPlayer)
+		for eachPlayer in inputTeam.RBs:
+			self.team.addPlayer(eachPlayer)
+		for eachPlayer in inputTeam.WRs:
+			self.team.addPlayer(eachPlayer)
+		for eachPlayer in inputTeam.TEs:
+			self.team.addPlayer(eachPlayer)
+		for eachPlayer in inputTeam.PKs:
+			self.team.addPlayer(eachPlayer)
+		for eachPlayer in inputTeam.DEFs:
+			self.team.addPlayer(eachPlayer)
+
 	def setYear(self, inputYear):
 		self.year = inputYear
 
