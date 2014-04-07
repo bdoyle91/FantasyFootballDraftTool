@@ -27,9 +27,9 @@ class algorithmTester:
 		i = TEAM_SIZE - (currentDraftPick-1)
 		while (i > 0):
 			for eachAlgorithm in self.algorithms:
-				eachAlgorithm.addNextPlayer(year)
+				eachAlgorithm.addNextPlayer()
 			i = i - 1
 			if (i > 0):
 				for algs in reversed(self.algorithms):
-					algs.addNextPlayer(year)
+					algs.addNextPlayer()
 				i = i - 1

@@ -100,7 +100,7 @@ class GreedyByPositionAlgorithm(Algorithm):
 		return data
 
 	def addNextPlayer(self):	
-		data = self.chooseNextPlayer(self.year)
+		data = self.chooseNextPlayer()
 		newPlayer = Player(data[0][0], int(data[0][2]), data[0][1])
 		self.team.addPlayer(newPlayer)
-		self.updateList(self.year, newPlayer)
+		self.updateList(newPlayer)
