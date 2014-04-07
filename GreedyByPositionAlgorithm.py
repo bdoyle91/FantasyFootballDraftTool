@@ -17,7 +17,6 @@ from LeagueSettings import *
 ##########################################################################################
 
 class GreedyByPositionAlgorithm(Algorithm):
-
 	def __init__(self):
 		self.name = ""
 		self.team = Team()
@@ -98,9 +97,3 @@ class GreedyByPositionAlgorithm(Algorithm):
 			self.checkFilledPositions()
 			self.checkMaxedPositions()
 		return data
-
-	def addNextPlayer(self):	
-		data = self.chooseNextPlayer()
-		newPlayer = Player(data[0][0], int(data[0][2]), data[0][1])
-		self.team.addPlayer(newPlayer)
-		self.updateList(newPlayer)
