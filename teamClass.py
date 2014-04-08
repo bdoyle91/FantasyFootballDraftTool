@@ -35,7 +35,6 @@ class Team:
 	def addPlayer(self, x):
 		if x.pos.strip() == "QB":
 			self.QBs.append(x)
-			print x
 		elif (x.pos.strip() == "RB") or (x.pos.strip() == "FB"):
 			self.RBs.append(x)
 		elif x.pos.strip() == "WR":
@@ -46,20 +45,10 @@ class Team:
 			self.PKs.append(x)
 		else:
 			self.DEFs.append(x)
+		self.totalPoints = self.totalPoints + x.fantasyPoints
 		
 	def getTotalPoints(self):
-		points = 0
-		for player in self.QBs:
-			points = points + player.fantasyPoints
-		for player in self.RBs:
-			points = points + player.fantasyPoints
-		for player in self.WRs:
-			points = points + player.fantasyPoints
-		for player in self.TEs:
-			points = points + player.fantasyPoints
-		for player in self.PKs:
-			points = points + player.fantasyPoints
-		return points
+		return self.totalPoints
 
 	def getStarterPoints(self):
 		points = 0
