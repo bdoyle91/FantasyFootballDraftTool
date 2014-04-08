@@ -25,6 +25,12 @@ class Team:
 		self.TEs = []
 		self.PKs = []
 		self.DEFs = []
+		self.year = -1
+		self.starterPoints = 0
+		self.totalPoints = 0
+
+	def setYear(self, inputYear):
+		self.year = inputYear
 
 	def addPlayer(self, x):
 		if x.pos.strip() == "QB":

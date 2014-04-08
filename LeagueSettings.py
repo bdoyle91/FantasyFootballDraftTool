@@ -1,5 +1,8 @@
 #League Settings
 
+#Position List
+POSITIONLIST = ["QB", "RB", "WR", "TE", "PK", "D/ST"]
+
 # Maximum Number of players from each position allowed on a roster
 MAX_QBS = 4
 MAX_RBS = 8

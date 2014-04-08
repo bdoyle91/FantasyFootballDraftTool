@@ -21,6 +21,7 @@ class LocalSearchAlgorithm(GreedyByPositionAlgorithm):
 		self.maxedPositions = []
 		self.draftRound = 1
 		self.draftSelectionsBeforeSearch = []
+		self.bestPoint = 0
 
 	def __init__(self, inputName):
 		self.name = ""
@@ -30,6 +31,7 @@ class LocalSearchAlgorithm(GreedyByPositionAlgorithm):
 		self.maxedPositions = []
 		self.draftRound = 1
 		self.draftSelectionsBeforeSearch = []
+		self.bestPoint = 0
 
 	def saveDraftSelections(self):
 		sqlHandler = SQL_HANDLER()
@@ -45,20 +47,28 @@ class LocalSearchAlgorithm(GreedyByPositionAlgorithm):
 		searchAlgorithim = GreedyByPositionAlgorithm(1)
 		searchAlgorithim.setTeam(self.team)
 		searchAlgorithim.team.addPlayer(newPlayer)
-		#searchAlgorithim.printTeam()
 		self.saveDraftSelections()
 		algoTester = algorithmTester([searchAlgorithim, GreedyByPositionAlgorithm(2), GreedyByPositionAlgorithm(3), GreedyByPositionAlgorithm(4), GreedyByPositionAlgorithm(5), GreedyByPositionAlgorithm(6), GreedyByPositionAlgorithm(7), GreedyByPositionAlgorithm(8), GreedyByPositionAlgorithm(9), GreedyByPositionAlgorithm(10)])
 		algoTester.runTest(2011, False, self.draftRound)
 		points = searchAlgorithim.team.getStarterPoints()
 		print points
 		self.returnDraftList()
+		return points
 
 	def chooseNextPlayer(self):
 		sqlHandler = SQL_HANDLER()
 		if len(self.filledPositions) != 0 and len(self.filledPositions) < 6:
-			excludedPositions = self.generateStarterDraftString()
-			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' AND Pos!=" + excludedPositions + " ORDER BY Points DESC LIMIT \'1\'")
-			self.checkFilledPositions()
+			for eachPosition in POSITIONLIST:
+				data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' AND Pos == \'" + eachPosition + "\' ORDER BY Points DESC LIMIT \'1\'")
+				print data
+				newPlayer = Player(data[0][0], int(data[0][2]), data[0][1])
+				newPoint = self.simulateRemainingDraft(newPlayer)
+				if newPoint > self.bestPoint:
+					self.bestPoint = newPoint
+					playerToAdd = data
+				self.checkFilledPositions()
+			data = playerToAdd
+			self.bestPoint = 0
 		elif len(self.maxedPositions)==0:
 			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' ORDER BY Points DESC LIMIT \'1\'")
 			self.checkFilledPositions()
@@ -68,7 +78,5 @@ class LocalSearchAlgorithm(GreedyByPositionAlgorithm):
 			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' AND Pos!=" + excludedPositions + " ORDER BY Points DESC LIMIT \'1\'")
 			self.checkFilledPositions()
 			self.checkMaxedPositions()
-		newPlayer = Player(data[0][0], int(data[0][2]), data[0][1])
-		self.simulateRemainingDraft(newPlayer)
 		self.draftRound = self.draftRound + 1
 		return data
