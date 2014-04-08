@@ -35,6 +35,7 @@ class Team:
 	def addPlayer(self, x):
 		if x.pos.strip() == "QB":
 			self.QBs.append(x)
+			print x
 		elif (x.pos.strip() == "RB") or (x.pos.strip() == "FB"):
 			self.RBs.append(x)
 		elif x.pos.strip() == "WR":
