@@ -26,64 +26,47 @@ class Team:
 		self.PKs = []
 		self.DEFs = []
 		self.year = -1
-		self.starterPoints = 0
-		self.totalPoints = 0
+		self.starterPoints = -1
+		self.totalPoints = -1
 
 	def setYear(self, inputYear):
 		self.year = inputYear
 
 	def addPlayer(self, x):
+		startingValue = 0
 		if x.pos.strip() == "QB":
+			if len(self.QBs) < len(GP_QBS):
+				print GP_QBS[len(self.QBs)]
+				startingValue = (x.fantasyPoints/16)*GP_QBS[len(self.QBs)]
 			self.QBs.append(x)
 		elif (x.pos.strip() == "RB") or (x.pos.strip() == "FB"):
+			if len(self.RBs) < len(GP_RBS):
+				startingValue = (x.fantasyPoints/16)*GP_RBS[len(self.RBs)]
 			self.RBs.append(x)
 		elif x.pos.strip() == "WR":
+			if len(self.WRs) < len(GP_WRS):
+				startingValue = (x.fantasyPoints/16)*GP_WRS[len(self.WRs)]
 			self.WRs.append(x)
 		elif x.pos.strip() == "TE":
+			if len(self.TEs) < len(GP_TES):
+				startingValue = (x.fantasyPoints/16)*GP_TES[len(self.TEs)]
 			self.TEs.append(x)
 		elif x.pos.strip() == "PK":
+			if len(self.PKs) < len(GP_KS):
+				startingValue = (x.fantasyPoints/16)*GP_KS[len(self.PKs)]
 			self.PKs.append(x)
 		else:
+			if len(self.DEFs) < len(GP_DSTS):
+				startingValue = (x.fantasyPoints/16)*GP_DSTS[len(self.DEFs)]
 			self.DEFs.append(x)
 		self.totalPoints = self.totalPoints + x.fantasyPoints
+		self.starterPoints = self.starterPoints + startingValue
 		
 	def getTotalPoints(self):
 		return self.totalPoints
 
 	def getStarterPoints(self):
-		points = 0
-		i = 1
-		for player in self.QBs:
-			if i > STARTING_QBS:
-				break
-			points = points + player.fantasyPoints
-			i = i + 1
-		i = 1
-		for player in self.RBs:
-			if i > STARTING_RBS:
-				break
-			points = points + player.fantasyPoints
-			i = i + 1
-		i = 1
-		for player in self.WRs:
-			if i > STARTING_WRS:
-				break
-			points = points + player.fantasyPoints
-			i = i + 1
-		i = 1
-		for player in self.TEs:
-			if i > STARTING_TES:
-				break
-			points = points + player.fantasyPoints
-			i = i + 1
-		i = 1
-		for player in self.PKs:
-			if i > STARTING_KS:
-				break
-			points = points + player.fantasyPoints
-			i = i + 1
-		i = 1
-		return points
+		return self.starterPoints
 
 	def printTeam(self):
 		print "\n\nQuarterbacks\n"
