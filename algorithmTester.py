@@ -12,8 +12,11 @@ from GreedyByPositionAlgorithm import *
 #
 ##########################################################################################
 class algorithmTester:
-	def __init__(self, algorithms):
-		self.algorithms = algorithms
+	def __init__(self, algorithms=""):
+		if algorithms == "":
+			self.algorithms = []
+		else:
+			self.algorithms = algorithms
 	def clearDraftList(self,year):
 		sqlHandler = SQL_HANDLER()
 		sqlHandler.CALL_SQL_UPDATE("ESPN.db","WasSelected","0","DraftList_"+str(year))

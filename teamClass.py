@@ -36,7 +36,6 @@ class Team:
 		startingValue = 0
 		if x.pos.strip() == "QB":
 			if len(self.QBs) < len(GP_QBS):
-				print GP_QBS[len(self.QBs)]
 				startingValue = (x.fantasyPoints/16)*GP_QBS[len(self.QBs)]
 			self.QBs.append(x)
 		elif (x.pos.strip() == "RB") or (x.pos.strip() == "FB"):
