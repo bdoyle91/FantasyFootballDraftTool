@@ -28,10 +28,14 @@ class Team:
 		self.year = -1
 		self.starterPoints = -1
 		self.totalPoints = -1
+		self.name = ""
 
 	def setYear(self, inputYear):
 		self.year = inputYear
 
+	def setName(self, inputName):
+		self.name = inputName
+		
 	def addPlayer(self, x):
 		startingValue = 0
 		if x.pos.strip() == "QB":
@@ -105,3 +109,4 @@ class Player:
 		self.name = fullName
 		self.pos = position
 		self.fantasyPoints = points
+		self.year = 0

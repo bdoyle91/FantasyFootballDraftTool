@@ -1,4 +1,5 @@
 from algorithmTester import *
+from LeagueTeams import *
 
 ##########################################################################################
 #
@@ -69,17 +70,21 @@ class LocalSearchAlgorithm(GreedyByPositionAlgorithm):
 					#print pos
 					algoTester.algorithms.append(searchAlgorithim)
 				else:
-					algoTester.algorithms.append(GreedyByPositionAlgorithm(pos))
+					newAlgo = GreedyByPositionAlgorithm(pos)
+					newAlgo.setTeam(TEAM_LIST[pos-1])
+					algoTester.algorithms.append(newAlgo)
 				pos = pos + 1
 		else:
 			while pos <= self.numOfTeams:
 				if pos == (10-(self.startingposition-1)):
 					#print pos
 					algoTester.algorithms.append(searchAlgorithim)
-				else:
-					algoTester.algorithms.append(GreedyByPositionAlgorithm(pos))
+				else:					
+					newAlgo = GreedyByPositionAlgorithm(pos)
+					newAlgo.setTeam(TEAM_LIST[pos-1])
+					algoTester.algorithms.append(newAlgo)
 				pos = pos + 1
-		algoTester.runTest(2011, False, self.draftRound)
+		algoTester.runTest(self.year, False, self.draftRound)
 		points = searchAlgorithim.team.getStarterPoints()
 		#print points
 		self.returnDraftList()
@@ -87,7 +92,7 @@ class LocalSearchAlgorithm(GreedyByPositionAlgorithm):
 
 	def chooseNextPlayer(self):
 		sqlHandler = SQL_HANDLER()
-		#print "Pick Number: " + str(self.draftRound)
+		print "Pick Number: " + str(self.draftRound)
 		for eachPosition in POSITIONLIST:
 			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' AND Pos == \'" + eachPosition + "\' ORDER BY Points DESC LIMIT \'1\'")
 			#print data
