@@ -60,15 +60,20 @@ class LocalSearchAlgorithm(GreedyByPositionAlgorithm):
 		searchAlgorithim = GreedyByPositionAlgorithm(1)
 		searchAlgorithim.setTeam(self.team)
 		searchAlgorithim.team.addPlayer(newPlayer)
+		#Save the current selections
 		self.saveDraftSelections()
-		algoTester = algorithmTester([searchAlgorithim, GreedyByPositionAlgorithm(2), GreedyByPositionAlgorithm(3), GreedyByPositionAlgorithm(4), GreedyByPositionAlgorithm(5), GreedyByPositionAlgorithm(6), GreedyByPositionAlgorithm(7), GreedyByPositionAlgorithm(8), GreedyByPositionAlgorithm(9), GreedyByPositionAlgorithm(10)])
+
+		#Create an algorithm instance 
 		algoTester = algorithmTester()
+		
 		pos = 1
 		#Check to see the round of the draft, if odd draft from your normal positions, otherwise invert
 		if self.draftRound%2 == 1:
 			while pos <= self.numOfTeams:
+				#Check to see if it is this algorithm's draft slow (non-snaked)
 				if pos == self.startingposition:
 					algoTester.algorithms.append(searchAlgorithim)
+				#otherwise insert a greedy algorithm
 				else:
 					newAlgo = GreedyByPositionAlgorithm(pos)
 					newAlgo.setTeam(TEAM_LIST[pos-1])
@@ -76,15 +81,22 @@ class LocalSearchAlgorithm(GreedyByPositionAlgorithm):
 				pos = pos + 1
 		else:
 			while pos <= self.numOfTeams:
+				#Check to see if it is this algorithm's draft slow (snaked)
 				if pos == (10-(self.startingposition-1)):
 					algoTester.algorithms.append(searchAlgorithim)
+				#otherwise insert a greedy algorithm
 				else:					
 					newAlgo = GreedyByPositionAlgorithm(10 - (pos-1))
 					newAlgo.setTeam(TEAM_LIST[pos-1])
 					algoTester.algorithms.append(newAlgo)
 				pos = pos + 1
+		#Simulate the rest of the draft
 		algoTester.runTest(self.year, False, self.draftRound)
+
+		#Check starter points
 		points = searchAlgorithim.team.getStarterPoints()
+
+		#Set the draft back to how it was before we simulated
 		self.returnDraftList()
 		return points
 

@@ -83,17 +83,26 @@ class GreedyByPositionAlgorithm(Algorithm):
 
 	def chooseNextPlayer(self):
 		sqlHandler = SQL_HANDLER()
+		#The case that handles if at least 1 starting position has been filled
+		#but not all starting positions have been filled
 		if len(self.filledPositions) != 0 and len(self.filledPositions) < 6:
+			#Generate string based on filled starters
 			excludedPositions = self.generateStarterDraftString()
 			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' AND Pos!=" + excludedPositions + " ORDER BY Points DESC LIMIT \'1\'")
+			#Check if all starting positions are filled
 			self.checkFilledPositions()
+		#Otherwise if no positons are maxed request any position
 		elif len(self.maxedPositions)==0:
 			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' ORDER BY Points DESC LIMIT \'1\'")
+			#Check if all starting positions are filled or if any positions are maxed
 			self.checkFilledPositions()
 			self.checkMaxedPositions()
+		#If positions are maxed exclude maxed positions
 		else:
+			#Generate string based on maxed positions
 			excludedPositions = self.generateMaxedDraftString()
 			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' AND Pos!=" + excludedPositions + " ORDER BY Points DESC LIMIT \'1\'")
+			#Check if all starting positions are filled or if any positions are maxed
 			self.checkFilledPositions()
 			self.checkMaxedPositions()
 		return data
