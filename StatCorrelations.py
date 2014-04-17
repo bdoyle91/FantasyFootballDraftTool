@@ -1,5 +1,6 @@
 import sqlite3 as lite
 import math
+import operator
 
 ##########################################################################################
 #                                                                                            
@@ -22,15 +23,28 @@ def statPull(tableName, columnName, position, year):
 	with conn:
 		c = conn.cursor()	# Defines cursor
 		commandString = "SELECT PLAYER, " + str(columnName) + " FROM " + tableName + "_" + str(year) + " WHERE POS=\"" + position + "\";"
-		print commandString
+		# print commandString
 		c.execute(commandString) # Create the table
+		dictionary = {}
 		tupleList = list(set(c.fetchall()))
-		sortedTupleList = sorted(tupleList, key=lambda player: player[1], reverse=True)
-		sortedTupleList = addRankToTuple(sortedTupleList)
-		# print sortedTupleList
+		newTupleList = []
+		for tuple in tupleList:
+			newTupleList.append((tuple[0], int(tuple[1])))
+		dictionary.update(newTupleList)
+		# print "DICT: " + str(dictionary)
+		sortedDict = sorted(dictionary.iteritems(), key=operator.itemgetter(1))
+		correctlySortedDict = list(reversed(sortedDict))
+		correctlySortedDict = addRankToTuple(correctlySortedDict)
+		# print "List sorted by top players: " + str(correctlySortedDict)
+		if tableName != "FantasyPoints":
+			if position.strip() == "QB" or position.strip() == "TE" or position.strip() == "PK":
+				correctlySortedDict = correctlySortedDict[:15]
+			elif position.strip() == "RB" or position.strip() == "WR":
+				correctlySortedDict = correctlySortedDict[:50]
+		# print "Top 15 players: " + str(correctlySortedDict)
 		conn.commit() # MAY NOT NEED THIS
 	conn.close()
-	return sortedTupleList
+	return correctlySortedDict
 
 ##########################################################################################
 #                                                                                            
@@ -76,9 +90,11 @@ def calculateCoefficient(statsList, pointsList):
 	print statsList
 	print "\n\n\n"
 	print pointsList
+	print "\n\n\n"
 	for item in statsList:
 		try:
 			pli = pointsList.index(item)
+			print "pli: " + str(pli)
 		except ValueError:
 			continue
 		print statsList[i]
@@ -86,10 +102,9 @@ def calculateCoefficient(statsList, pointsList):
 		print "dSquared: " + str(dSquared)
 		sumDSquared = math.pow(dSquared, 2)
 		i = i + 1
-	print sumDSquared
+	print "sumDSquared: " + str(sumDSquared)
 	spearman = 1 - ((6 * sumDSquared) / (i * (math.pow(i, 2) - 1)))
-	print spearman
+	# print spearman
 
 
-calculateCoefficient(statPull("Passing", "Comp", " QB", 2011), statPull("FantasyPoints", "Points", " QB", 2012))
-
+calculateCoefficient(statPull("Passing", "COMP", " QB", 2011), statPull("FantasyPoints", "Points", " QB", 2012))
