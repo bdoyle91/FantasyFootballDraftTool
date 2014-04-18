@@ -7,6 +7,8 @@ import os
 ########## INPUTS CHANGE THESE IN ORDER TO RUN TEST #############
 searchAlgoPosition = 10
 testYear = 2011
+#################################################################
+
 
 #Construct Results file
 fileTimeStamp = time.time()
@@ -26,8 +28,10 @@ for eachAlgorithm in algoTester.algorithms:
 	eachAlgorithm.team = TEAM_LIST[teamCounter]
 	if teamCounter == (searchAlgoPosition - 1):
 		eachAlgorithm.team.setName("LocalSearch Team Draft Position " + str(teamCounter+1))
+		eachAlgorithm.team.setYear(testYear)
 	else:
 		eachAlgorithm.team.setName("Greedy Team Draft Position " + str(teamCounter+1))
+		eachAlgorithm.team.setYear(testYear)
 	teamCounter = teamCounter + 1
 
 #Run Test

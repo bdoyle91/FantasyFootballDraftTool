@@ -1,4 +1,6 @@
 from LeagueSettings import *
+from SQLHandler import *
+import traceback
 
 ##########################################################################################
 #
@@ -28,6 +30,7 @@ class Team:
 		self.year = -1
 		self.starterPoints = -1
 		self.totalPoints = -1
+		self.starterProjectedPoints = -1
 		self.name = ""
 
 	def setYear(self, inputYear):
@@ -38,9 +41,18 @@ class Team:
 		
 	def addPlayer(self, x):
 		startingValue = 0
+		#It isn't necessary to to set the year for most functionality to work, added a
+		#warning if this has been neglated including exact callstack
+		x.lookupProjectedPointsPerfect()
+		if self.year == -1:
+			print "WARNING IN addPlayer in Team Instance " + str(self) + ", year not set"
+			traceback.print_stack()
+		else:
+			x.setYear(self.year)
 		if x.pos.strip() == "QB":
 			if len(self.QBs) < len(GP_QBS):
 				startingValue = (x.fantasyPoints/16)*GP_QBS[len(self.QBs)]
+				startingValue = (x.projectedPoints/16)*GP_QBS[len(self.QBs)]
 			self.QBs.append(x)
 		elif (x.pos.strip() == "RB") or (x.pos.strip() == "FB"):
 			if len(self.RBs) < len(GP_RBS):
@@ -64,6 +76,7 @@ class Team:
 			self.DEFs.append(x)
 		self.totalPoints = self.totalPoints + x.fantasyPoints
 		self.starterPoints = self.starterPoints + startingValue
+		self.
 		
 	def getTotalPoints(self):
 		return self.totalPoints
@@ -109,4 +122,19 @@ class Player:
 		self.name = fullName
 		self.pos = position
 		self.fantasyPoints = points
-		self.year = 0
+		self.year = -1
+		self.projectedPoints = -1
+		self.actualPoints = -1
+
+	def setYear(self, inputYear):
+		self.year = inputYear
+
+	def lookupProjectedPointsPerfect(self):
+		handler = SQL_HANDLER()
+		projection = handler.CALL_SQL_SELECT("ESPN.db","Points","FantasyPoints_"+str(self.year+1),"WHERE Player = \'" + self.name + "\'")
+		print str(self.name) 
+		print "projected points" 
+		if projection == []:
+			self.projectedPoints = 0
+		else:
+			self.projectedPoints = projection[0][0]

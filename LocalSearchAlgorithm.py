@@ -58,6 +58,7 @@ class LocalSearchAlgorithm(GreedyByPositionAlgorithm):
 
 	def simulateRemainingDraft(self, newPlayer):
 		searchAlgorithim = GreedyByPositionAlgorithm(1)
+		searchAlgorithim.team.setYear(self.year)
 		searchAlgorithim.setTeam(self.team)
 		searchAlgorithim.team.addPlayer(newPlayer)
 		#Save the current selections
@@ -76,6 +77,7 @@ class LocalSearchAlgorithm(GreedyByPositionAlgorithm):
 				#otherwise insert a greedy algorithm
 				else:
 					newAlgo = GreedyByPositionAlgorithm(pos)
+					newAlgo.team.setYear(self.year)
 					newAlgo.setTeam(TEAM_LIST[pos-1])
 					algoTester.algorithms.append(newAlgo)
 				pos = pos + 1
@@ -87,6 +89,7 @@ class LocalSearchAlgorithm(GreedyByPositionAlgorithm):
 				#otherwise insert a greedy algorithm
 				else:					
 					newAlgo = GreedyByPositionAlgorithm(10 - (pos-1))
+					newAlgo.team.setYear(self.year)
 					newAlgo.setTeam(TEAM_LIST[pos-1])
 					algoTester.algorithms.append(newAlgo)
 				pos = pos + 1
