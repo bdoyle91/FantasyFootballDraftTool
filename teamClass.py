@@ -41,42 +41,48 @@ class Team:
 		
 	def addPlayer(self, x):
 		startingValue = 0
+		projectedStarterValue = 0
 		#It isn't necessary to to set the year for most functionality to work, added a
 		#warning if this has been neglated including exact callstack
-		x.lookupProjectedPointsPerfect()
 		if self.year == -1:
 			print "WARNING IN addPlayer in Team Instance " + str(self) + ", year not set"
 			traceback.print_stack()
 		else:
 			x.setYear(self.year)
+			x.lookupProjectedPointsPerfect()
 		if x.pos.strip() == "QB":
 			if len(self.QBs) < len(GP_QBS):
 				startingValue = (x.fantasyPoints/16)*GP_QBS[len(self.QBs)]
-				startingValue = (x.projectedPoints/16)*GP_QBS[len(self.QBs)]
+				projectedStarterValue = (x.projectedPoints/16)*GP_QBS[len(self.QBs)]
 			self.QBs.append(x)
 		elif (x.pos.strip() == "RB") or (x.pos.strip() == "FB"):
 			if len(self.RBs) < len(GP_RBS):
 				startingValue = (x.fantasyPoints/16)*GP_RBS[len(self.RBs)]
+				projectedStarterValue = (x.projectedPoints/16)*GP_RBS[len(self.RBs)]
 			self.RBs.append(x)
 		elif x.pos.strip() == "WR":
 			if len(self.WRs) < len(GP_WRS):
 				startingValue = (x.fantasyPoints/16)*GP_WRS[len(self.WRs)]
+				projectedStarterValue = (x.projectedPoints/16)*GP_WRS[len(self.WRs)]
 			self.WRs.append(x)
 		elif x.pos.strip() == "TE":
 			if len(self.TEs) < len(GP_TES):
 				startingValue = (x.fantasyPoints/16)*GP_TES[len(self.TEs)]
+				projectedStarterValue = (x.projectedPoints/16)*GP_TES[len(self.TEs)]
 			self.TEs.append(x)
 		elif x.pos.strip() == "PK":
 			if len(self.PKs) < len(GP_KS):
 				startingValue = (x.fantasyPoints/16)*GP_KS[len(self.PKs)]
+				projectedStarterValue = (x.projectedPoints/16)*GP_KS[len(self.PKs)]
 			self.PKs.append(x)
 		else:
 			if len(self.DEFs) < len(GP_DSTS):
 				startingValue = (x.fantasyPoints/16)*GP_DSTS[len(self.DEFs)]
+				projectedStarterValue = (x.projectedPoints/16)*GP_DSTS[len(self.DEFs)]
 			self.DEFs.append(x)
 		self.totalPoints = self.totalPoints + x.fantasyPoints
 		self.starterPoints = self.starterPoints + startingValue
-		self.
+		self.projectedStarterValue = self.starterProjectedPoints + projectedStarterValue
 		
 	def getTotalPoints(self):
 		return self.totalPoints
@@ -130,10 +136,10 @@ class Player:
 		self.year = inputYear
 
 	def lookupProjectedPointsPerfect(self):
+		if self.year == -1:
+			return -1
 		handler = SQL_HANDLER()
 		projection = handler.CALL_SQL_SELECT("ESPN.db","Points","FantasyPoints_"+str(self.year+1),"WHERE Player = \'" + self.name + "\'")
-		print str(self.name) 
-		print "projected points" 
 		if projection == []:
 			self.projectedPoints = 0
 		else:

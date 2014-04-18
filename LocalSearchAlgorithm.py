@@ -34,7 +34,7 @@ class LocalSearchAlgorithm(GreedyByPositionAlgorithm):
 		self.draftSelectionsBeforeSearch = []
 		self.bestPoint = 0
 
-	def __init__(self, inputName, inputNumOfTeams, inputStartingPosition):
+	def __init__(self, inputName, inputNumOfTeams, inputStartingPosition, inputProjectionUse=False):
 		self.name = ""
 		self.team = Team()
 		self.year = -1
@@ -45,6 +45,7 @@ class LocalSearchAlgorithm(GreedyByPositionAlgorithm):
 		self.bestPoint = 0
 		self.numOfTeams = inputNumOfTeams
 		self.startingposition = inputStartingPosition
+		self.projectionUse = inputProjectionUse
 
 	def saveDraftSelections(self):
 		sqlHandler = SQL_HANDLER()
@@ -103,12 +104,24 @@ class LocalSearchAlgorithm(GreedyByPositionAlgorithm):
 		self.returnDraftList()
 		return points
 
-	def chooseNextPlayer(self):
+	def pickPlayerBasedPrevious(self, position):
 		sqlHandler = SQL_HANDLER()
+		data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' AND Pos == \'" + position + "\' ORDER BY Points DESC LIMIT \'1\'")
+		return data
+
+	def pickPlayerBasedProjection(self, position):
+		sqlHandler = SQL_HANDLER()
+		data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' AND Pos == \'" + position + "\' ORDER BY Points DESC LIMIT \'1\'")
+		return data
+
+	def chooseNextPlayer(self):
 		print "------------------- Pick Number " + str(self.draftRound) + "----------------------"
 		#Check Each Position and simulate rest of draft, draft position that yields highest result
 		for eachPosition in POSITIONLIST:
-			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' AND Pos == \'" + eachPosition + "\' ORDER BY Points DESC LIMIT \'1\'")
+			if self.projectionUse == False:
+				data = self.pickPlayerBasedPrevious(eachPosition)
+			else:	
+				data = self.pickPlayerBasedProjection(eachPosition)
 			newPlayer = Player(data[0][0], int(data[0][2]), data[0][1])
 			newPoint = self.simulateRemainingDraft(newPlayer)
 			if newPoint > self.bestPoint:
