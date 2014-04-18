@@ -1,6 +1,7 @@
 import sqlite3 as lite
 import math
 import operator
+import traceback
 
 ##########################################################################################
 #                                                                                            
@@ -44,6 +45,7 @@ def statPull(tableName, columnName, position, year):
 		# print "Top 15 players: " + str(correctlySortedDict)
 		conn.commit() # MAY NOT NEED THIS
 	conn.close()
+	print "\n"
 	return correctlySortedDict
 
 ##########################################################################################
@@ -100,11 +102,72 @@ def calculateCoefficient(statsList, pointsList):
 		print statsList[i]
 		dSquared = pli - i
 		print "dSquared: " + str(dSquared)
+		print "\n"
 		sumDSquared = math.pow(dSquared, 2)
 		i = i + 1
 	print "sumDSquared: " + str(sumDSquared)
+	print "\n"
+	print "i: " + str(i)
 	spearman = 1 - ((6 * sumDSquared) / (i * (math.pow(i, 2) - 1)))
-	# print spearman
+	print "Spearman coefficient " + str(spearman)
+	if (spearman < -1) or (spearman > 1):
+		traceback.print_stack()
+	return spearman
+
+##########################################################################################
+#                                                                                            
+#                                                                                                
+#                                                                                                
+#   **  findAverageCoefficient  **                                                                                     
+#  
+# Arguments: 	string (name of stat), string (name of table to find that stat in), 
+#					string (player's position)
+# Function: 	Runs calculateCoefficient on every year that we have stats for, calculates
+#					average coefficient
+# Returns: 		average correlation coefficient
+# 
+#
+#                                                                                                  
+##########################################################################################
+
+def findAverageCoefficient(stat, tableName, position):
+	coefficientSum = 0
+	print "Stat: " + str(stat)
+	for year in range(2002, 2013):
+		calcCo = calculateCoefficient(statPull(tableName, stat, position, year), statPull("FantasyPoints", "Points", position, year + 1))
+		coefficientSum = coefficientSum + calcCo
+		print "calcCo: "  + str(calcCo) + " for " + str(year)
+	coefficientAvg = coefficientSum / 11
+	print "coefficientAvg: " + str(coefficientAvg)
+	return coefficientAvg
 
 
-calculateCoefficient(statPull("Passing", "COMP", " QB", 2011), statPull("FantasyPoints", "Points", " QB", 2012))
+##########################################################################################
+#                                                                                            
+#                                                                                                
+#                                                                                                
+#   **  findAllAverages  **                                                                                     
+#  
+# Arguments: 	list of tuples (stat, table, position)
+# Function: 	Runs findAverageCoefficient on every stat for each position
+# Returns: 		dictionary that maps Position-Stat to Correlation
+# 
+#
+#                                                                                                  
+##########################################################################################
+
+def findAllAverages(listOfTuples):
+	cDict = {}
+
+	for t in listOfTuples:
+		key = str(t[2]) + "-" + str(t[0])
+		cDict[key] = findAverageCoefficient(t[0], t[1], t[2])
+
+
+
+def createListOfTuples():
+	list = []
+
+
+# calculateCoefficient(statPull("Passing", "COMP", " QB", 2011), statPull("FantasyPoints", "Points", " QB", 2012))
+findAverageCoefficient("COMP", "Passing", " QB")
