@@ -18,7 +18,8 @@ import traceback
 #                                                                                                  
 ##########################################################################################
 
-def statPull(tableName, columnName, position, year):
+def statPull(tableName, columnName, position, year, statsList=[]):
+	# print "STATSLIST IN START OF STATPULL = " + str(statsList) + "\n"
 	conn = lite.connect('ESPN.db')
 	conn.text_factory = str # set sqlite3 connection to use unicode instead of 8-bit byte strings. 
 	with conn:
@@ -34,9 +35,20 @@ def statPull(tableName, columnName, position, year):
 		dictionary.update(newTupleList)
 		# print "DICT: " + str(dictionary)
 		sortedDict = sorted(dictionary.iteritems(), key=operator.itemgetter(1))
+		# print "sortedDict: " + str(sortedDict)
 		correctlySortedDict = list(reversed(sortedDict))
 		correctlySortedDict = addRankToTuple(correctlySortedDict)
 		# print "List sorted by top players: " + str(correctlySortedDict)
+		# print "\nSTATSLIST, PRE IF STATEMENT: " + str(statsList)
+		sortedList = []
+		# print "correctlySortedDict: " + str(correctlySortedDict)
+		if statsList:
+			# print "IN IF"
+			for player in correctlySortedDict:
+				# print "IN FOR: player = " + str(player)
+				if player in statsList:
+					sortedList.append(player)
+		print "\nsortedList AFTER FOR: " + str(sortedList) + "\n"
 		if tableName != "FantasyPoints":
 			if position.strip() == "QB" or position.strip() == "TE" or position.strip() == "PK":
 				correctlySortedDict = correctlySortedDict[:15]
@@ -46,7 +58,11 @@ def statPull(tableName, columnName, position, year):
 		conn.commit() # MAY NOT NEED THIS
 	conn.close()
 	print "\n"
-	return correctlySortedDict
+	if statsList:
+		return sortedList
+	else:
+		return correctlySortedDict
+
 
 ##########################################################################################
 #                                                                                            
@@ -87,12 +103,13 @@ def addRankToTuple(listOfTuples):
 ##########################################################################################
 
 def calculateCoefficient(statsList, pointsList):
+	# print "CALCULATECOEFFICIENT"
 	sumDSquared = 0
 	i = 0
-	print statsList
-	print "\n\n\n"
-	print pointsList
-	print "\n\n\n"
+	# print statsList
+	# print "\n\n\n"
+	# print pointsList
+	# print "\n\n\n"
 	for item in statsList:
 		try:
 			pli = pointsList.index(item)
@@ -100,16 +117,17 @@ def calculateCoefficient(statsList, pointsList):
 		except ValueError:
 			continue
 		print statsList[i]
-		dSquared = pli - i
-		print "dSquared: " + str(dSquared)
+		d = pli - i
+		print "d: " + str(d)
 		print "\n"
-		sumDSquared = math.pow(dSquared, 2)
+		dSquared = math.pow(d, 2)
+		sumDSquared = sumDSquared + dSquared
 		i = i + 1
 	print "sumDSquared: " + str(sumDSquared)
 	print "\n"
-	print "i: " + str(i)
+	print "i: " + str(i) + "\n"
 	spearman = 1 - ((6 * sumDSquared) / (i * (math.pow(i, 2) - 1)))
-	print "Spearman coefficient " + str(spearman)
+	print "Spearman coefficient " + str(spearman) + "\n"
 	if (spearman < -1) or (spearman > 1):
 		traceback.print_stack()
 	return spearman
@@ -132,11 +150,13 @@ def calculateCoefficient(statsList, pointsList):
 
 def findAverageCoefficient(stat, tableName, position):
 	coefficientSum = 0
-	print "Stat: " + str(stat)
+	# print "Stat: " + str(stat)
 	for year in range(2002, 2013):
-		calcCo = calculateCoefficient(statPull(tableName, stat, position, year), statPull("FantasyPoints", "Points", position, year + 1))
+		statsList = statPull(tableName, stat, position, year)
+		pointsList = statPull("FantasyPoints", "Points", position, year + 1, statsList)
+		calcCo = calculateCoefficient(statsList, pointsList)
 		coefficientSum = coefficientSum + calcCo
-		print "calcCo: "  + str(calcCo) + " for " + str(year)
+		# print "calcCo: "  + str(calcCo) + " for " + str(year)
 	coefficientAvg = coefficientSum / 11
 	print "coefficientAvg: " + str(coefficientAvg)
 	return coefficientAvg
@@ -169,5 +189,10 @@ def createListOfTuples():
 	list = []
 
 
-# calculateCoefficient(statPull("Passing", "COMP", " QB", 2011), statPull("FantasyPoints", "Points", " QB", 2012))
-findAverageCoefficient("COMP", "Passing", " QB")
+
+# listStat = statPull("Passing", "COMP", " QB", 2011)
+# print "\n listStat: " + str(listStat) + "\n"
+# listPoints = statPull("FantasyPoints", "Points", " QB", 2012, listStat)
+# print "\n listPoints: " + str(listPoints) + "\n"
+# calculateCoefficient(listStat, listPoints)
+findAverageCoefficient("YDS", "Rushing", " RB")
