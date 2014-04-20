@@ -23,13 +23,15 @@ class GreedyByPositionAlgorithm(Algorithm):
 		self.year = -1
 		self.filledPositions = []
 		self.maxedPositions = []
+		self.projectionUse = False
 
-	def __init__(self, inputName):
+	def __init__(self, inputName, inputProjectionUse=False):
 		self.name = str(inputName)
 		self.team = Team()
 		self.year = -1
 		self.filledPositions = []
 		self.maxedPositions = []
+		self.projectionUse = inputProjectionUse
 
 	def checkFilledPositions(self):
 		if "QB" not in self.filledPositions and len(self.team.QBs) >= STARTING_QBS:
@@ -66,7 +68,10 @@ class GreedyByPositionAlgorithm(Algorithm):
 			if i == 1:
 				positionString = "\'" + position + "\'"
 			else:
-				positionString = positionString + " AND Pos!=" + "\'" + position + "\'"
+				if self.projectionUse == False:
+					positionString = positionString + " AND Pos!=" + "\'" + position + "\'"
+				else:
+					positionString = positionString + " AND DraftList_" + str(self.year+1) + ".Pos!=" + "\'" + position + "\'"
 			i = i + 1
 		return positionString
 
@@ -77,7 +82,10 @@ class GreedyByPositionAlgorithm(Algorithm):
 			if i == 1:
 				positionString = "\'" + position + "\'"
 			else:
-				positionString = positionString + " AND Pos!=" + "\'" + position + "\'"
+				if self.projectionUse == False:
+					positionString = positionString + " AND Pos!=" + "\'" + position + "\'"
+				else:
+					positionString = positionString + " AND DraftList_" + str(self.year+1) + ".Pos!=" + "\'" + position + "\'"
 			i = i + 1
 		return positionString
 
@@ -88,12 +96,19 @@ class GreedyByPositionAlgorithm(Algorithm):
 		if len(self.filledPositions) != 0 and len(self.filledPositions) < 6:
 			#Generate string based on filled starters
 			excludedPositions = self.generateStarterDraftString()
-			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' AND Pos!=" + excludedPositions + " ORDER BY Points DESC LIMIT \'1\'")
+			if self.projectionUse == False:
+				data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' AND Pos!=" + excludedPositions + " ORDER BY Points DESC LIMIT \'1\'")
+			else:
+				data = sqlHandler.CALL_SQL_SELECT("ESPN.db","DraftList_" + str(self.year) + ".Player, DraftList_" + str(self.year) + ".Pos, DraftList_" + str(self.year) + ".Points", "DraftList_"+str(self.year),"INNER JOIN DraftList_" + str(self.year+1) + " ON  DraftList_"+str(self.year)+".Player== DraftList_"+str(self.year+1)+".Player WHERE DraftList_" + str(self.year+1) + ".Pos != " + excludedPositions + " AND DraftList_" + str(self.year)+ ".WasSelected=\'0\' ORDER BY DraftList_"+str(self.year+1)+ ".Points DESC LIMIT \'1\' ")
+		
 			#Check if all starting positions are filled
 			self.checkFilledPositions()
 		#Otherwise if no positons are maxed request any position
 		elif len(self.maxedPositions)==0:
-			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' ORDER BY Points DESC LIMIT \'1\'")
+			if self.projectionUse == False:
+				data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' ORDER BY Points DESC LIMIT \'1\'")
+			else:
+				data = sqlHandler.CALL_SQL_SELECT("ESPN.db","DraftList_" + str(self.year) + ".Player, DraftList_" + str(self.year) + ".Pos, DraftList_" + str(self.year) + ".Points", "DraftList_"+str(self.year),"INNER JOIN DraftList_" + str(self.year+1) + " ON  DraftList_"+str(self.year)+".Player== DraftList_"+str(self.year+1)+".Player WHERE DraftList_" + str(self.year)+ ".WasSelected=\'0\' ORDER BY DraftList_"+str(self.year+1)+ ".Points DESC LIMIT \'1\' ")
 			#Check if all starting positions are filled or if any positions are maxed
 			self.checkFilledPositions()
 			self.checkMaxedPositions()
@@ -101,7 +116,11 @@ class GreedyByPositionAlgorithm(Algorithm):
 		else:
 			#Generate string based on maxed positions
 			excludedPositions = self.generateMaxedDraftString()
-			data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' AND Pos!=" + excludedPositions + " ORDER BY Points DESC LIMIT \'1\'")
+			if self.projectionUse == False:
+				data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' AND Pos!=" + excludedPositions + " ORDER BY Points DESC LIMIT \'1\'")
+			else:
+				data = sqlHandler.CALL_SQL_SELECT("ESPN.db","DraftList_" + str(self.year) + ".Player, DraftList_" + str(self.year) + ".Pos, DraftList_" + str(self.year) + ".Points", "DraftList_"+str(self.year),"INNER JOIN DraftList_" + str(self.year+1) + " ON  DraftList_"+str(self.year)+".Player== DraftList_"+str(self.year+1)+".Player WHERE DraftList_" + str(self.year+1) + ".Pos != " + excludedPositions + " AND DraftList_" + str(self.year)+ ".WasSelected=\'0\' ORDER BY DraftList_"+str(self.year+1)+ ".Points DESC LIMIT \'1\' ")
+		
 			#Check if all starting positions are filled or if any positions are maxed
 			self.checkFilledPositions()
 			self.checkMaxedPositions()

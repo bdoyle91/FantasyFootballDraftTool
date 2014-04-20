@@ -1,5 +1,6 @@
 from algorithmTester import *
 from LeagueTeams import *
+import time
 
 ##########################################################################################
 #
@@ -46,16 +47,20 @@ class LocalSearchAlgorithm(GreedyByPositionAlgorithm):
 		self.numOfTeams = inputNumOfTeams
 		self.startingposition = inputStartingPosition
 		self.projectionUse = inputProjectionUse
+		self.timeTotal = 0
 
 	def saveDraftSelections(self):
-		sqlHandler = SQL_HANDLER()
-		data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, WasSelected", "DraftList_"+str(self.year))
-		self.draftSelectionsBeforeSearch = data
+		conn = lite.connect('ESPN.db')
+		c = conn.cursor()
+		c.execute("DROP TABLE IF EXISTS DraftList_"+str(self.year)+"_backup")
+		c.execute("CREATE TABLE DraftList_" + str(self.year)+"_backup" + " AS SELECT * FROM DraftList_"+str(self.year)) 	
 
 	def returnDraftList(self):
-		sqlHandler = SQL_HANDLER()
-		for eachPlayer in self.draftSelectionsBeforeSearch:
-			sqlHandler.CALL_SQL_UPDATE("ESPN.db","WasSelected",str(eachPlayer[1]),"DraftList_"+str(self.year), "Player", eachPlayer[0])
+		conn = lite.connect('ESPN.db')
+		c = conn.cursor()
+		c.execute("DROP TABLE IF EXISTS DraftList_"+str(self.year))
+		c.execute("CREATE TABLE DraftList_" + str(self.year) + " AS SELECT * FROM DraftList_"+str(self.year)+"_backup") 			
+
 
 	def simulateRemainingDraft(self, newPlayer):
 		searchAlgorithim = GreedyByPositionAlgorithm(1)
@@ -98,7 +103,10 @@ class LocalSearchAlgorithm(GreedyByPositionAlgorithm):
 		algoTester.runTest(self.year, False, self.draftRound)
 
 		#Check starter points
-		points = searchAlgorithim.team.getStarterPoints()
+		if self.projectionUse == False:
+			points = searchAlgorithim.team.getStarterPoints()
+		else:
+			points = searchAlgorithim.team.starterProjectedPoints
 
 		#Set the draft back to how it was before we simulated
 		self.returnDraftList()
@@ -111,7 +119,7 @@ class LocalSearchAlgorithm(GreedyByPositionAlgorithm):
 
 	def pickPlayerBasedProjection(self, position):
 		sqlHandler = SQL_HANDLER()
-		data = sqlHandler.CALL_SQL_SELECT("ESPN.db","Player, Pos, Points", "DraftList_"+str(self.year),"WHERE WasSelected=\'0\' AND Pos == \'" + position + "\' ORDER BY Points DESC LIMIT \'1\'")
+		data = sqlHandler.CALL_SQL_SELECT("ESPN.db","DraftList_" + str(self.year) + ".Player, DraftList_" + str(self.year) + ".Pos, DraftList_" + str(self.year) + ".Points", "DraftList_"+str(self.year),"INNER JOIN DraftList_" + str(self.year+1) + " ON  DraftList_"+str(self.year)+".Player== DraftList_"+str(self.year+1)+".Player WHERE DraftList_" + str(self.year+1) + ".Pos == \'" + position + "\' AND DraftList_" + str(self.year)+ ".WasSelected=\'0\' ORDER BY DraftList_"+str(self.year+1)+ ".Points DESC LIMIT \'1\' ")
 		return data
 
 	def chooseNextPlayer(self):
