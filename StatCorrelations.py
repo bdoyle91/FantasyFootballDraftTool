@@ -31,7 +31,7 @@ def statPull(tableName, columnName, position, year, statsList=[]):
 		tupleList = list(set(c.fetchall()))
 		newTupleList = []
 		for tuple in tupleList:
-			newTupleList.append((tuple[0], int(tuple[1])))
+			newTupleList.append((tuple[0], int(float(tuple[1]))))
 		dictionary.update(newTupleList)
 		# print "DICT: " + str(dictionary)
 		sortedDict = sorted(dictionary.iteritems(), key=operator.itemgetter(1))
@@ -48,7 +48,7 @@ def statPull(tableName, columnName, position, year, statsList=[]):
 				# print "IN FOR: player = " + str(player)
 				if player in statsList:
 					sortedList.append(player)
-		print "\nsortedList AFTER FOR: " + str(sortedList) + "\n"
+		# print "\nsortedList AFTER FOR: " + str(sortedList) + "\n"
 		if tableName != "FantasyPoints":
 			if position.strip() == "QB" or position.strip() == "TE" or position.strip() == "PK":
 				correctlySortedDict = correctlySortedDict[:15]
@@ -57,7 +57,7 @@ def statPull(tableName, columnName, position, year, statsList=[]):
 		# print "Top 15 players: " + str(correctlySortedDict)
 		conn.commit() # MAY NOT NEED THIS
 	conn.close()
-	print "\n"
+	# print "\n"
 	if statsList:
 		return sortedList
 	else:
@@ -113,21 +113,21 @@ def calculateCoefficient(statsList, pointsList):
 	for item in statsList:
 		try:
 			pli = pointsList.index(item)
-			print "pli: " + str(pli)
+			# print "pli: " + str(pli)
 		except ValueError:
 			continue
-		print statsList[i]
+		# print statsList[i]
 		d = pli - i
-		print "d: " + str(d)
-		print "\n"
+		# print "d: " + str(d)
+		# print "\n"
 		dSquared = math.pow(d, 2)
 		sumDSquared = sumDSquared + dSquared
 		i = i + 1
-	print "sumDSquared: " + str(sumDSquared)
-	print "\n"
-	print "i: " + str(i) + "\n"
+	# print "sumDSquared: " + str(sumDSquared)
+	# print "\n"
+	# print "i: " + str(i) + "\n"
 	spearman = 1 - ((6 * sumDSquared) / (i * (math.pow(i, 2) - 1)))
-	print "Spearman coefficient " + str(spearman) + "\n"
+	# print "Spearman coefficient " + str(spearman) + "\n"
 	if (spearman < -1) or (spearman > 1):
 		traceback.print_stack()
 	return spearman
@@ -180,14 +180,36 @@ def findAllAverages(listOfTuples):
 	cDict = {}
 
 	for t in listOfTuples:
-		key = str(t[2]) + "-" + str(t[0])
+		key = str(t[2]) + "-" + str(t[1]) + "-" + str(t[0])
+		print "\n" + str(key)
 		cDict[key] = findAverageCoefficient(t[0], t[1], t[2])
 
 
+	sortedDict = sorted(cDict.iteritems(), key=operator.itemgetter(1), reverse=True)
+
+	return sortedDict
+
 
 def createListOfTuples():
-	list = []
-
+	lot = [("COMP", "Passing", " QB"), ("ATT", "Passing", " QB"), ("PCT", "Passing", " QB"), ("YDS", "Passing", " QB"), 
+	("YDS_PER_A", "Passing", " QB"), ("LONG", "Passing", " QB"), ("TD", "Passing", " QB"), ("INT", "Passing", " QB"), 
+	("SACK", "Passing", " QB"), ("RATE", "Passing", " QB"), ("YDS_PER_G", "Passing", " QB"), ("ATT", "Rushing", " QB"), 
+	("YDS", "Rushing", " QB"), ("YDS_PER_A", "Rushing", " QB"), ("LONG", "Rushing", " QB"), ("TWENTY_PLUS", "Rushing", " QB"), 
+	("TD", "Rushing", " QB"), ("YDS_PER_G", "Rushing", " QB"), ("FUM", "Rushing", " QB"), ("FIRST_DOWNS", "Rushing", " QB"), 
+	("ATT", "Rushing", " RB"), ("YDS", "Rushing", " RB"), ("YDS_PER_A", "Rushing", " RB"), ("LONG", "Rushing", " RB"), 
+	("TWENTY_PLUS", "Rushing", " RB"), ("TD", "Rushing", " RB"), ("YDS_PER_G", "Rushing", " RB"), ("FUM", "Rushing", " RB"), 
+	("FIRST_DOWNS", "Rushing", " RB"), ("REC", "Receiving", " RB"), ("TAR", "Receiving", " RB"), ("YDS", "Receiving", " RB"), 
+	("AVG", "Receiving", " RB"), ("TD", "Receiving", " RB"), ("LONG", "Receiving", " RB"), ("TWENTY_PLUS", "Receiving", " RB"), 
+	("YDS_PER_G", "Receiving", " RB"), ("FUM", "Receiving", " RB"), ("YAC", "Receiving", " RB"), ("FIRST_DOWNS", "Receiving", " RB"), 
+	("REC", "Receiving", " WR"), ("TAR", "Receiving", " WR"), ("YDS", "Receiving", " WR"), ("AVG", "Receiving", " WR"), 
+	("TD", "Receiving", " WR"), ("LONG", "Receiving", " WR"), ("TWENTY_PLUS", "Receiving", " WR"), ("YDS_PER_G", "Receiving", " WR"), 
+	("FUM", "Receiving", " WR"), ("YAC", "Receiving", " WR"), ("FIRST_DOWNS", "Receiving", " WR"), ("REC", "Receiving", " TE"), 
+	("TAR", "Receiving", " TE"), ("YDS", "Receiving", " TE"), ("AVG", "Receiving", " TE"), ("TD", "Receiving", " TE"), 
+	("LONG", "Receiving", " TE"), ("TWENTY_PLUS", "Receiving", " TE"), ("YDS_PER_G", "Receiving", " TE"), ("FUM", "Receiving", " TE"), 
+	("YAC", "Receiving", " TE"), ("FIRST_DOWNS", "Receiving", " TE"), ("FGM", "Kicking", " PK"), ("FGA", "Kicking", " PK"), 
+	("FGPCT", "Kicking", " PK"), ("LNG", "Kicking", " PK"), ("XPM", "Kicking", " PK"), 
+	("XPA", "Kicking", " PK"), ("PCT", "Kicking", " PK")]
+	return lot
 
 
 # listStat = statPull("Passing", "COMP", " QB", 2011)
@@ -195,4 +217,7 @@ def createListOfTuples():
 # listPoints = statPull("FantasyPoints", "Points", " QB", 2012, listStat)
 # print "\n listPoints: " + str(listPoints) + "\n"
 # calculateCoefficient(listStat, listPoints)
-findAverageCoefficient("YDS", "Rushing", " RB")
+
+findAverageCoefficient("COMP", "Passing", " QB")
+
+print findAllAverages(createListOfTuples())
