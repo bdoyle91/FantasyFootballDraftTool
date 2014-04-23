@@ -180,14 +180,15 @@ def findAllAverages(listOfTuples):
 	cDict = {}
 
 	for t in listOfTuples:
-		key = str(t[2]) + "-" + str(t[1]) + "-" + str(t[0])
+		key = str(t[2]).strip() + "-" + str(t[1]) + "-" + str(t[0])
 		print "\n" + str(key)
 		cDict[key] = findAverageCoefficient(t[0], t[1], t[2])
 
 
 	sortedDict = sorted(cDict.iteritems(), key=operator.itemgetter(1), reverse=True)
 
-	return sortedDict
+	# return sortedDict
+	return cDict
 
 
 def createListOfTuples():
@@ -218,6 +219,6 @@ def createListOfTuples():
 # print "\n listPoints: " + str(listPoints) + "\n"
 # calculateCoefficient(listStat, listPoints)
 
-findAverageCoefficient("COMP", "Passing", " QB")
+# findAverageCoefficient("COMP", "Passing", " QB")
 
 print findAllAverages(createListOfTuples())
