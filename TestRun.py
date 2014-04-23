@@ -14,7 +14,8 @@ def runSimulation(searchAlgoPosition, testYear):
 	algoTester = algorithmTester()
 	for teamNum in range(0, NUMBER_OF_TEAMS):
 		if teamNum == (searchAlgoPosition - 1):
-			algoTester.algorithms.append(LocalSearchAlgorithm("LOCALSEARCH", NUMBER_OF_TEAMS, teamNum))
+			#algoTester.algorithms.append(LocalSearchAlgorithm("LOCALSEARCH", NUMBER_OF_TEAMS, teamNum, True))
+			algoTester.algorithms.append(GreedyByPositionAlgorithm("Greedy",True))
 		else:
 			algoTester.algorithms.append(GreedyByPositionAlgorithm("Greedy"))
 
@@ -23,7 +24,8 @@ def runSimulation(searchAlgoPosition, testYear):
 	for eachAlgorithm in algoTester.algorithms:
 		eachAlgorithm.team = TEAM_LIST[teamCounter]
 		if teamCounter == (searchAlgoPosition - 1):
-			eachAlgorithm.team.setName("LocalSearch Team Draft Position " + str(teamCounter+1))
+			#eachAlgorithm.team.setName("LocalSearch Team Draft Position " + str(teamCounter+1))
+			eachAlgorithm.team.setName("Greedy Team Using Projection Draft Position " + str(teamCounter+1))
 			eachAlgorithm.team.setYear(testYear)
 		else:
 			eachAlgorithm.team.setName("Greedy Team Draft Position " + str(teamCounter+1))
@@ -47,7 +49,7 @@ def runSimulation(searchAlgoPosition, testYear):
 
 
 ########## INPUTS CHANGE THESE IN ORDER TO RUN TEST #############
-for eachPosition in range(1,10):
+for eachPosition in range(1,11):
 	for eachYear in range (2002,2013):
 		print "Running test on year " + str(eachYear) + " and in draft position " + str(eachPosition)
 		runSimulation(eachPosition, eachYear)

@@ -1,6 +1,9 @@
 import teamClass
 import sqlite3 as lite
 
+#	This script is used to create benchmarks for the drafts of top
+#	
+
 ##########################################################################################
 #
 # ** benchMark **
@@ -13,7 +16,7 @@ import sqlite3 as lite
 #
 ##########################################################################################
 
-def benchMark(players, year="2012"):
+def benchMark(players, year="2013"):
 	conn = lite.connect('ESPN.db')
 	benchTeam = teamClass.Team()
 	for player in players:
@@ -21,11 +24,12 @@ def benchMark(players, year="2012"):
 		command = "SELECT Player,Pos,Points FROM FantasyPoints_" + str(year) + " WHERE Player='" + str(player) + "'"
 		c.execute(command)
 		data = c.fetchall()
+		print data
 		newPlayer = teamClass.Player(data[0][0], int(data[0][2]), data[0][1])
 		print "newPlayer " + str(newPlayer)
 		benchTeam.addPlayer(newPlayer)
 	conn.close()
-	points = benchTeam.getTotalPoints()
+	points = benchTeam.starterPoints
 	print benchTeam.printTeam()
 	return points
 
@@ -37,11 +41,15 @@ def benchMark(players, year="2012"):
 #	2 WR
 #	1 TE
 #	1 FLEX
-#	1 DEF 	< - We don't have stats yet cannot implement
-#	1 K		< - We don't have stats yet cannot implement
+#	1 DEF
+#	1 K
 ######### UNIT TEST MAIN ################################################################
 
-Players = ["Peyton Manning","Ray Rice","Reggie Bush","Dez Bryant","Greg Jennings","Jason Witten","Rashard Mendenhall"]
-benchPoints = benchMark(Players)
-print benchPoints
+CHITRADER2 = ["Jamaal Charles","Matt Forte","Demaryius Thomas","Jimmy Graham","Montee Ball","Russell Wilson","Antonio Brown","T.Y. Hilton","Cecil Shorts", "Andre Brown","Chicago","Jonathan Dwyer","Michael Vick","Bryce Brown","Matt Prater","Johnathan Franklin"]
+CHITRADER2pick = 6
+benchMark(CHITRADER2)
+TEAMJENKINS = ["Calvin Johnson","Dez Bryant","Jimmy Graham","Peyton Manning","Isaac Redman","Wes Welker","Houston","Ahmad Bradshaw","Shane Vereen","Knowshon Moreno","Stephen Gostkowski","Lance Moore","Kenny Britt","Denarius Moore","Fred Jackson","Sam Bradford"]
+TEAMJENKINSpick = 10
+benchMark(TEAMJENKINS)
+#print benchPoints
 
