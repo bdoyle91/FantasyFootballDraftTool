@@ -1,0 +1,95 @@
+
+
+Algorithm LOCAL SEARCH
+
+Total Points: 2492
+Total Starter Points: 1263
+
+
+
+
+Algorithm 2
+
+
+
+Total Points: 2367
+Total Starter Points: 1254
+
+
+
+
+Algorithm 3
+
+
+Total Points: 2338
+Total Starter Points: 1221
+
+
+
+
+Algorithm 4
+
+
+Total Points: 2318
+Total Starter Points: 1207
+
+
+
+
+Algorithm 5
+
+Total Points: 2453
+Total Starter Points: 1291
+
+
+
+
+Algorithm 6
+
+Total Points: 2218
+Total Starter Points: 1202
+
+
+
+
+Algorithm 7
+
+Total Points: 2225
+Total Starter Points: 1220
+
+
+
+
+Algorithm 8
+
+Total Points: 2404
+Total Starter Points: 1189
+
+
+
+
+Algorithm 9
+
+
+Total Points: 2415
+Total Starter Points: 1141
+
+
+
+
+Algorithm 10
+
+Total Points: 2383
+Total Starter Points: 1246
+
+
+LOCAL SEARCH IN 10 POSITION
+
+Algorithm Name: 
+Member total points: 2401
+Member starter points: 1270
+
+LOCAL SEARCH IN 10 POSITION TAKE 2
+Algorithm Name: 
+Member total points: 2334
+Member starter points: 1212 - WORSE?

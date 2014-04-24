@@ -1,0 +1,3840 @@
+<!DOCTYPE html>
+<html itemscope="" itemtype="http://schema.org/website" lang="en" xmlns:fb="http://www.facebook.com/2008/fbml" xmlns:og="http://opengraphprotocol.org/schema/"><head>
+  <meta charset="utf-8"/>
+  <script>
+/*
+ * JS Redirection Mobile
+ *
+ * Developed by
+ * Sebastiano Armeli-Battana (@sebarmeli) - http://www.sebastianoarmelibattana.com
+ * Release under the MIT licence
+ */
+if(!window.SA){window.SA={}}SA.redirection_mobile=function(d){var b=function(k){var j=new Date();j.setTime(j.getTime()+k);return j};var i=function(o){if(!o){return}var j=document.location.search,p=j&amp;&amp;j.substring(1).split("&amp;"),l=0,n=p.length;for(;l&lt;n;l++){var k=p[l],m=k&amp;&amp;k.substring(0,k.indexOf("="));if(m===o){return k.substring(k.indexOf("=")+1,k.length)}}};var f=navigator.userAgent.toLowerCase(),h="false",g="true",d=d||{};redirection_param=d.redirection_paramName||"mobile",redirection_param_long=d.redirection_paramName_long||"mobile_long",mobile_prefix=d.mobile_prefix||"m",mobile_url=d.mobile_url,mobile_protocol=d.mobile_scheme?d.mobile_scheme+":":document.location.protocol,host=document.location.host,queryValue=i(redirection_param),queryValue_long=i(redirection_param_long),mobile_host=mobile_url||(mobile_prefix+"."+(!!host.match(/^www./i)?host.substring(4):host)),cookie_hours=d.cookie_hours||1,isUAMobile=!!(f.match(/(iPhone|iPod|blackberry|android|googlebot-mobile|googlebotmobile|htc|kindle|lg|midp|mmp|nokia|opera mini|palm|pocket|psp|sgh|smartphone|symbian|treo mini|Playstation Portable|SonyEricsson|Samsung|MobileExplorer|PalmSource|Benq|Windows Phone|Windows Mobile|IEMobile|Windows CE|Nintendo Wii)/i));if(queryValue_long===h){if(window.localStorage){window.localStorage.setItem(redirection_param_long,h)}else{document.cookie=redirection_param+"="+h+";expires="+b(3600*1000*cookie_hours*7*24*31).toUTCString()}}else{if((queryValue_long===g)||(queryValue===g)){if(window.localStorage){window.localStorage.setItem(redirection_param_long,g)}else{document.cookie=redirection_param+"="+h+";expires="+b(-3600*1000*cookie_hours*7*24*31).toUTCString()}if(window.localStorage){window.sessionStorage.setItem(redirection_param,g)}else{document.cookie=redirection_param+"="+h+";expires="+b(-3600*1000*cookie_hours*7*24*31).toUTCString()}}else{if(document.referrer.indexOf(mobile_host)&gt;=0||queryValue===h){if(window.sessionStorage){window.sessionStorage.setItem(redirection_param,h)}else{document.cookie=redirection_param+"="+h+";expires="+b(3600*1000*cookie_hours).toUTCString()}}}}var a=(window.sessionStorage)?(window.sessionStorage.getItem(redirection_param)===h):false,e=(window.localStorage)?(window.localStorage.getItem(redirection_param_long)===h):false,c=document.cookie?(document.cookie.indexOf(redirection_param)&gt;=0):false;if(isUAMobile&amp;&amp;!(c||a||e)){document.location.href=mobile_protocol+"//"+mobile_host}};
+SA.redirection_mobile({mobile_url:"m.pfref.com/m?p=XXteamsXXwasXX2013.htm",redirection_paramName:"mobile",redirection_paramName_long:"mobile_long",cookie_hours:6});
+</script> 
+
+  <title>2013 Washington Redskins Statistics &amp; Players - Pro-Football-Reference.com</title>
+<meta content="3-13, , ProBowl: Morris(RB), Orakpo(OLB), Williams(T)" name="Description"/>
+<script type="text/javascript">var sr_gzipEnabled = false;</script>
+<script src="http://d2ft4b0ve1aur1.cloudfront.net/js-361/sr.gzipcheck.js.jgz" type="text/javascript"></script>
+
+<noscript>
+  &lt;link type="text/css" rel="stylesheet" href="http://d2ft4b0ve1aur1.cloudfront.net/css-361/sr-pfr-min.css"&gt;
+</noscript>
+<script type="text/javascript">
+(function () {
+    var sr_css_file = 'http://d2ft4b0ve1aur1.cloudfront.net/css-361/sr-pfr-min.css';
+    if (sr_gzipEnabled) {
+       sr_css_file = 'http://d2ft4b0ve1aur1.cloudfront.net/css-361/sr-pfr-min-gz.css';
+    }
+    var head = document.getElementsByTagName("head")[0];
+    if (head) {
+	var scriptStyles = document.createElement("link");
+	scriptStyles.rel = "stylesheet";
+	scriptStyles.type = "text/css";
+	scriptStyles.href = sr_css_file;
+	head.appendChild(scriptStyles);
+	//alert('adding css to header:'+sr_css_file);
+    }
+}());
+</script>
+
+  
+  
+  
+    <meta content="Statistics, Schedule, Roster, Splits and much more" property="og:description"/>
+  <meta content="2013 Washington Redskins" property="og:title"/>
+  <meta content="http://www.pro-football-reference.com/teams/was/2013.htm" property="og:url"/>
+  <meta content="sports_team" property="og:type"/>
+  <link href="http://www.pro-football-reference.com/teams/was/2013.htm" rel="canonical"/>
+  <meta content="2013 Washington Redskins" itemprop="name"/>
+  <meta content="Statistics, Schedule, Roster, Splits and much more" itemprop="description"/>
+
+  <!--  ASYNCHRONOUS:googletag -->
+<script type="text/javascript">
+   var googletag = googletag || {};
+   googletag.cmd = googletag.cmd || [];
+   (function() {
+      var gads = document.createElement('script');
+      gads.async = true;
+      gads.type = 'text/javascript';
+      var useSSL = 'https:' == document.location.protocol;
+      gads.src = (useSSL ? 'https:' : 'http:') + '//www.googletagservices.com/tag/js/gpt.js';
+      var node = document.getElementsByTagName('script')[0];
+      node.parentNode.insertBefore(gads, node);
+   })();
+</script>
+
+
+  <meta charset="utf-8"/>
+  <meta content="34208645" property="fb:admins"/>
+  <meta content="10635217218" property="fb:page_id"/>
+  <meta content="Pro-Football-Reference.com" property="og:site_name"/> 
+  <meta content="http://d2ft4b0ve1aur1.cloudfront.net/images-361/Football-Ref.png" property="og:image"/> 
+  <meta content="summary" name="twitter:card"/>
+  <meta content="@pfref" name="twitter:site"/>
+  <meta content="@pfref" name="twitter:creator"/>
+  <meta content="2013 Washington Redskins Statistics &amp; Players - Pro-Football-Reference.com" name="twitter:title"/>
+  <meta content="3-13, , ProBowl: Morris(RB), Orakpo(OLB), Williams(T)" name="twitter:description"/>
+  <meta content="http://static.pfref.com/mobile/icon-pfr.png" name="twitter:image"/>
+  <link href="http://d2ft4b0ve1aur1.cloudfront.net/images-361/favicon-pfr.ico" rel="icon" type="image/vnd.microsoft.icon"/>
+  <link href="http://d2ft4b0ve1aur1.cloudfront.net/images-361/favicon-pfr.ico" rel="shortcut icon" type="image/vnd.microsoft.icon"/>
+
+<link href="http://d2ft4b0ve1aur1.cloudfront.net/os-361/opensearch-pfr.xml" rel="search" title="PFR Search" type="application/opensearchdescription+xml"/>
+<!--[if lte IE 6]>
+<style type="text/css">
+.hovermenu,.hovermenu_ajax,.sub_index,#quick_index {display:none!important}
+</style>
+<![endif]-->
+</head>
+<body id="" onload="">
+<div id="page_container">
+<div id="top_nav">
+
+<script type="text/javascript">
+favorites_page_title = document.title;
+</script>
+<div id="site_header">
+ <div id="sr_header">
+  <div class="float_right">
+
+        <div class="logged_out width100 float_left">
+                <div style="position: relative;">
+                         <span id="login_placeholder" style="display: none;"><a href="/my/auth.cgi" onclick="return sr_login_popup();">Login</a><span id="loginform_container"></span></span>
+                </div>
+        </div>
+        <div class="logged_in width100 float_left margin_bottom">
+                <span class="like_a" id="welcome"></span> |
+<div class="favorites inline align_left">
+    <span id="favorites_header" style="padding: .25em !important;">
+        <ul class="menu hovermenu_favorites inline margin0">
+            <li class="inline like_a">
+                <span id="favorites_button"></span>
+                <span onclick="document.location.href='/my/auth.cgi?do=get_favorites'">Favorites</span>
+                    <ul class="" id="favorites_container" style="width: auto !important; display: inline; padding: 4px !important;"></ul>
+            </li>
+        </ul>
+    </span>
+</div> 
+                | <span class="acct_external"><a href="/my/auth.cgi?do=edit">Account</a></span>
+                | <span><a href="/my/auth.cgi?do=logout" onclick="return sr_logout()">Logout</a></span>
+        </div>
+
+
+    <a href="http://www.sports-reference.com">S-R</a>:
+    <a href="http://www.baseball-reference.com">MLB</a> |
+    <a href="http://www.basketball-reference.com">NBA</a> ·
+    <a href="http://www.sports-reference.com/cbb/">CBB</a> |
+                                       <strong>NFL</strong> ·
+    <a href="http://www.sports-reference.com/cfb/">CFB</a> |
+    <a href="http://www.hockey-reference.com/">NHL</a> |
+    <a href="http://www.sports-reference.com/olympics/">Oly</a> |
+    <a href="http://www.sports-reference.com/blog/">Blog</a> · 
+    <a href="http://www.sports-reference.com/feedback/">Q?</a>
+   <br/>
+  </div>
+
+
+ <div class="clearfix padding_top_half float_right clear_both">
+  <div class="padding_left_half float_right"><a class="sprite-twitter" href="http://twitter.com/pfref" title="Follow us on Twitter"></a><a class="sprite-facebook" href="http://www.facebook.com/Pro.Football.Reference" title="Become a Fan on FaceBook"></a></div>
+
+   <div class="float_right">
+     <form action="/player_search.fcgi" id="f" method="get" name="f">
+      <input class="search long typeahead" id="search" name="search" placeholder="click 'Tips' for shortcuts" type="search" x-webkit-speech=""/> 
+   	  <input data-search-id="" name="pid" type="hidden" value=""/>
+      <input class="submit" type="submit" value="Search"/>
+      <a class="padding_left_half small_text" href="/about/findstuff.htm">Tips</a>
+     </form>
+   </div>
+ </div>
+</div><!-- div#sr_header -->
+
+<div class="float_left padding_bottom_half"><a href="/"><img alt="Pro-Football-Reference.com" border="0" height="65" src="http://d2ft4b0ve1aur1.cloudfront.net/images-102/Football-Ref.png" width="470"/></a></div>
+</div><!-- div#site_header -->
+
+
+
+
+<div id="quick_index">
+  <ul class="hovermenu_ajax navbar">
+   <li class="">   <a href="/play-index/">play index</a><ul class="li_margin" id="header_playindex"></ul></li>
+   <li class="">   <a href="/players/">players</a><ul class="li_margin" id="header_players"></ul></li>
+   <li class="active">   <a href="/teams/">teams</a><ul class="li_margin" id="header_teams"></ul></li>
+   <li class="">   <a href="/years/">seasons</a><ul class="li_margin" id="header_years"></ul></li>
+   <li class="">   <a href="/coaches/">coaches</a><ul class="li_margin" id="header_coaches"></ul></li>
+   <li class="">   <a href="/leaders/">leaders</a><ul class="li_margin" id="header_leaders"></ul></li>
+   <li class="">   <a href="/super-bowl/">super bowl</a><ul class="li_margin" id="header_superbowl"></ul></li>
+   <li class="">   <a href="/draft/">draft</a><ul class="li_margin" id="header_draft"></ul></li>
+   <li class="">   <a href="/boxscores/">boxscores</a><ul class="" id="header_boxscores"></ul></li>
+   <li class="">   <a href="/colleges/">college</a><ul class="li_margin" id="header_colleges"></ul></li>
+   <li class=""><a href="">more [+]</a>
+    <ul class="li_margin" id="header_more_links">
+	<li>
+	  <a class="bold_text" href="/my/">Your Account</a>:
+          <a href="/about/sponsorships.shtml">About Sponsorships</a>, 
+          <a href="/my/SoonAvailable.shtml">Soon-to-Expire</a>, 
+          <a href="/my/NewAvailable.shtml">Newly Expired Pages</a>, 
+          <a href="/my/available.shtml">All Available Pages</a>
+	</li>
+	<li>
+	  <a class="bold_text" href="/about/">About</a>: 
+	  <a href="/feedback/">Feedback</a>,
+	  <a href="/about/findstuff.htm">Search Engine Tricks</a>,
+	  <a href="/about/history.htm">History</a>,
+	  <a href="/about/sponsorship.shtml">Sponsorships</a>,
+	  <a href="/about/glossary.htm">Glossary</a>,
+	  <a href="/blog/?page_id=8061">Approximate Value</a>,
+	  <a href="/blog/?p=37">Simple Rating System</a>
+	</li>
+	<li><a class="bold_text" href="http://www.sports-reference.com/blog/category/pro-football-reference-com/">Blog</a>: News and notes about PFR  · 
+            <a href="/blog/">Past Blog Archive</a></li>
+	<li>
+	  <a class="bold_text" href="/friv/">Frivolities</a>:
+	  Who's the GoAT? <a href="/friv/elo.cgi">Elo Rater</a>,
+	  <a href="/boxscores/game_scores.cgi">Game Score Finder</a>,
+	  <a href="/friv/milestones.cgi">Upcoming Milestones</a>,
+	  <a href="/friv/random.cgi">Random Page</a>,
+	  <a href="/friv/birthdays.cgi">Birthdays</a>, 
+	  <a href="/friv/birthplaces.htm">Birthplaces</a>,
+	</li>
+	<li>    
+	  <a href="/friv/twitter.htm">Twitter Accounts</a>,
+	  <a href="/friv/coffee.htm">Cups of Coffee Players</a>,
+	  <a href="/friv/nonqb.htm">non-QB Passers</a>,
+	  <a href="/friv/odd_td.htm">non-skill position TD Scorers</a>,
+	  <a href="/linker/">Linker Tool</a> (quickly link to our player pages from your posts)
+	</li>
+    <li><a class="bold_text" href="/executives/">Owners &amp; Executives</a>: <a href="/executives/NewsOz0.htm">Ozzie Newsome</a>, <a href="/executives/PoliBi0.htm">Bill Polian</a>, <a href="/executives/DaviAl0.htm">Al Davis</a> <a href="/executives/">...</a></li>
+	<li><a class="bold_text" href="/hof/">HOF</a>: 
+	  <a href="/hof/">Hall of Famers</a>,
+	  <a href="/hof/2013-ballot.htm">2013 Ballot</a>,
+	  <a href="/hof/2012-ballot.htm">2012 Ballot</a>,
+	  <a href="/hof/2011-ballot.htm">2011 Ballot</a>,
+	  <a href="/hof/2010-ballot.htm">2010 Ballot</a>,
+	  <a href="/hof/2009-ballot.htm">2009 Ballot</a>,
+	  <a href="/hof/2008-ballot.htm">2008 Ballot</a>
+	</li>
+	<li><a class="bold_text" href="/officials/">Officials</a>: <a href="/officials/McAuTe0r.htm">Terry McAulay</a>, <a href="/officials/HochEd0r.htm">Ed Hochuli</a>, <a href="/officials/WintRo0r.htm">Ron Winter</a> <a href="/officials/">...</a></li>
+	<li><span class="bold_text">Awards</span>: 
+	  <a href="/players/award_master_list.htm">Awards Index</a>,
+	  <a href="/players/award_apmvp.htm">AP MVP</a>,
+	  AP
+PoY: <a href="/players/award_apopoy.htm">Off</a>, <a href="/players/award_apdpoy.htm">Def</a>,
+RoY: <a href="/players/award_aporoy.htm">Off</a>, <a href="/players/award_apdroy.htm">Def</a>,
+	  <a href="/players/award_sbmvp.htm">Super Bowl MVP</a>,
+	  <a href="/players/award_wpmoy.htm">Walter Payton Man of the Year</a>
+	</li>
+
+    </ul>
+   </li>
+  </ul>
+</div>
+<div id="you_are_here">
+<p class="padding_left0"><a class="mobile_link" href="http://m.pfref.com/m?p=XXteamsXXwasXX2013.htm">Mobile Site</a> <strong>You Are Here</strong> &gt;
+<a href="http://www.pro-football-reference.com/">Home</a> &gt;
+<a href="/teams/">Teams</a> &gt;
+<a href="/teams/was/">Washington Redskins</a> &gt;
+<strong>2013 Statistics &amp; Players</strong></p>
+</div>
+<div class="site_news"><p><span class="bold_text">News:</span> <span class="poptip" tip="Mike Lynch has joined Sports Reference as our new User Affairs Coordinator. Mike is a Philly native and Boston U. grad. He has an extensive background in sports history and studio production research working for ESPN as the lead researcher for NBA Tonight, for the Big Ten Network, and most recently for Comcast SportsNet Mid-Atlantic. […]">s-r blog:<a href="http://www.sports-reference.com/blog/2014/03/mike-lynch-joins-sports-reference/" onclick="try { pageTracker._trackEvent('blog','click','area-yah'); } catch (err) {};">Mike Lynch Joins Sports Reference</a> <span class="small_text"></span></span></p></div>
+
+</div>
+
+
+
+<script type="text/javascript">
+favorites_page_id = 'was';
+favorites_page_type = 'team';
+favorites_page_title = '';
+</script>
+<div id="info_box">
+<!-- div.#restofsite_300x250_atf1.advert300x250 -->
+<script type="text/javascript">
+googletag.cmd.push(function() {
+googletag.defineSlot('/5702/yb_Sports_Reference', [[300,250]], 'restofsite_300x250_atf1').addService(googletag.pubads());
+
+googletag.enableServices();
+});
+</script>
+<div class="advert300x250" id="restofsite_300x250_atf1">
+<script type="text/javascript">
+googletag.cmd.push(function() { googletag.display('restofsite_300x250_atf1'); });
+</script>
+<!--div style="height: 18px; padding: 3px; text-align: center;" class="small_text"><a href="/my/auth.cgi?do=ad_free_browsing" class="bold_text">Surf faster! Subscribe and browse ad-free.</a></div --></div>
+<!-- /div.#restofsite_300x250_atf1.advert300x250 -->
+
+<h1 class="float_left">2013 Washington Redskins</h1>
+<div class="social_media">
+<div class="float_left"><span id="fb-root"></span><fb:like height="35" ref="team_like" show_faces="0" width="200"></fb:like></div>
+<div class="float_left"><div class="g-plusone" data-annotation="inline" data-size="medium" data-width="150"></div></div>
+</div>
+<p class="clear_left"> <a href="/teams/was/">Franchise Index</a>: <a href="/teams/was/2012.htm">Previous Season</a></p>
+<p><strong>3-13-0</strong>, Finished 4th in <a href="/years/2013/">NFC East Division </a> · <a href="/years/2013/">2013 NFL Season Summary</a><br/>
+ <span class="tooltip" onclick="document.location.href='/blog/?p=37'" tip="Simple Rating System">SRS</span>: Total -9.3, Offense: -3.9, Defense: -5.4, SoS: -0.3, avg is 0.0. </p><p><span class="bold_text">Scored</span> 334 points (20.9/g), 23rd of 32 in the NFL.  Allowed 478 points (29.9/g), 30th. <br/> Differential of -144  points (-9.0/g), 30th.  <a href="/about/glossary.htm" title="The expected wins given their points scored and allowed">Expected W-L</a>: 4.8-11.2. </p><p><span class="bold_text">Coach</span>: 
+ <a href="/coaches/ShanMi0.htm">Mike Shanahan</a> (3-13-0) <br/>
+ 
+ Offensive Coordinator: <a href="/coaches/ShanKy0.htm">Kyle Shanahan</a><br/> Defensive Coordinator: <a href="/coaches/HaslJi0.htm">Jim Haslett</a><br/>
+ Other Notable Asst.: <a href="/coaches/MorrRa0.htm">Raheem Morris</a> (Secondary) and <a href="/coaches/SlowBo0.htm">Bob Slowik</a> (Linebackers)<br/></p><p><span class="bold_text">Stadium</span>: FedEx Field<br/> <a href="/teams/was/training-camps.htm">Training Camp</a>: Bon Secours Training Center (Richmond, Virginia)
+</p></div>
+<div class="sponsor" id="sponsor">
+  <div class="message" id="message">
+    <p><span class="bold_text large_text"><a href="http://fanspeak.com/2013-redskins-guide/" rel="nofollow" target="_blank">Download the FREE 2013 Redskins Guide Magazine!</a></span> sponsor(s) this page.</p>
+    <p class="indent">Get your FREE 2013 Redskins Guide Magazine here with previews, predictions, film breakdowns &amp; analysis to have you ready to watch the Burgundy &amp; Gold all season!  Best part...its FREE from Fanspeak.com!</p>
+  </div>
+  <div class="alert" id="alert">
+   <a class="small_text" href="/about/sponsorship.shtml">You can sponsor a page</a>.<br/>
+   <span class="small_text">Page Expires: 2014-09-23 <a href="/my/auth.cgi?do=alert_me&amp;page_ID=pfr_was_2013">Alert Me!</a></span>
+  </div>
+</div>
+
+<div class="clear_both" id="page_content">
+<div class="clearfix sub_index margin_bottom freeze_bar width100">
+<ul class="bg_gray hovermenu menu width100 margin_bottom">
+<li><a href="/teams/was/">Franchise Encyclopedia</a></li> <li class="active"><a href="/teams/was/2013.htm">2013 Statistics</a></li> <li class=""><a href="/teams/was/2013_roster.htm">Starters &amp; Roster</a></li> <li class=""><a href="/teams/was/2013_games.htm">Games &amp; Schedule</a></li> <li class=""><a href="/teams/was/2013_draft.htm">Team Draftees</a></li> <li class=""><a href="/teams/was/2013_injuries.htm">Injury Report</a></li> <li class=""><a href="/teams/was/2013_depth.htm">Depth Chart</a></li> <li class=""><span class="like_a">More [+]</span><ul><li><a href="/teams/was/2013_splits.htm">Offensive Splits</a></li><li><a href="/teams/was/2013_opp_splits.htm">Defensive Splits</a></li><li><a href="/teams/was/2013_travel.htm">Travel Map</a></li><li><a href="/teams/was/2013_lines.htm">Vegas Lines</a></li></ul></li>
+</ul>
+</div>
+<div class="stw clear_both" id="all_team_stats">
+<div class="table_heading"><h2>Team Info</h2><div class="table_heading_text"></div></div><div class="table_container" id="div_">
+<table class="sortable stats_table" id="">
+<colgroup><col></col><col></col></colgroup>
+<thead>
+<tr class="">
+  <th align="CENTER" class="tooltip" data-stat="key"></th>
+  <th align="CENTER" class="tooltip" data-stat="value"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="">
+   <td align="">Principal Owner</td>
+   <td align=""><a href="/executives/SnydDa0.htm">Daniel Snyder</a><a></a></td>
+</tr>
+<tr class="">
+   <td align="">Executive VP/General Manager</td>
+   <td align=""><a href="/executives/AlleBr0.htm">Bruce Allen</a><a></a></td>
+</tr>
+<tr class="">
+   <td align="">Offensive Scheme</td>
+   <td align="">West Coast</td>
+</tr>
+<tr class="">
+   <td align="">Defensive Alignment</td>
+   <td align="">4-3</td>
+</tr>
+</tbody>
+</table>
+</div><!-- div.table_container#div_xxxx -->
+<div class="table_heading">
+<h2>Team Stats and Rankings</h2><div class="table_heading_text"></div></div>
+<div class="table_container" id="div_team_stats">
+<table class="sortable stats_table" id="team_stats">
+<colgroup><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col></colgroup>
+<thead>
+<tr class=" over_header">
+  <th align="CENTER" class="tooltip over_header" colspan="3" data-stat=""></th>
+  <th align="center" class="bold_text over_header" colspan="3" data-stat="header_tot_off_tgl">Tot Yds &amp; TO</th>
+  <th></th>
+  <th align="CENTER" class="tooltip over_header" colspan="2" data-stat=""></th>
+  <th align="center" class="bold_text over_header" colspan="7" data-stat="header_pass">Passing</th>
+  <th align="center" class="bold_text over_header" colspan="5" data-stat="header_rush">Rushing</th>
+  <th align="CENTER" class="tooltip over_header" colspan="3" data-stat=""></th>
+  <th align="CENTER" class="tooltip over_header" colspan="5" data-stat="averages" tip="Average per drive numbers">Average Drive</th>
+</tr>
+<tr class="">
+  <th align="left" class="tooltip sort_default_asc show_partial_when_sorting" data-stat="player"></th>
+  <th align="center" class="tooltip" data-stat="points" tip="Points Scored by team">Pts</th>
+  <th align="center" class="tooltip" data-stat="total_yards">Yds</th>
+  <th align="center" class="tooltip" data-stat="plays_offense" tip="Offensive Plays: Pass Attempts + Rush Attempts + Times Sacked">Ply</th>
+  <th align="center" class="tooltip" data-stat="yds_per_play_offense" tip="Yards per Offensive Play&lt;br&gt;(Rush + Pass Yards)/( Pass Attempts + Rush Attempts + Times Sacked)">Y/P</th>
+  <th align="center" class="tooltip" data-stat="turnovers" tip="Team Turnovers Lost">TO</th>
+  <th align="center" class="tooltip" data-stat="fumbles_lost" tip="Fumbles Lost by Player or Team">FL</th>
+  <th align="center" class="tooltip" data-stat="pen_fd" tip="First Downs by Penalty">1stPy</th>
+  <th align="center" class="tooltip" data-stat="first_down">1stD</th>
+  <th align="center" class="tooltip" data-stat="pass_cmp" tip="Passes completed">Cmp</th>
+  <th align="center" class="tooltip" data-stat="pass_att" tip="Passes attempted">Att</th>
+  <th align="center" class="tooltip" data-stat="pass_yds" tip="Yards Gained by Passing&lt;br&gt;For teams, sack yardage is deducted from this total">Yds</th>
+  <th align="center" class="tooltip" data-stat="pass_td" tip="Passing Touchdowns">TD</th>
+  <th align="center" class="tooltip" data-stat="pass_int" tip="Interceptions thrown">Int</th>
+  <th align="center" class="tooltip hide_non_quals" data-stat="pass_net_yds_per_att" tip="Net Yards gained per pass attempt &lt;br&gt;(minimum 14 attepts per scheduled game to qualify as leader)&lt;br&gt;(Passing Yards - Sack Yards) / (Passes Attempted + Times Sacked)">NY/A</th>
+  <th align="center" class="tooltip" data-stat="pass_fd" tip="First Downs by Passing">1stD</th>
+  <th align="center" class="tooltip" data-stat="rush_att" tip="Rushing Attempts (sacks not included in NFL)">Att</th>
+  <th align="center" class="tooltip" data-stat="rush_yds" tip="Rushing Yards Gained (sack yardage is not included by NFL)">Yds</th>
+  <th align="center" class="tooltip" data-stat="rush_td" tip="Rushing Touchdowns">TD</th>
+  <th align="center" class="tooltip hide_non_quals" data-stat="rush_yds_per_att" tip="Rushing Yards per Attempt&lt;br&gt;(minimum 6.25 rushes per game scheduled to qualify as leader)&lt;br&gt;(Rushing Yards)/(Rush Attempts)">Y/A</th>
+  <th align="center" class="tooltip" data-stat="rush_fd" tip="First Downs by Rushing">1stD</th>
+  <th align="right" class="tooltip" data-stat="drives" tip="Number of drives">#Dr</th>
+  <th align="CENTER" class="tooltip" data-stat="score_pct" tip="Percentage of drives ending in an offensive score">Sc%</th>
+  <th align="CENTER" class="tooltip" data-stat="turnover_pct" tip="Percentage of drives ending in an offensive turnover">TO%</th>
+  <th align="CENTER" class="tooltip" data-stat="start_avg" tip="Average starting field position">Start</th>
+  <th align="CENTER" class="tooltip" data-stat="time_avg" tip="Average time per drive">Time</th>
+  <th align="CENTER" class="tooltip" data-stat="plays_per_drive" tip="Average # of plays per Drive">Plays</th>
+  <th align="right" class="tooltip" data-stat="yds_per_drive" tip="Net yards per drive">Yds</th>
+  <th align="CENTER" class="tooltip" data-stat="points_avg" tip="Average points scored per drive">Pts</th>
+</tr>
+</thead>
+<tbody>
+<tr class="">
+   <td align="left">Team Offense</td>
+   <td align="right">334</td>
+   <td align="right">5915</td>
+   <td align="right">1107</td>
+   <td align="right">5.3</td>
+   <td align="right">34</td>
+   <td align="right">15</td>
+   <td align="right">19</td>
+   <td align="right">329</td>
+   <td align="right">355</td>
+   <td align="right">611</td>
+   <td align="right">3751</td>
+   <td align="right">20</td>
+   <td align="right">19</td>
+   <td align="right">5.7</td>
+   <td align="right">198</td>
+   <td align="right">453</td>
+   <td align="right">2164</td>
+   <td align="right">14</td>
+   <td align="right">4.8</td>
+   <td align="right">112</td>
+   <td align="right">199</td>
+   <td align="right">27.6</td>
+   <td align="right">16.6</td>
+   <td align="right">Own 25.3</td>
+   <td align="right">2:29</td>
+   <td align="right">5.69</td>
+   <td align="">29.5</td>
+   <td align="right">1.51</td>
+</tr>
+<tr class="">
+   <td align="left">Team Defense</td>
+   <td align="right">478</td>
+   <td align="right">5665</td>
+   <td align="right">993</td>
+   <td align="right">5.7</td>
+   <td align="right">26</td>
+   <td align="right">10</td>
+   <td align="right">23</td>
+   <td align="right">329</td>
+   <td align="right">337</td>
+   <td align="right">514</td>
+   <td align="right">3896</td>
+   <td align="right">29</td>
+   <td align="right">16</td>
+   <td align="right">7.1</td>
+   <td align="right">204</td>
+   <td align="right">443</td>
+   <td align="right">1769</td>
+   <td align="right">23</td>
+   <td align="right">4.0</td>
+   <td align="right">102</td>
+   <td align="right">199</td>
+   <td align="right">36.7</td>
+   <td align="right">16.6</td>
+   <td align="right">Own 32.5</td>
+   <td align="right">2:22</td>
+   <td align="right">5.1</td>
+   <td align="">28.4</td>
+   <td align="right">2.15</td>
+</tr>
+<tr class="">
+   <td align="left">Lg Rank Offense</td>
+   <td align="right">23</td>
+   <td align="right">9</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">30</td>
+   <td align="right">29</td>
+   <td align="right"></td>
+   <td align="right">11</td>
+   <td align="right"></td>
+   <td align="right">9</td>
+   <td align="right">16</td>
+   <td align="right">24</td>
+   <td align="right">20</td>
+   <td align="right">23</td>
+   <td align="right"></td>
+   <td align="right">13</td>
+   <td align="right">5</td>
+   <td align="right">13</td>
+   <td align="right">3</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">27</td>
+   <td align="right">3</td>
+   <td align="right">1</td>
+   <td align="right">19</td>
+   <td align="right">11</td>
+   <td align="">13</td>
+   <td align="right">24</td>
+</tr>
+<tr class="">
+   <td align="left">Lg Rank Defense</td>
+   <td align="right">30</td>
+   <td align="right">18</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">16</td>
+   <td align="right">15</td>
+   <td align="right"></td>
+   <td align="right">21</td>
+   <td align="right"></td>
+   <td align="right">4</td>
+   <td align="right">20</td>
+   <td align="right">21</td>
+   <td align="right">15</td>
+   <td align="right">30</td>
+   <td align="right"></td>
+   <td align="right">19</td>
+   <td align="right">17</td>
+   <td align="right">32</td>
+   <td align="right">14</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">9</td>
+   <td align="right">18</td>
+   <td align="right">1</td>
+   <td align="right">6</td>
+   <td align="right">1</td>
+   <td align="">17</td>
+   <td align="right">26</td>
+</tr>
+</tbody>
+</table>
+</div><!-- div.table_container#div_xxxx -->
+<div class="table_heading">
+<h2>Team Games &amp; Schedule</h2><div class="table_heading_text"></div></div>
+<div class="table_container" id="div_team_gamelogs">
+<table class="sortable stats_table" id="team_gamelogs">
+<colgroup><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col></colgroup>
+<thead>
+<tr class=" over_header">
+  <th align="CENTER" class="tooltip over_header" colspan="9" data-stat=""></th>
+  <th align="center" class="bold_text over_header" colspan="2" data-stat="header_score">Score</th>
+  <th align="center" class="bold_text over_header" colspan="5" data-stat="header_off">Offense</th>
+  <th align="center" class="bold_text over_header" colspan="5" data-stat="header_def">Defense</th>
+  <th align="center" class="tooltip over_header" colspan="3" data-stat="header_exp_pts">Expected Points</th>
+</tr>
+<tr class="">
+  <th align="center" class="tooltip sort_default_asc sorttable_nosort" data-stat="week_num" tip="Week number in season">Week</th>
+  <th align="left" class="tooltip sort_default_asc" data-stat="game_day_of_week">Day</th>
+  <th align="center" class="tooltip sort_default_asc" data-stat="game_date">Date</th>
+  <th align="center" class="tooltip sort_default_asc" data-stat="boxscore_word"></th>
+  <th align="center" class="tooltip" data-stat="game_outcome"></th>
+  <th align="left" class="tooltip sort_default_asc" data-stat="overtime">OT</th>
+  <th align="center" class="tooltip" data-stat="team_record" tip="Team's record following this game">Rec</th>
+  <th align="center" class="tooltip sort_default_asc" data-stat="game_location"></th>
+  <th align="center" class="tooltip sort_default_asc" data-stat="opp">Opp</th>
+  <th align="center" class="tooltip" data-stat="pts_off" tip="Points scored">Tm</th>
+  <th align="center" class="tooltip" data-stat="pts_def" tip="Points allowed">Opp</th>
+  <th align="center" class="tooltip" data-stat="first_down_off">1stD</th>
+  <th align="center" class="tooltip" data-stat="yards_off" tip="Total Yards Gained on Offense">TotYd</th>
+  <th align="center" class="tooltip" data-stat="pass_yds_off" tip="Total Yards Gained by Passing (includes lost sack yardage)">PassY</th>
+  <th align="center" class="tooltip" data-stat="rush_yds_off" tip="Total Yards Gained by Rushing">RushY</th>
+  <th align="center" class="tooltip" data-stat="to_off" tip="Team Turnovers Lost">TO</th>
+  <th align="center" class="tooltip" data-stat="first_down_def">1stD</th>
+  <th align="center" class="tooltip" data-stat="yards_def" tip="Total Yards Allowed by Defense">TotYd</th>
+  <th align="center" class="tooltip" data-stat="pass_yds_def" tip="Total Passing Yards Allowed by Defense&lt;br&gt;(includes lost sack yardage)">PassY</th>
+  <th align="center" class="tooltip" data-stat="rush_yds_def" tip="Total Rushing Yards Allowed by Defense">RushY</th>
+  <th align="center" class="tooltip" data-stat="to_def" tip="Turnovers Gained by Defense">TO</th>
+  <th align="CENTER" class="tooltip" data-stat="exp_pts_off">Offense</th>
+  <th align="CENTER" class="tooltip" data-stat="exp_pts_def">Defense</th>
+  <th align="CENTER" class="tooltip" data-stat="exp_pts_st">Sp. Tms</th>
+</tr>
+</thead>
+<tbody>
+<tr class="">
+   <td align="right" csk="1">1</td>
+   <td align="left">Mon</td>
+   <td align="left" csk="2013-09-09">September 9</td>
+   <td align="center"><a href="/boxscores/201309090was.htm">boxscore</a></td>
+   <td align="right">L</td>
+   <td align="left"></td>
+   <td align="center">0-1</td>
+   <td align="right"></td>
+   <td align="left"><a href="/teams/phi/2013.htm">Philadelphia Eagles</a></td>
+   <td align="right">27</td>
+   <td align="right">33</td>
+   <td align="right">25</td>
+   <td align="right">382</td>
+   <td align="right">308</td>
+   <td align="right">74</td>
+   <td align="right">3</td>
+   <td align="right">26</td>
+   <td align="right">443</td>
+   <td align="right">180</td>
+   <td align="right">263</td>
+   <td align="right">2</td>
+   <td align="right">-3.13</td>
+   <td align="right">1.86</td>
+   <td align="right">-7.39</td>
+</tr>
+<tr class="">
+   <td align="right" csk="2">2</td>
+   <td align="left">Sun</td>
+   <td align="left" csk="2013-09-15">September 15</td>
+   <td align="center"><a href="/boxscores/201309150gnb.htm">boxscore</a></td>
+   <td align="right">L</td>
+   <td align="left"></td>
+   <td align="center">0-2</td>
+   <td align="right">@</td>
+   <td align="left"><a href="/teams/gnb/2013.htm">Green Bay Packers</a></td>
+   <td align="right">20</td>
+   <td align="right">38</td>
+   <td align="right">18</td>
+   <td align="right">422</td>
+   <td align="right">314</td>
+   <td align="right">108</td>
+   <td align="right">1</td>
+   <td align="right">28</td>
+   <td align="right">580</td>
+   <td align="right">441</td>
+   <td align="right">139</td>
+   <td align="right">1</td>
+   <td align="right">10.52</td>
+   <td align="right">-27.46</td>
+   <td align="right">-4.09</td>
+</tr>
+<tr class="">
+   <td align="right" csk="3">3</td>
+   <td align="left">Sun</td>
+   <td align="left" csk="2013-09-22">September 22</td>
+   <td align="center"><a href="/boxscores/201309220was.htm">boxscore</a></td>
+   <td align="right">L</td>
+   <td align="left"></td>
+   <td align="center">0-3</td>
+   <td align="right"></td>
+   <td align="left"><a href="/teams/det/2013.htm">Detroit Lions</a></td>
+   <td align="right">20</td>
+   <td align="right">27</td>
+   <td align="right">27</td>
+   <td align="right">420</td>
+   <td align="right">300</td>
+   <td align="right">120</td>
+   <td align="right">2</td>
+   <td align="right">24</td>
+   <td align="right">441</td>
+   <td align="right">378</td>
+   <td align="right">63</td>
+   <td align="right">1</td>
+   <td align="right">5.04</td>
+   <td align="right">-9.83</td>
+   <td align="right">0.82</td>
+</tr>
+<tr class="">
+   <td align="right" csk="4">4</td>
+   <td align="left">Sun</td>
+   <td align="left" csk="2013-09-29">September 29</td>
+   <td align="center"><a href="/boxscores/201309290rai.htm">boxscore</a></td>
+   <td align="right">W</td>
+   <td align="left"></td>
+   <td align="center">1-3</td>
+   <td align="right">@</td>
+   <td align="left"><a href="/teams/rai/2013.htm">Oakland Raiders</a></td>
+   <td align="right">24</td>
+   <td align="right">14</td>
+   <td align="right">15</td>
+   <td align="right">339</td>
+   <td align="right">217</td>
+   <td align="right">122</td>
+   <td align="right">1</td>
+   <td align="right">14</td>
+   <td align="right">298</td>
+   <td align="right">194</td>
+   <td align="right">104</td>
+   <td align="right">3</td>
+   <td align="right">-5.46</td>
+   <td align="right">17.99</td>
+   <td align="right">-4.33</td>
+</tr>
+<tr class="">
+   <td align="right" csk="4.8">5</td>
+   <td align="left"></td>
+   <td align="left"></td>
+   <td align="center"></td>
+   <td align="right"></td>
+   <td align="left"></td>
+   <td align="center"></td>
+   <td align="right"></td>
+   <td align="left"><strong>Bye Week</strong></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right" csk="5">6</td>
+   <td align="left">Sun</td>
+   <td align="left" csk="2013-10-13">October 13</td>
+   <td align="center"><a href="/boxscores/201310130dal.htm">boxscore</a></td>
+   <td align="right">L</td>
+   <td align="left"></td>
+   <td align="center">1-4</td>
+   <td align="right">@</td>
+   <td align="left"><a href="/teams/dal/2013.htm">Dallas Cowboys</a></td>
+   <td align="right">16</td>
+   <td align="right">31</td>
+   <td align="right">25</td>
+   <td align="right">433</td>
+   <td align="right">217</td>
+   <td align="right">216</td>
+   <td align="right">2</td>
+   <td align="right">18</td>
+   <td align="right">213</td>
+   <td align="right">165</td>
+   <td align="right">48</td>
+   <td align="right">1</td>
+   <td align="right">0.95</td>
+   <td align="right">0.73</td>
+   <td align="right">-16.07</td>
+</tr>
+<tr class="">
+   <td align="right" csk="6">7</td>
+   <td align="left">Sun</td>
+   <td align="left" csk="2013-10-20">October 20</td>
+   <td align="center"><a href="/boxscores/201310200was.htm">boxscore</a></td>
+   <td align="right">W</td>
+   <td align="left"></td>
+   <td align="center">2-4</td>
+   <td align="right"></td>
+   <td align="left"><a href="/teams/chi/2013.htm">Chicago Bears</a></td>
+   <td align="right">45</td>
+   <td align="right">41</td>
+   <td align="right">28</td>
+   <td align="right">499</td>
+   <td align="right">290</td>
+   <td align="right">209</td>
+   <td align="right">1</td>
+   <td align="right">21</td>
+   <td align="right">359</td>
+   <td align="right">219</td>
+   <td align="right">140</td>
+   <td align="right">1</td>
+   <td align="right">20.30</td>
+   <td align="right">-9.16</td>
+   <td align="right">-8.76</td>
+</tr>
+<tr class="">
+   <td align="right" csk="7">8</td>
+   <td align="left">Sun</td>
+   <td align="left" csk="2013-10-27">October 27</td>
+   <td align="center"><a href="/boxscores/201310270den.htm">boxscore</a></td>
+   <td align="right">L</td>
+   <td align="left"></td>
+   <td align="center">2-5</td>
+   <td align="right">@</td>
+   <td align="left"><a href="/teams/den/2013.htm">Denver Broncos</a></td>
+   <td align="right">21</td>
+   <td align="right">45</td>
+   <td align="right">22</td>
+   <td align="right">266</td>
+   <td align="right">154</td>
+   <td align="right">112</td>
+   <td align="right">5</td>
+   <td align="right">29</td>
+   <td align="right">446</td>
+   <td align="right">339</td>
+   <td align="right">107</td>
+   <td align="right">4</td>
+   <td align="right">-22.10</td>
+   <td align="right">-5.34</td>
+   <td align="right">2.75</td>
+</tr>
+<tr class="">
+   <td align="right" csk="8">9</td>
+   <td align="left">Sun</td>
+   <td align="left" csk="2013-11-03">November 3</td>
+   <td align="center"><a href="/boxscores/201311030was.htm">boxscore</a></td>
+   <td align="right">W</td>
+   <td align="left">OT</td>
+   <td align="center">3-5</td>
+   <td align="right"></td>
+   <td align="left"><a href="/teams/sdg/2013.htm">San Diego Chargers</a></td>
+   <td align="right">30</td>
+   <td align="right">24</td>
+   <td align="right">27</td>
+   <td align="right">500</td>
+   <td align="right">291</td>
+   <td align="right">209</td>
+   <td align="right">1</td>
+   <td align="right">25</td>
+   <td align="right">410</td>
+   <td align="right">341</td>
+   <td align="right">69</td>
+   <td align="right">2</td>
+   <td align="right">18.87</td>
+   <td align="right">-11.54</td>
+   <td align="right">-3.92</td>
+</tr>
+<tr class="">
+   <td align="right" csk="9">10</td>
+   <td align="left">Thu</td>
+   <td align="left" csk="2013-11-07">November 7</td>
+   <td align="center"><a href="/boxscores/201311070min.htm">boxscore</a></td>
+   <td align="right">L</td>
+   <td align="left"></td>
+   <td align="center">3-6</td>
+   <td align="right">@</td>
+   <td align="left"><a href="/teams/min/2013.htm">Minnesota Vikings</a></td>
+   <td align="right">27</td>
+   <td align="right">34</td>
+   <td align="right">27</td>
+   <td align="right">433</td>
+   <td align="right">242</td>
+   <td align="right">191</td>
+   <td align="right"></td>
+   <td align="right">22</td>
+   <td align="right">307</td>
+   <td align="right">216</td>
+   <td align="right">91</td>
+   <td align="right">1</td>
+   <td align="right">15.72</td>
+   <td align="right">-15.89</td>
+   <td align="right">-5.91</td>
+</tr>
+<tr class="">
+   <td align="right" csk="10">11</td>
+   <td align="left">Sun</td>
+   <td align="left" csk="2013-11-17">November 17</td>
+   <td align="center"><a href="/boxscores/201311170phi.htm">boxscore</a></td>
+   <td align="right">L</td>
+   <td align="left"></td>
+   <td align="center">3-7</td>
+   <td align="right">@</td>
+   <td align="left"><a href="/teams/phi/2013.htm">Philadelphia Eagles</a></td>
+   <td align="right">16</td>
+   <td align="right">24</td>
+   <td align="right">23</td>
+   <td align="right">427</td>
+   <td align="right">236</td>
+   <td align="right">191</td>
+   <td align="right">2</td>
+   <td align="right">22</td>
+   <td align="right">402</td>
+   <td align="right">276</td>
+   <td align="right">126</td>
+   <td align="right"></td>
+   <td align="right">4.39</td>
+   <td align="right">-9.10</td>
+   <td align="right">-3.56</td>
+</tr>
+<tr class="">
+   <td align="right" csk="11">12</td>
+   <td align="left">Mon</td>
+   <td align="left" csk="2013-11-25">November 25</td>
+   <td align="center"><a href="/boxscores/201311250was.htm">boxscore</a></td>
+   <td align="right">L</td>
+   <td align="left"></td>
+   <td align="center">3-8</td>
+   <td align="right"></td>
+   <td align="left"><a href="/teams/sfo/2013.htm">San Francisco 49ers</a></td>
+   <td align="right">6</td>
+   <td align="right">27</td>
+   <td align="right">10</td>
+   <td align="right">190</td>
+   <td align="right">76</td>
+   <td align="right">114</td>
+   <td align="right">1</td>
+   <td align="right">15</td>
+   <td align="right">304</td>
+   <td align="right">228</td>
+   <td align="right">76</td>
+   <td align="right">1</td>
+   <td align="right">-21.95</td>
+   <td align="right">0.61</td>
+   <td align="right">-1.46</td>
+</tr>
+<tr class="">
+   <td align="right" csk="12">13</td>
+   <td align="left">Sun</td>
+   <td align="left" csk="2013-12-01">December 1</td>
+   <td align="center"><a href="/boxscores/201312010was.htm">boxscore</a></td>
+   <td align="right">L</td>
+   <td align="left"></td>
+   <td align="center">3-9</td>
+   <td align="right"></td>
+   <td align="left"><a href="/teams/nyg/2013.htm">New York Giants</a></td>
+   <td align="right">17</td>
+   <td align="right">24</td>
+   <td align="right">18</td>
+   <td align="right">323</td>
+   <td align="right">184</td>
+   <td align="right">139</td>
+   <td align="right">1</td>
+   <td align="right">16</td>
+   <td align="right">286</td>
+   <td align="right">206</td>
+   <td align="right">80</td>
+   <td align="right">1</td>
+   <td align="right">-4.68</td>
+   <td align="right">-1.44</td>
+   <td align="right">-0.44</td>
+</tr>
+<tr class="">
+   <td align="right" csk="13">14</td>
+   <td align="left">Sun</td>
+   <td align="left" csk="2013-12-08">December 8</td>
+   <td align="center"><a href="/boxscores/201312080was.htm">boxscore</a></td>
+   <td align="right">L</td>
+   <td align="left"></td>
+   <td align="center">3-10</td>
+   <td align="right"></td>
+   <td align="left"><a href="/teams/kan/2013.htm">Kansas City Chiefs</a></td>
+   <td align="right">10</td>
+   <td align="right">45</td>
+   <td align="right">13</td>
+   <td align="right">257</td>
+   <td align="right">192</td>
+   <td align="right">65</td>
+   <td align="right">2</td>
+   <td align="right">20</td>
+   <td align="right">346</td>
+   <td align="right">154</td>
+   <td align="right">192</td>
+   <td align="right">1</td>
+   <td align="right">-23.57</td>
+   <td align="right">-7.25</td>
+   <td align="right">-4.38</td>
+</tr>
+<tr class="">
+   <td align="right" csk="14">15</td>
+   <td align="left">Sun</td>
+   <td align="left" csk="2013-12-15">December 15</td>
+   <td align="center"><a href="/boxscores/201312150atl.htm">boxscore</a></td>
+   <td align="right">L</td>
+   <td align="left"></td>
+   <td align="center">3-11</td>
+   <td align="right">@</td>
+   <td align="left"><a href="/teams/atl/2013.htm">Atlanta Falcons</a></td>
+   <td align="right">26</td>
+   <td align="right">27</td>
+   <td align="right">22</td>
+   <td align="right">476</td>
+   <td align="right">373</td>
+   <td align="right">103</td>
+   <td align="right">7</td>
+   <td align="right">19</td>
+   <td align="right">243</td>
+   <td align="right">189</td>
+   <td align="right">54</td>
+   <td align="right">2</td>
+   <td align="right">-5.58</td>
+   <td align="right">12.04</td>
+   <td align="right">-8.12</td>
+</tr>
+<tr class="">
+   <td align="right" csk="15">16</td>
+   <td align="left">Sun</td>
+   <td align="left" csk="2013-12-22">December 22</td>
+   <td align="center"><a href="/boxscores/201312220was.htm">boxscore</a></td>
+   <td align="right">L</td>
+   <td align="left"></td>
+   <td align="center">3-12</td>
+   <td align="right"></td>
+   <td align="left"><a href="/teams/dal/2013.htm">Dallas Cowboys</a></td>
+   <td align="right">23</td>
+   <td align="right">24</td>
+   <td align="right">17</td>
+   <td align="right">297</td>
+   <td align="right">197</td>
+   <td align="right">100</td>
+   <td align="right">1</td>
+   <td align="right">16</td>
+   <td align="right">309</td>
+   <td align="right">214</td>
+   <td align="right">95</td>
+   <td align="right">2</td>
+   <td align="right">1.45</td>
+   <td align="right">-5.05</td>
+   <td align="right">-0.92</td>
+</tr>
+<tr class="">
+   <td align="right" csk="16">17</td>
+   <td align="left">Sun</td>
+   <td align="left" csk="2013-12-29">December 29</td>
+   <td align="center"><a href="/boxscores/201312290nyg.htm">boxscore</a></td>
+   <td align="right">L</td>
+   <td align="left"></td>
+   <td align="center">3-13</td>
+   <td align="right">@</td>
+   <td align="left"><a href="/teams/nyg/2013.htm">New York Giants</a></td>
+   <td align="right">6</td>
+   <td align="right">20</td>
+   <td align="right">12</td>
+   <td align="right">251</td>
+   <td align="right">160</td>
+   <td align="right">91</td>
+   <td align="right">4</td>
+   <td align="right">14</td>
+   <td align="right">278</td>
+   <td align="right">156</td>
+   <td align="right">122</td>
+   <td align="right">3</td>
+   <td align="right">-34.53</td>
+   <td align="right">17.58</td>
+   <td align="right">4.69</td>
+</tr>
+</tbody>
+</table>
+</div><!-- div.table_container#div_xxxx -->
+<div class="margin padding"><!-- div.#restofsite_728x90_btf1.advert728x90 -->
+<script type="text/javascript">
+googletag.cmd.push(function() {
+googletag.defineSlot('/117033896/sr_728x90_2a_ros', [728,90], 'restofsite_728x90_btf1').addService(googletag.pubads());
+googletag.pubads().set("adsense_channel_ids", "3900428057");
+googletag.enableServices();
+});
+</script>
+<div class="advert728x90" id="restofsite_728x90_btf1">
+<script type="text/javascript">
+googletag.cmd.push(function() { googletag.display('restofsite_728x90_btf1'); });
+</script>
+</div>
+<!-- /div.#restofsite_728x90_btf1.advert728x90 -->
+</div><div class="clear_both margin0 padding0"></div>
+</div><!-- stw -->
+<div class="stw clear_both" id="all_passing">
+<div class="table_heading">
+<a name="passing"></a><h2>Passing</h2><div class="table_heading_text">ProBowl(*), <a href="/about/allpro.htm">1st-team All-Pro</a>(+),</div></div>
+<div class="table_container" id="div_passing">
+<table class="sortable stats_table" data-freeze="2" id="passing">
+<colgroup><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col></colgroup>
+<thead>
+<tr class="">
+  <th align="center" class="tooltip sort_default_asc" data-stat="uniform_number" tip="Uniform number">No.</th>
+  <th align="left" class="tooltip sort_default_asc show_partial_when_sorting" data-stat="player"></th>
+  <th align="center" class="tooltip sort_default_asc" data-stat="age" tip="Player's age on December 31st of that year">Age</th>
+  <th align="left" class="tooltip sort_default_asc" data-stat="pos" tip="&lt;b&gt;Position&lt;/b&gt;&lt;br&gt;In player and team season stats,&lt;br&gt;Capitals indicates primary starter.&lt;br&gt;Lower-case means part-time starter.">Pos</th>
+  <th align="center" class="tooltip" data-stat="g" tip="Games played">G</th>
+  <th align="center" class="tooltip" data-stat="gs" tip="Games started as an offensive or defensive player&lt;br /&gt;Numbers are complete for 1920-49, 1970-72&lt;br /&gt;and 1975-present but are incomplete otherwise">GS</th>
+  <th align="center" class="tooltip" data-stat="qb_rec" tip="Team record in games started by this QB (regular season)">QBrec</th>
+  <th align="center" class="tooltip" data-stat="pass_cmp" tip="Passes completed">Cmp</th>
+  <th align="center" class="tooltip" data-stat="pass_att" tip="Passes attempted">Att</th>
+  <th align="center" class="tooltip hide_non_quals" data-stat="pass_cmp_perc" tip="Percentage of Passes Completed &lt;br&gt;(minimum 14 attempts per scheduled game to qualify as leader)&lt;br&gt;(Passes Completed)/(Passes Attempted)">Cmp%</th>
+  <th align="center" class="tooltip" data-stat="pass_yds" tip="Yards Gained by Passing&lt;br&gt;For teams, sack yardage is deducted from this total">Yds</th>
+  <th align="center" class="tooltip" data-stat="pass_td" tip="Passing Touchdowns">TD</th>
+  <th align="center" class="tooltip hide_non_quals" data-stat="pass_td_perc" tip="Percentage of Touchdowns Thrown when Attempting to Pass &lt;br&gt;(minimum 14 attempts per scheduled game to qualify as leader)&lt;br&gt;Passing Touchdowns / (Passes Attempted)">TD%</th>
+  <th align="center" class="tooltip" data-stat="pass_int" tip="Interceptions thrown">Int</th>
+  <th align="center" class="tooltip sort_default_asc hide_non_quals" data-stat="pass_int_perc" tip="Percentage of Times Intercepted when Attempting to Pass &lt;br&gt;(minimum 14 attempts per scheduled game to qualify as leader)&lt;br&gt;Interceptions / (Passes Attempted)">Int%</th>
+  <th align="center" class="tooltip" data-stat="pass_long" tip="Longest Completed Pass Thrown">Lng</th>
+  <th align="center" class="tooltip hide_non_quals" data-stat="pass_yds_per_att" tip="Yards gained per pass attempt &lt;br&gt;(minimum 14 attempts per scheduled games to qualify as leader)&lt;br&gt;Passing Yards / (Passes Attempted)">Y/A</th>
+  <th align="center" class="tooltip hide_non_quals" data-stat="pass_adj_yds_per_att" tip="Adjusted Yards gained per pass attempt &lt;br&gt;(minimum 14 attepts per scheduled game to qualify as leader)&lt;br&gt;(Passing Yards + 20 * Passing TD - 45 * Interceptions) / (Passes Attempted)">AY/A</th>
+  <th align="center" class="tooltip hide_non_quals" data-stat="pass_yds_per_cmp" tip="&lt;b&gt;Yards gained per pass completion&lt;/b&gt;&lt;br&gt;(minimum 14 attepts per scheduled game to qualify as leader)&lt;br&gt;(Passing Yards) / (Passes Completed)">Y/C</th>
+  <th align="center" class="tooltip hide_non_quals" data-stat="pass_yds_per_g" tip="&lt;b&gt;Yards gained per game played&lt;/b&gt;&lt;br&gt;(minimum half a game played per scheduled game to qualify as leader)&lt;br&gt;(Passing Yards) / (Games played)">Y/G</th>
+  <th align="center" class="tooltip hide_non_quals" data-stat="pass_rating" tip="Quarterback Rating, see glossary for details&lt;br&gt;Different ratings are used by the NFL and NCAA.">Rate</th>
+  <th align="center" class="tooltip show_partial_when_sorting hide_non_quals" data-stat="qbr" tip="&lt;b&gt;QBR&lt;/b&gt;&lt;br /&gt;ESPN’s Total Quarterback Rating, calculated since 2006">QBR</th>
+  <th align="center" class="tooltip" data-stat="pass_sacked" tip="Times Sacked (first recorded in 1969)">Sk</th>
+  <th align="center" class="tooltip" data-stat="pass_sacked_yds" tip="Yards lost due to sacks (first recorded in 1969)">Yds</th>
+  <th align="center" class="tooltip hide_non_quals" data-stat="pass_net_yds_per_att" tip="Net Yards gained per pass attempt &lt;br&gt;(minimum 14 attepts per scheduled game to qualify as leader)&lt;br&gt;(Passing Yards - Sack Yards) / (Passes Attempted + Times Sacked)">NY/A</th>
+  <th align="center" class="tooltip hide_non_quals" data-stat="pass_adj_net_yds_per_att" tip="&lt;b&gt;Adjusted Net Yards per Pass Attempt&lt;/b&gt;&lt;br&gt;(Passing Yards - Sack Yards + (20 * Passing TD) - (45 * Interceptions)) / (Passes Attempted + Times Sacked)&lt;br&gt;(minimum 14 attepts per scheduled game to qualify as leader)">ANY/A</th>
+  <th align="center" class="tooltip sort_default_asc hide_non_quals" data-stat="pass_sacked_perc" tip="Percentage of Time Sacked when Attempting to Pass &lt;br&gt;(minimum 14 attempts + sacks per scheduled game to qualify as leader)&lt;br&gt;Times Sacked / (Passes Attempted + Times Sacked)">Sk%</th>
+  <th align="center" class="tooltip" data-stat="comebacks" tip="Comebacks led by quarterback.&lt;br /&gt;Must be an offensive scoring drive in the 4th quarter, with the team trailing by one score, though not necessarily a drive to take the lead. Only games ending in a win or tie are included.">4QC</th>
+  <th align="center" class="tooltip" data-stat="gwd" tip="Game-winning drives led by quarterback.&lt;br /&gt;Must be an offensive scoring drive in the 4th quarter or overtime that puts the winning team ahead for the last time.">GWD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="">
+   <td align="right">10</td>
+   <td align="left" csk="Griffin,Robert"><a href="/players/G/GrifRo01.htm">Robert Griffin</a></td>
+   <td align="right">23</td>
+   <td align="left">QB</td>
+   <td align="right">13</td>
+   <td align="right">13</td>
+   <td align="right" csk="0.23077">3-10-0</td>
+   <td align="right">274</td>
+   <td align="right">456</td>
+   <td align="right">60.1</td>
+   <td align="right">3203</td>
+   <td align="right">16</td>
+   <td align="right">3.5</td>
+   <td align="right">12</td>
+   <td align="right">2.6</td>
+   <td align="right">62</td>
+   <td align="right">7.0</td>
+   <td align="right">6.5</td>
+   <td align="right">11.7</td>
+   <td align="right">246.4</td>
+   <td align="right">82.2</td>
+   <td align="right"></td>
+   <td align="right">38</td>
+   <td align="right">274</td>
+   <td align="right">5.93</td>
+   <td align="right">5.48</td>
+   <td align="right">7.7</td>
+   <td align="right">1</td>
+   <td align="right">2</td>
+</tr>
+<tr class="">
+   <td align="right">12</td>
+   <td align="left" csk="Cousins,Kirk"><a href="/players/C/CousKi00.htm">Kirk Cousins</a></td>
+   <td align="right">25</td>
+   <td align="left"></td>
+   <td align="right">5</td>
+   <td align="right">3</td>
+   <td align="right" csk="0.00000">0-3-0</td>
+   <td align="right">81</td>
+   <td align="right">155</td>
+   <td align="right">52.3</td>
+   <td align="right">854</td>
+   <td align="right">4</td>
+   <td align="right">2.6</td>
+   <td align="right">7</td>
+   <td align="right">4.5</td>
+   <td align="right">62</td>
+   <td align="right">5.5</td>
+   <td align="right">4.0</td>
+   <td align="right">10.5</td>
+   <td align="right">170.8</td>
+   <td align="right">58.4</td>
+   <td align="right">41.81</td>
+   <td align="right">5</td>
+   <td align="right">32</td>
+   <td align="right">5.14</td>
+   <td align="right">3.67</td>
+   <td align="right">3.1</td>
+   <td align="right"></td>
+   <td align="right"></td>
+</tr>
+</tbody>
+<tfoot>
+<tr class=" stat_total">
+   <td align="right"></td>
+   <td align="left">Team Total</td>
+   <td align="right">26.3</td>
+   <td align="left"></td>
+   <td align="right">16</td>
+   <td align="right"></td>
+   <td align="right">3-13-0</td>
+   <td align="right">355</td>
+   <td align="right">611</td>
+   <td align="right">58.1</td>
+   <td align="right">4057</td>
+   <td align="right">20</td>
+   <td align="right">3.3</td>
+   <td align="right">19</td>
+   <td align="right">3.1</td>
+   <td align="right">62</td>
+   <td align="right">6.6</td>
+   <td align="right">5.9</td>
+   <td align="right">11.4</td>
+   <td align="right">253.6</td>
+   <td align="right">76.1</td>
+   <td align="right"></td>
+   <td align="right">43</td>
+   <td align="right">306</td>
+   <td align="right">5.74</td>
+   <td align="right">5.04</td>
+   <td align="right">6.6</td>
+   <td align="right">1</td>
+   <td align="right">2</td>
+</tr>
+<tr class=" stat_total">
+   <td align="right"></td>
+   <td align="left">Opp Total</td>
+   <td align="right"></td>
+   <td align="left"></td>
+   <td align="right">16</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">337</td>
+   <td align="right">514</td>
+   <td align="right">65.6</td>
+   <td align="right">4134</td>
+   <td align="right">29</td>
+   <td align="right">5.6</td>
+   <td align="right">16</td>
+   <td align="right">3.1</td>
+   <td align="right"></td>
+   <td align="right">8.0</td>
+   <td align="right">7.77</td>
+   <td align="right">12.3</td>
+   <td align="right">258.4</td>
+   <td align="right">96.1</td>
+   <td align="right"></td>
+   <td align="right">36</td>
+   <td align="right">238</td>
+   <td align="right">7.1</td>
+   <td align="right">6.8</td>
+   <td align="right">6.5</td>
+   <td align="right"></td>
+   <td align="right"></td>
+</tr>
+</tfoot>
+</table>
+</div><!-- div.table_container#div_xxxx -->
+</div><!-- stw -->
+<div class="stw clear_both" id="all_rushing_and_receiving">
+<div class="table_heading">
+<a name="rushing_and_receiving"></a><a name="receiving_and_rushing"></a><a name="receiving"></a><a name="rushing"></a><h2>Rushing &amp; Receiving</h2><div class="table_heading_text">ProBowl(*), <a href="/about/allpro.htm">1st-team All-Pro</a>(+),</div></div>
+<div class="table_container" id="div_rushing_and_receiving">
+<table class="sortable stats_table" data-freeze="2" id="rushing_and_receiving">
+<colgroup><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col></colgroup>
+<thead>
+<tr class=" over_header">
+  <th align="CENTER" class="tooltip over_header" colspan="6" data-stat=""></th>
+  <th align="center" class="bold_text over_header" colspan="7" data-stat="header_rush">Rushing</th>
+  <th align="center" class="bold_text over_header" colspan="7" data-stat="header_rec">Receiving</th>
+  <th align="CENTER" class="tooltip over_header" colspan="2" data-stat=""></th>
+  <th></th>
+</tr>
+<tr class="">
+  <th align="center" class="tooltip sort_default_asc" data-stat="uniform_number" tip="Uniform number">No.</th>
+  <th align="left" class="tooltip sort_default_asc show_partial_when_sorting" data-stat="player"></th>
+  <th align="center" class="tooltip sort_default_asc" data-stat="age" tip="Player's age on December 31st of that year">Age</th>
+  <th align="left" class="tooltip sort_default_asc" data-stat="pos" tip="&lt;b&gt;Position&lt;/b&gt;&lt;br&gt;In player and team season stats,&lt;br&gt;Capitals indicates primary starter.&lt;br&gt;Lower-case means part-time starter.">Pos</th>
+  <th align="center" class="tooltip" data-stat="g" tip="Games played">G</th>
+  <th align="center" class="tooltip" data-stat="gs" tip="Games started as an offensive or defensive player&lt;br /&gt;Numbers are complete for 1920-49, 1970-72&lt;br /&gt;and 1975-present but are incomplete otherwise">GS</th>
+  <th align="center" class="tooltip" data-stat="rush_att" tip="Rushing Attempts (sacks not included in NFL)">Att</th>
+  <th align="center" class="tooltip" data-stat="rush_yds" tip="Rushing Yards Gained (sack yardage is not included by NFL)">Yds</th>
+  <th align="center" class="tooltip" data-stat="rush_td" tip="Rushing Touchdowns">TD</th>
+  <th align="center" class="tooltip" data-stat="rush_long" tip="Longest Rushing Attempt">Lng</th>
+  <th align="center" class="tooltip hide_non_quals" data-stat="rush_yds_per_att" tip="Rushing Yards per Attempt&lt;br&gt;(minimum 6.25 rushes per game scheduled to qualify as leader)&lt;br&gt;(Rushing Yards)/(Rush Attempts)">Y/A</th>
+  <th align="center" class="tooltip hide_non_quals" data-stat="rush_yds_per_g" tip="Rushing Yards per Game&lt;br&gt;(minimum half a game per game scheduled to qualify as leader)&lt;br&gt;(Rushing Yards)/(Games Played)">Y/G</th>
+  <th align="center" class="tooltip hide_non_quals" data-stat="rush_att_per_g" tip="Rushing Attempts per Game&lt;br&gt;(minimum half a game per game scheduled to qualify as leader)&lt;br&gt;(Rushing Attempts)/(Games Played)">A/G</th>
+  <th align="center" class="tooltip" data-stat="rec" tip="Receptions">Rec</th>
+  <th align="center" class="tooltip" data-stat="rec_yds" tip="Receiving Yards">Yds</th>
+  <th align="center" class="tooltip hide_non_quals" data-stat="rec_yds_per_rec" tip="Receiving Yards per Reception&lt;br&gt;(minimum 1.875 catches per game scheduled to qualify as leader)&lt;br&gt;(Receiving Yards)/(Receptions)">Y/R</th>
+  <th align="center" class="tooltip" data-stat="rec_td" tip="Receiving Touchdowns">TD</th>
+  <th align="center" class="tooltip" data-stat="rec_long" tip="Longest Reception">Lng</th>
+  <th align="center" class="tooltip hide_non_quals" data-stat="rec_per_g" tip="Receptions per Game&lt;br&gt;(minimum half a game per game scheduled to qualify as leader)&lt;br&gt;(Receptions)/(Games Played)">R/G</th>
+  <th align="center" class="tooltip hide_non_quals" data-stat="rec_yds_per_g" tip="Receiving Yards per Game&lt;br&gt;(minimum half a game per game scheduled to qualify as leader)&lt;br&gt;(Receiving Yards)/(Games Played)">Y/G</th>
+  <th align="center" class="tooltip" data-stat="yds_from_scrimmage" tip="Yards from Scrimmage: Receiving and Rushing Yards">YScm</th>
+  <th align="center" class="tooltip" data-stat="rush_receive_td" tip="Rushing and Receiving Touchdowns">RRTD</th>
+  <th align="center" class="tooltip" data-stat="fumbles" tip="Number of times fumbled both lost and recovered by own team">Fmb</th>
+</tr>
+</thead>
+<tbody>
+<tr class="">
+   <td align="right">46</td>
+   <td align="left" csk="Morris,Alfred"><a href="/players/M/MorrAl00.htm">Alfred Morris</a>*</td>
+   <td align="right">25</td>
+   <td align="left">RB</td>
+   <td align="right">16</td>
+   <td align="right">16</td>
+   <td align="right">276</td>
+   <td align="right">1275</td>
+   <td align="right">7</td>
+   <td align="right">45</td>
+   <td align="right">4.6</td>
+   <td align="right">79.7</td>
+   <td align="right">17.3</td>
+   <td align="right">9</td>
+   <td align="right">78</td>
+   <td align="right">8.7</td>
+   <td align="right">0</td>
+   <td align="right">17</td>
+   <td align="right">0.6</td>
+   <td align="right">4.9</td>
+   <td align="right">1353</td>
+   <td align="right">7</td>
+   <td align="right">5</td>
+</tr>
+<tr class="">
+   <td align="right">10</td>
+   <td align="left" csk="Griffin,Robert"><a href="/players/G/GrifRo01.htm">Robert Griffin</a></td>
+   <td align="right">23</td>
+   <td align="left">QB</td>
+   <td align="right">13</td>
+   <td align="right">13</td>
+   <td align="right">86</td>
+   <td align="right">489</td>
+   <td align="right">0</td>
+   <td align="right">26</td>
+   <td align="right">5.7</td>
+   <td align="right">37.6</td>
+   <td align="right">6.6</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">489</td>
+   <td align="right">0</td>
+   <td align="right">11</td>
+</tr>
+<tr class="">
+   <td align="right">29</td>
+   <td align="left" csk="Helu,Roy"><a href="/players/H/HeluRo00.htm">Roy Helu</a></td>
+   <td align="right">25</td>
+   <td align="left"></td>
+   <td align="right">16</td>
+   <td align="right">0</td>
+   <td align="right">62</td>
+   <td align="right">274</td>
+   <td align="right">4</td>
+   <td align="right">24</td>
+   <td align="right">4.4</td>
+   <td align="right">17.1</td>
+   <td align="right">3.9</td>
+   <td align="right">31</td>
+   <td align="right">251</td>
+   <td align="right">8.1</td>
+   <td align="right">0</td>
+   <td align="right">28</td>
+   <td align="right">1.9</td>
+   <td align="right">15.7</td>
+   <td align="right">525</td>
+   <td align="right">4</td>
+   <td align="right">2</td>
+</tr>
+<tr class="">
+   <td align="right">36</td>
+   <td align="left" csk="Young,Darrel"><a href="/players/Y/YounDa01.htm">Darrel Young</a></td>
+   <td align="right">26</td>
+   <td align="left">FB</td>
+   <td align="right">13</td>
+   <td align="right">7</td>
+   <td align="right">12</td>
+   <td align="right">41</td>
+   <td align="right">3</td>
+   <td align="right">19</td>
+   <td align="right">3.4</td>
+   <td align="right">3.2</td>
+   <td align="right">0.9</td>
+   <td align="right">4</td>
+   <td align="right">71</td>
+   <td align="right">17.8</td>
+   <td align="right">1</td>
+   <td align="right">62</td>
+   <td align="right">0.3</td>
+   <td align="right">5.5</td>
+   <td align="right">112</td>
+   <td align="right">4</td>
+   <td align="right">0</td>
+</tr>
+<tr class="">
+   <td align="right">12</td>
+   <td align="left" csk="Cousins,Kirk"><a href="/players/C/CousKi00.htm">Kirk Cousins</a></td>
+   <td align="right">25</td>
+   <td align="left"></td>
+   <td align="right">5</td>
+   <td align="right">3</td>
+   <td align="right">4</td>
+   <td align="right">14</td>
+   <td align="right">0</td>
+   <td align="right">6</td>
+   <td align="right">3.5</td>
+   <td align="right">2.8</td>
+   <td align="right">0.8</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">14</td>
+   <td align="right">0</td>
+   <td align="right">3</td>
+</tr>
+<tr class="">
+   <td align="right">89</td>
+   <td align="left" csk="Moss,Santana"><a href="/players/M/MossSa00.htm">Santana Moss</a></td>
+   <td align="right">34</td>
+   <td align="left"></td>
+   <td align="right">16</td>
+   <td align="right">1</td>
+   <td align="right">3</td>
+   <td align="right">25</td>
+   <td align="right">0</td>
+   <td align="right">18</td>
+   <td align="right">8.3</td>
+   <td align="right">1.6</td>
+   <td align="right">0.2</td>
+   <td align="right">42</td>
+   <td align="right">452</td>
+   <td align="right">10.8</td>
+   <td align="right">2</td>
+   <td align="right">28</td>
+   <td align="right">2.6</td>
+   <td align="right">28.3</td>
+   <td align="right">477</td>
+   <td align="right">2</td>
+   <td align="right">2</td>
+</tr>
+<tr class="">
+   <td align="right">11</td>
+   <td align="left" csk="Robinson,Aldrick"><a href="/players/R/RobiAl00.htm">Aldrick Robinson</a></td>
+   <td align="right">25</td>
+   <td align="left"></td>
+   <td align="right">16</td>
+   <td align="right">1</td>
+   <td align="right">3</td>
+   <td align="right">-4</td>
+   <td align="right">0</td>
+   <td align="right">9</td>
+   <td align="right">-1.3</td>
+   <td align="right">-0.3</td>
+   <td align="right">0.2</td>
+   <td align="right">18</td>
+   <td align="right">365</td>
+   <td align="right">20.3</td>
+   <td align="right">2</td>
+   <td align="right">62</td>
+   <td align="right">1.1</td>
+   <td align="right">22.8</td>
+   <td align="right">361</td>
+   <td align="right">2</td>
+   <td align="right">0</td>
+</tr>
+<tr class="">
+   <td align="right">88</td>
+   <td align="left" csk="Garcon,Pierre"><a href="/players/G/GarcPi00.htm">Pierre Garcon</a></td>
+   <td align="right">27</td>
+   <td align="left">WR</td>
+   <td align="right">16</td>
+   <td align="right">16</td>
+   <td align="right">2</td>
+   <td align="right">19</td>
+   <td align="right">0</td>
+   <td align="right">10</td>
+   <td align="right">9.5</td>
+   <td align="right">1.2</td>
+   <td align="right">0.1</td>
+   <td align="right">113</td>
+   <td align="right">1346</td>
+   <td align="right">11.9</td>
+   <td align="right">5</td>
+   <td align="right">53</td>
+   <td align="right">7.1</td>
+   <td align="right">84.1</td>
+   <td align="right">1365</td>
+   <td align="right">5</td>
+   <td align="right">1</td>
+</tr>
+<tr class="">
+   <td align="right">15</td>
+   <td align="left" csk="Morgan,Josh"><a href="/players/M/MorgJo00.htm">Josh Morgan</a></td>
+   <td align="right">28</td>
+   <td align="left">WR</td>
+   <td align="right">14</td>
+   <td align="right">7</td>
+   <td align="right">2</td>
+   <td align="right">13</td>
+   <td align="right">0</td>
+   <td align="right">9</td>
+   <td align="right">6.5</td>
+   <td align="right">0.9</td>
+   <td align="right">0.1</td>
+   <td align="right">20</td>
+   <td align="right">214</td>
+   <td align="right">10.7</td>
+   <td align="right">0</td>
+   <td align="right">21</td>
+   <td align="right">1.4</td>
+   <td align="right">15.3</td>
+   <td align="right">227</td>
+   <td align="right">0</td>
+   <td align="right">2</td>
+</tr>
+<tr class="">
+   <td align="right">22</td>
+   <td align="left" csk="Royster,Evan"><a href="/players/R/RoysEv00.htm">Evan Royster</a></td>
+   <td align="right">26</td>
+   <td align="left"></td>
+   <td align="right">10</td>
+   <td align="right">0</td>
+   <td align="right">2</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0.0</td>
+   <td align="right">0.0</td>
+   <td align="right">0.2</td>
+   <td align="right">1</td>
+   <td align="right">3</td>
+   <td align="right">3.0</td>
+   <td align="right">0</td>
+   <td align="right">3</td>
+   <td align="right">0.1</td>
+   <td align="right">0.3</td>
+   <td align="right">3</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+</tr>
+<tr class="">
+   <td align="right">86</td>
+   <td align="left" csk="Reed,Jordan"><a href="/players/R/ReedJo02.htm">Jordan Reed</a></td>
+   <td align="right">23</td>
+   <td align="left"></td>
+   <td align="right">9</td>
+   <td align="right">4</td>
+   <td align="right">1</td>
+   <td align="right">18</td>
+   <td align="right">0</td>
+   <td align="right">18</td>
+   <td align="right">18.0</td>
+   <td align="right">2.0</td>
+   <td align="right">0.1</td>
+   <td align="right">45</td>
+   <td align="right">499</td>
+   <td align="right">11.1</td>
+   <td align="right">3</td>
+   <td align="right">38</td>
+   <td align="right">5.0</td>
+   <td align="right">55.4</td>
+   <td align="right">517</td>
+   <td align="right">3</td>
+   <td align="right">0</td>
+</tr>
+<tr class="">
+   <td align="right">85</td>
+   <td align="left" csk="Hankerson,Leonard"><a href="/players/H/HankLe00.htm">Leonard Hankerson</a></td>
+   <td align="right">25</td>
+   <td align="left">WR</td>
+   <td align="right">10</td>
+   <td align="right">7</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right">0.0</td>
+   <td align="right">0.0</td>
+   <td align="right">30</td>
+   <td align="right">375</td>
+   <td align="right">12.5</td>
+   <td align="right">3</td>
+   <td align="right">29</td>
+   <td align="right">3.0</td>
+   <td align="right">37.5</td>
+   <td align="right">375</td>
+   <td align="right">3</td>
+   <td align="right">0</td>
+</tr>
+<tr class="">
+   <td align="right">82</td>
+   <td align="left" csk="Paulsen,Logan"><a href="/players/P/PaulLo00.htm">Logan Paulsen</a></td>
+   <td align="right">26</td>
+   <td align="left">TE</td>
+   <td align="right">16</td>
+   <td align="right">14</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right">0.0</td>
+   <td align="right">0.0</td>
+   <td align="right">28</td>
+   <td align="right">267</td>
+   <td align="right">9.5</td>
+   <td align="right">3</td>
+   <td align="right">33</td>
+   <td align="right">1.8</td>
+   <td align="right">16.7</td>
+   <td align="right">267</td>
+   <td align="right">3</td>
+   <td align="right">2</td>
+</tr>
+<tr class="">
+   <td align="right">83</td>
+   <td align="left" csk="Davis,Fred"><a href="/players/D/DaviFr01.htm">Fred Davis</a></td>
+   <td align="right">27</td>
+   <td align="left">TE</td>
+   <td align="right">10</td>
+   <td align="right">3</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right">0.0</td>
+   <td align="right">0.0</td>
+   <td align="right">7</td>
+   <td align="right">70</td>
+   <td align="right">10.0</td>
+   <td align="right">1</td>
+   <td align="right">23</td>
+   <td align="right">0.7</td>
+   <td align="right">7.0</td>
+   <td align="right">70</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+</tr>
+<tr class="">
+   <td align="right">84</td>
+   <td align="left" csk="Paul,Niles"><a href="/players/P/PaulNi00.htm">Niles Paul</a></td>
+   <td align="right">24</td>
+   <td align="left">fb</td>
+   <td align="right">15</td>
+   <td align="right">4</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right">0.0</td>
+   <td align="right">0.0</td>
+   <td align="right">4</td>
+   <td align="right">51</td>
+   <td align="right">12.8</td>
+   <td align="right">0</td>
+   <td align="right">25</td>
+   <td align="right">0.3</td>
+   <td align="right">3.4</td>
+   <td align="right">51</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+</tr>
+<tr class="">
+   <td align="right">13</td>
+   <td align="left" csk="Williams,Nick"><a href="/players/W/WillNi02.htm">Nick Williams</a></td>
+   <td align="right">23</td>
+   <td align="left"></td>
+   <td align="right">5</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right">0.0</td>
+   <td align="right">0.0</td>
+   <td align="right">3</td>
+   <td align="right">15</td>
+   <td align="right">5.0</td>
+   <td align="right">0</td>
+   <td align="right">6</td>
+   <td align="right">0.6</td>
+   <td align="right">3.0</td>
+   <td align="right">15</td>
+   <td align="right">0</td>
+   <td align="right">1</td>
+</tr>
+</tbody>
+<tfoot>
+<tr class=" stat_total">
+   <td align="right"></td>
+   <td align="left">Team Total</td>
+   <td align="right">26.3</td>
+   <td align="left"></td>
+   <td align="right">16</td>
+   <td align="right"></td>
+   <td align="right">453</td>
+   <td align="right">2164</td>
+   <td align="right">14</td>
+   <td align="right">45</td>
+   <td align="right">4.8</td>
+   <td align="right">135.3</td>
+   <td align="right">28.3</td>
+   <td align="right">355</td>
+   <td align="right">4057</td>
+   <td align="right">11.4</td>
+   <td align="right">20</td>
+   <td align="right">62</td>
+   <td align="right">22.2</td>
+   <td align="right">253.6</td>
+   <td align="right">6221</td>
+   <td align="right">34</td>
+   <td align="right">30</td>
+</tr>
+<tr class=" stat_total">
+   <td align="right"></td>
+   <td align="left">Opp Total</td>
+   <td align="right"></td>
+   <td align="left"></td>
+   <td align="right">16</td>
+   <td align="right"></td>
+   <td align="right">443</td>
+   <td align="right">1769</td>
+   <td align="right">23</td>
+   <td align="right"></td>
+   <td align="right">4.0</td>
+   <td align="right">110.6</td>
+   <td align="right">27.7</td>
+   <td align="right">337</td>
+   <td align="right">3896</td>
+   <td align="right">11.6</td>
+   <td align="right">29</td>
+   <td align="right"></td>
+   <td align="right">21.1</td>
+   <td align="right">243.5</td>
+   <td align="right">5665</td>
+   <td align="right">52</td>
+   <td align="right">19</td>
+</tr>
+</tfoot>
+</table>
+</div><!-- div.table_container#div_xxxx -->
+</div><!-- stw -->
+<div class="stw clear_both" id="all_returns">
+<div class="table_heading">
+<a name="returns"></a><h2>Kick &amp; Punt Returns</h2><div class="table_heading_text">ProBowl(*), <a href="/about/allpro.htm">1st-team All-Pro</a>(+),</div></div>
+<div class="table_container" id="div_returns">
+<table class="sortable stats_table" data-freeze="2" id="returns">
+<colgroup><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col></colgroup>
+<thead>
+<tr class=" over_header">
+  <th align="CENTER" class="tooltip over_header" colspan="6" data-stat=""></th>
+  <th align="center" class="bold_text over_header" colspan="5" data-stat="header_pr">Punt Returns</th>
+  <th align="center" class="bold_text over_header" colspan="5" data-stat="header_kr">Kick Returns</th>
+  <th></th>
+</tr>
+<tr class="">
+  <th align="center" class="tooltip sort_default_asc" data-stat="uniform_number" tip="Uniform number">No.</th>
+  <th align="left" class="tooltip sort_default_asc show_partial_when_sorting" data-stat="player"></th>
+  <th align="center" class="tooltip sort_default_asc" data-stat="age" tip="Player's age on December 31st of that year">Age</th>
+  <th align="left" class="tooltip sort_default_asc" data-stat="pos" tip="&lt;b&gt;Position&lt;/b&gt;&lt;br&gt;In player and team season stats,&lt;br&gt;Capitals indicates primary starter.&lt;br&gt;Lower-case means part-time starter.">Pos</th>
+  <th align="center" class="tooltip" data-stat="g" tip="Games played">G</th>
+  <th align="center" class="tooltip" data-stat="gs" tip="Games started as an offensive or defensive player&lt;br /&gt;Numbers are complete for 1920-49, 1970-72&lt;br /&gt;and 1975-present but are incomplete otherwise">GS</th>
+  <th align="center" class="tooltip" data-stat="punt_ret" tip="Punts Returned">Ret</th>
+  <th align="center" class="tooltip" data-stat="punt_ret_yds" tip="Punts Return Yardage">Yds</th>
+  <th align="center" class="tooltip" data-stat="punt_ret_td" tip="Punts Returned for Touchdown">TD</th>
+  <th align="center" class="tooltip" data-stat="punt_ret_long" tip="Longest Punt Return">Lng</th>
+  <th align="center" class="tooltip hide_non_quals" data-stat="punt_ret_yds_per_ret" tip="Yards per Punt Return&lt;br&gt;(minimum one return per game scheduled to qualify as leader)&lt;br&gt;(Punt Return Yardage)/(Punt Returns)">Y/R</th>
+  <th align="center" class="tooltip" data-stat="kick_ret" tip="Kickoff Returns">Rt</th>
+  <th align="center" class="tooltip" data-stat="kick_ret_yds" tip="Yardage for Kickoffs Returned">Yds</th>
+  <th align="center" class="tooltip" data-stat="kick_ret_td" tip="Kickoffs Returned for a touchdown">TD</th>
+  <th align="center" class="tooltip" data-stat="kick_ret_long" tip="Longest Kickoff Return">Lng</th>
+  <th align="center" class="tooltip hide_non_quals" data-stat="kick_ret_yds_per_ret" tip="Yards per Kickoff Return&lt;br&gt;(minimum one return per game scheduled to qualify as leader)&lt;br&gt;(Kick Return Yardage)/(Kickoff Returns)">Y/Rt</th>
+  <th align="center" class="tooltip" data-stat="all_purpose_yds" tip="All-purpose yards: Rushing, Receiving and Kick &amp; Punt Return Yardage">APYd</th>
+</tr>
+</thead>
+<tbody>
+<tr class="">
+   <td align="right">15</td>
+   <td align="left" csk="Morgan,Josh"><a href="/players/M/MorgJo00.htm">Josh Morgan</a></td>
+   <td align="right">28</td>
+   <td align="left">WR</td>
+   <td align="right">14</td>
+   <td align="right">7</td>
+   <td align="right">8</td>
+   <td align="right">59</td>
+   <td align="right">0</td>
+   <td align="right">34</td>
+   <td align="right">7.4</td>
+   <td align="right">12</td>
+   <td align="right">239</td>
+   <td align="right">0</td>
+   <td align="right">25</td>
+   <td align="right">19.9</td>
+   <td align="right">525</td>
+</tr>
+<tr class="">
+   <td align="right">84</td>
+   <td align="left" csk="Paul,Niles"><a href="/players/P/PaulNi00.htm">Niles Paul</a></td>
+   <td align="right">24</td>
+   <td align="left">fb</td>
+   <td align="right">15</td>
+   <td align="right">4</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">20</td>
+   <td align="right">411</td>
+   <td align="right">0</td>
+   <td align="right">39</td>
+   <td align="right">20.6</td>
+   <td align="right">462</td>
+</tr>
+<tr class="">
+   <td align="right">89</td>
+   <td align="left" csk="Moss,Santana"><a href="/players/M/MossSa00.htm">Santana Moss</a></td>
+   <td align="right">34</td>
+   <td align="left"></td>
+   <td align="right">16</td>
+   <td align="right">1</td>
+   <td align="right">18</td>
+   <td align="right">130</td>
+   <td align="right">0</td>
+   <td align="right">18</td>
+   <td align="right">7.2</td>
+   <td align="right">1</td>
+   <td align="right">15</td>
+   <td align="right">0</td>
+   <td align="right">15</td>
+   <td align="right">15.0</td>
+   <td align="right">622</td>
+</tr>
+<tr class="">
+   <td align="right">25</td>
+   <td align="left" csk="Thompson,Chris"><a href="/players/T/ThomCh03.htm">Chris Thompson</a></td>
+   <td align="right">23</td>
+   <td align="left"></td>
+   <td align="right">4</td>
+   <td align="right">0</td>
+   <td align="right">7</td>
+   <td align="right">36</td>
+   <td align="right">0</td>
+   <td align="right">11</td>
+   <td align="right">5.1</td>
+   <td align="right">8</td>
+   <td align="right">160</td>
+   <td align="right">0</td>
+   <td align="right">28</td>
+   <td align="right">20.0</td>
+   <td align="right">196</td>
+</tr>
+<tr class="">
+   <td align="right">13</td>
+   <td align="left" csk="Williams,Nick"><a href="/players/W/WillNi02.htm">Nick Williams</a></td>
+   <td align="right">23</td>
+   <td align="left"></td>
+   <td align="right">5</td>
+   <td align="right">0</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0.0</td>
+   <td align="right">9</td>
+   <td align="right">188</td>
+   <td align="right">0</td>
+   <td align="right">29</td>
+   <td align="right">20.9</td>
+   <td align="right">203</td>
+</tr>
+<tr class="">
+   <td align="right">73</td>
+   <td align="left" csk="Gettis,Adam"><a href="/players/G/GettAd00.htm">Adam Gettis</a></td>
+   <td align="right">24</td>
+   <td align="left"></td>
+   <td align="right">13</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">1</td>
+   <td align="right">5</td>
+   <td align="right">0</td>
+   <td align="right">5</td>
+   <td align="right">5.0</td>
+   <td align="right">5</td>
+</tr>
+<tr class="">
+   <td align="right">45</td>
+   <td align="left" csk="Murphy,Jerome"><a href="/players/M/MurpJe99.htm">Jerome Murphy</a></td>
+   <td align="right">26</td>
+   <td align="left"></td>
+   <td align="right">11</td>
+   <td align="right">0</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0.0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">0</td>
+</tr>
+</tbody>
+<tfoot>
+<tr class=" stat_total">
+   <td align="right"></td>
+   <td align="left">Team Total</td>
+   <td align="right">26.3</td>
+   <td align="left"></td>
+   <td align="right">16</td>
+   <td align="right"></td>
+   <td align="right">35</td>
+   <td align="right">225</td>
+   <td align="right">0</td>
+   <td align="right">34</td>
+   <td align="right">6.4</td>
+   <td align="right">51</td>
+   <td align="right">1018</td>
+   <td align="right">0</td>
+   <td align="right">39</td>
+   <td align="right">20.0</td>
+   <td align="right">7464</td>
+</tr>
+<tr class=" stat_total">
+   <td align="right"></td>
+   <td align="left">Opp Total</td>
+   <td align="right"></td>
+   <td align="left"></td>
+   <td align="right">16</td>
+   <td align="right"></td>
+   <td align="right">39</td>
+   <td align="right">655</td>
+   <td align="right">3</td>
+   <td align="right"></td>
+   <td align="right">16.8</td>
+   <td align="right">47</td>
+   <td align="right">1048</td>
+   <td align="right">1</td>
+   <td align="right"></td>
+   <td align="right">22.3</td>
+   <td align="right"></td>
+</tr>
+</tfoot>
+</table>
+</div><!-- div.table_container#div_xxxx -->
+</div><!-- stw -->
+<div class="stw clear_both" id="all_kicking">
+<div class="table_heading">
+<a name="kicking"></a><h2>Kicking &amp; Punting</h2><div class="table_heading_text">ProBowl(*), <a href="/about/allpro.htm">1st-team All-Pro</a>(+),</div></div>
+<div class="table_container" id="div_kicking">
+<table class="sortable stats_table" data-freeze="2" id="kicking">
+<colgroup><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col></colgroup>
+<thead>
+<tr class=" over_header">
+  <th align="CENTER" class="tooltip over_header" colspan="6" data-stat=""></th>
+  <th align="center" class="bold_text over_header" colspan="2" data-stat="header_fg1">0-19</th>
+  <th align="center" class="bold_text over_header" colspan="2" data-stat="header_fg2">20-29</th>
+  <th align="center" class="bold_text over_header" colspan="2" data-stat="header_fg3">30-39</th>
+  <th align="center" class="bold_text over_header" colspan="2" data-stat="header_fg4">40-49</th>
+  <th align="center" class="bold_text over_header" colspan="2" data-stat="header_fg5">50+</th>
+  <th align="center" class="bold_text over_header" colspan="2" data-stat="header_fgtot">Tot</th>
+  <th></th>
+  <th align="center" class="bold_text over_header" colspan="2" data-stat="header_pat">PAT</th>
+  <th></th>
+  <th align="center" class="bold_text over_header" colspan="5" data-stat="header_punt">Punting</th>
+</tr>
+<tr class="">
+  <th align="center" class="tooltip sort_default_asc" data-stat="uniform_number" tip="Uniform number">No.</th>
+  <th align="left" class="tooltip sort_default_asc show_partial_when_sorting" data-stat="player"></th>
+  <th align="center" class="tooltip sort_default_asc" data-stat="age" tip="Player's age on December 31st of that year">Age</th>
+  <th align="left" class="tooltip sort_default_asc" data-stat="pos" tip="&lt;b&gt;Position&lt;/b&gt;&lt;br&gt;In player and team season stats,&lt;br&gt;Capitals indicates primary starter.&lt;br&gt;Lower-case means part-time starter.">Pos</th>
+  <th align="center" class="tooltip" data-stat="g" tip="Games played">G</th>
+  <th align="center" class="tooltip" data-stat="gs" tip="Games started as an offensive or defensive player&lt;br /&gt;Numbers are complete for 1920-49, 1970-72&lt;br /&gt;and 1975-present but are incomplete otherwise">GS</th>
+  <th align="center" class="tooltip" data-stat="fga1" tip="Field Goals Attempted, 19 yards and under">FGA</th>
+  <th align="center" class="tooltip" data-stat="fgm1" tip="Field Goals Made, 19 yards and under">FGM</th>
+  <th align="center" class="tooltip" data-stat="fga2" tip="Field Goals Attempted, 20-29 yards">FGA</th>
+  <th align="center" class="tooltip" data-stat="fgm2" tip="Field Goals Made, 20-29 yards">FGM</th>
+  <th align="center" class="tooltip" data-stat="fga3" tip="Field Goals Attempted, 30-39 yards">FGA</th>
+  <th align="center" class="tooltip" data-stat="fgm3" tip="Field Goals Made, 30-39 yards">FGM</th>
+  <th align="center" class="tooltip" data-stat="fga4" tip="Field Goals Attempted, 40-49 yards">FGA</th>
+  <th align="center" class="tooltip" data-stat="fgm4" tip="Field Goals Made, 40-49 yards">FGM</th>
+  <th align="center" class="tooltip" data-stat="fga5" tip="Field Goals Attempted, 50+ yards">FGA</th>
+  <th align="center" class="tooltip" data-stat="fgm5" tip="Field Goals Made, 50+ yards">FGM</th>
+  <th align="center" class="tooltip" data-stat="fga" tip="Field Goals Attempted">FGA</th>
+  <th align="center" class="tooltip" data-stat="fgm" tip="Total Field Goals Made">FGM</th>
+  <th align="center" class="tooltip hide_non_quals" data-stat="fg_perc" tip="Percentage of field goals made, 100*(FGM/FGA)&lt;br&gt;Minimum 0.75 attempts per game scheduled to qualify as a leader">FG%</th>
+  <th align="center" class="tooltip" data-stat="xpa" tip="Extra Points Attempted">XPA</th>
+  <th align="center" class="tooltip" data-stat="xpm" tip="Extra Points Made">XPM</th>
+  <th align="center" class="tooltip hide_non_quals" data-stat="xp_perc" tip="Extra Point Percentage&lt;br&gt;(Extra Points Made)/(Extra Points Attempted)&lt;br&gt;Minimum 1.5 attempts per game scheduled to be a leader.">XP%</th>
+  <th align="center" class="tooltip" data-stat="punt" tip="Times Punted">Pnt</th>
+  <th align="center" class="tooltip" data-stat="punt_yds" tip="Total Punt Yardage">Yds</th>
+  <th align="center" class="tooltip" data-stat="punt_long" tip="Longest Punt">Lng</th>
+  <th align="center" class="tooltip" data-stat="punt_blocked" tip="Times Punts Blocked">Blck</th>
+  <th align="center" class="tooltip hide_non_quals" data-stat="punt_yds_per_punt" tip="Yards per Punt&lt;br&gt;(minimum one punt per game scheduled to qualify as leader)&lt;br&gt;(Punt  Yardage)/(Punts)">Y/P</th>
+</tr>
+</thead>
+<tbody>
+<tr class="">
+   <td align="right">6</td>
+   <td align="left" csk="Rocca,Saverio"><a href="/players/R/RoccSa20.htm">Saverio Rocca</a></td>
+   <td align="right">40</td>
+   <td align="left">p</td>
+   <td align="right">16</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">84</td>
+   <td align="right">3526</td>
+   <td align="right">63</td>
+   <td align="right">1</td>
+   <td align="right">42.0</td>
+</tr>
+<tr class="">
+   <td align="right">2</td>
+   <td align="left" csk="Forbath,Kai"><a href="/players/F/ForbKa00.htm">Kai Forbath</a></td>
+   <td align="right">26</td>
+   <td align="left">k</td>
+   <td align="right">13</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">4</td>
+   <td align="right">3</td>
+   <td align="right">10</td>
+   <td align="right">10</td>
+   <td align="right">6</td>
+   <td align="right">4</td>
+   <td align="right">2</td>
+   <td align="right">1</td>
+   <td align="right">22</td>
+   <td align="right">18</td>
+   <td align="right">81.8%</td>
+   <td align="right">26</td>
+   <td align="right">26</td>
+   <td align="right">100.0%</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">1</td>
+   <td align="left" csk="Potter,John"><a href="/players/P/PottJo00.htm">John Potter</a></td>
+   <td align="right">23</td>
+   <td align="left">k</td>
+   <td align="right">3</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">2</td>
+   <td align="right">2</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">1</td>
+   <td align="right">1</td>
+   <td align="right">1</td>
+   <td align="right"></td>
+   <td align="right">4</td>
+   <td align="right">3</td>
+   <td align="right">75.0%</td>
+   <td align="right">7</td>
+   <td align="right">7</td>
+   <td align="right">100.0%</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+</tr>
+</tbody>
+<tfoot>
+<tr class=" stat_total">
+   <td align="right"></td>
+   <td align="left">Team Total</td>
+   <td align="right">26.3</td>
+   <td align="left"></td>
+   <td align="right">16</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">6</td>
+   <td align="right">5</td>
+   <td align="right">10</td>
+   <td align="right">10</td>
+   <td align="right">7</td>
+   <td align="right">5</td>
+   <td align="right">3</td>
+   <td align="right">1</td>
+   <td align="right">26</td>
+   <td align="right">21</td>
+   <td align="right">80.8%</td>
+   <td align="right">33</td>
+   <td align="right">33</td>
+   <td align="right">100.0%</td>
+   <td align="right">84</td>
+   <td align="right">3526</td>
+   <td align="right">63</td>
+   <td align="right">1</td>
+   <td align="right">42.0</td>
+</tr>
+<tr class=" stat_total">
+   <td align="right"></td>
+   <td align="left">Opp Total</td>
+   <td align="right"></td>
+   <td align="left"></td>
+   <td align="right">16</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">25</td>
+   <td align="right">21</td>
+   <td align="right">84.0%</td>
+   <td align="right">59</td>
+   <td align="right">59</td>
+   <td align="right">100.0%</td>
+   <td align="right">74</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right">0</td>
+   <td align="right">0.0</td>
+</tr>
+</tfoot>
+</table>
+</div><!-- div.table_container#div_xxxx -->
+</div><!-- stw -->
+<div class="stw clear_both" id="all_defense">
+<div class="table_heading">
+<a name="defense"></a><h2>Defense &amp; Fumbles</h2><div class="table_heading_text">ProBowl(*), <a href="/about/allpro.htm">1st-team All-Pro</a>(+),</div></div>
+<div class="table_container" id="div_defense">
+<table class="sortable stats_table" data-freeze="2" id="defense">
+<colgroup><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col></colgroup>
+<thead>
+<tr class=" over_header">
+  <th align="CENTER" class="tooltip over_header" colspan="6" data-stat=""></th>
+  <th></th>
+  <th align="center" class="bold_text over_header" colspan="5" data-stat="header_def_int">Def Interceptions</th>
+  <th align="center" class="bold_text over_header" colspan="5" data-stat="header_fumbles">Fumbles</th>
+  <th align="center" class="bold_text over_header" colspan="2" data-stat="header_other_defense">Tackles</th>
+  <th></th>
+</tr>
+<tr class="">
+  <th align="center" class="tooltip sort_default_asc" data-stat="uniform_number" tip="Uniform number">No.</th>
+  <th align="left" class="tooltip sort_default_asc show_partial_when_sorting" data-stat="player"></th>
+  <th align="center" class="tooltip sort_default_asc" data-stat="age" tip="Player's age on December 31st of that year">Age</th>
+  <th align="left" class="tooltip sort_default_asc" data-stat="pos" tip="&lt;b&gt;Position&lt;/b&gt;&lt;br&gt;In player and team season stats,&lt;br&gt;Capitals indicates primary starter.&lt;br&gt;Lower-case means part-time starter.">Pos</th>
+  <th align="center" class="tooltip" data-stat="g" tip="Games played">G</th>
+  <th align="center" class="tooltip" data-stat="gs" tip="Games started as an offensive or defensive player&lt;br /&gt;Numbers are complete for 1920-49, 1970-72&lt;br /&gt;and 1975-present but are incomplete otherwise">GS</th>
+  <th align="center" class="tooltip" data-stat="sacks" tip="Sacks">Sk</th>
+  <th align="center" class="tooltip" data-stat="def_int" tip="Passes intercepted on defense">Int</th>
+  <th align="center" class="tooltip" data-stat="def_int_yds" tip="Yards interceptions were returned">Yds</th>
+  <th align="center" class="tooltip" data-stat="def_int_td" tip="Interceptions returned for touchdowns">TD</th>
+  <th align="center" class="tooltip" data-stat="def_int_long" tip="longest interception return">Lng</th>
+  <th align="center" class="tooltip" data-stat="pass_defended" tip="Passes defended by a defensive player">PD</th>
+  <th align="center" class="tooltip" data-stat="fumbles_forced" tip="Number of times forced a fumble by the opposition recovered by either team">FF</th>
+  <th align="center" class="tooltip" data-stat="fumbles" tip="Number of times fumbled both lost and recovered by own team">Fmb</th>
+  <th align="center" class="tooltip" data-stat="fumbles_rec" tip="Fumbles recovered by a Player or Team&lt;br&gt;Original fumble by either team">FR</th>
+  <th align="center" class="tooltip" data-stat="fumbles_rec_yds" tip="Yards recovered fumbles were returned">Yds</th>
+  <th align="center" class="tooltip" data-stat="fumbles_rec_td" tip="Fumbles recovered resulting in a touchdown for the recoverer">TD</th>
+  <th align="center" class="tooltip" data-stat="tackles_solo" tip="Tackles&lt;br&gt;Before 1994:  unofficial and inconsistently recorded from team to team.  For amusement only.&lt;br&gt;1994-2001:  unofficial but consistently recorded.&lt;br&gt;2001-now:  official.">Tkl</th>
+  <th align="center" class="tooltip" data-stat="tackles_assists" tip="Assists on tackles&lt;br&gt;Before 1994:  combined with solo tackles&lt;br&gt;1994-2001:  unofficial, but consistently recorded&lt;br&gt;2001-now:  official">Ast</th>
+  <th align="center" class="tooltip" data-stat="safety_md" tip="Safeties scored by player/team">Sfty</th>
+</tr>
+</thead>
+<tbody>
+<tr class="">
+   <td align="right">56</td>
+   <td align="left" csk="Riley,Perry"><a href="/players/R/RilePe00.htm">Perry Riley</a></td>
+   <td align="right">25</td>
+   <td align="left">JLB</td>
+   <td align="right">16</td>
+   <td align="right">16</td>
+   <td align="right">3.0</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">9</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">1</td>
+   <td align="right">6</td>
+   <td align="right">0</td>
+   <td align="right">72</td>
+   <td align="right">43</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">59</td>
+   <td align="left" csk="Fletcher,London"><a href="/players/F/FletLo20.htm">London Fletcher</a></td>
+   <td align="right">38</td>
+   <td align="left">MLB</td>
+   <td align="right">16</td>
+   <td align="right">16</td>
+   <td align="right">2.0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">2</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">62</td>
+   <td align="right">48</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">26</td>
+   <td align="left" csk="Wilson,Josh"><a href="/players/W/WilsJo99.htm">Josh Wilson</a></td>
+   <td align="right">28</td>
+   <td align="left">RCB</td>
+   <td align="right">16</td>
+   <td align="right">16</td>
+   <td align="right">2.0</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">7</td>
+   <td align="right">2</td>
+   <td align="right">0</td>
+   <td align="right">3</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right">68</td>
+   <td align="right">24</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">23</td>
+   <td align="left" csk="Hall,DeAngelo"><a href="/players/H/HallDe99.htm">DeAngelo Hall</a></td>
+   <td align="right">30</td>
+   <td align="left">LCB</td>
+   <td align="right">16</td>
+   <td align="right">16</td>
+   <td align="right"></td>
+   <td align="right">4</td>
+   <td align="right">49</td>
+   <td align="right">2</td>
+   <td align="right">26</td>
+   <td align="right">13</td>
+   <td align="right">3</td>
+   <td align="right">0</td>
+   <td align="right">1</td>
+   <td align="right">75</td>
+   <td align="right">1</td>
+   <td align="right">57</td>
+   <td align="right">21</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">37</td>
+   <td align="left" csk="Doughty,Reed"><a href="/players/D/DougRe20.htm">Reed Doughty</a></td>
+   <td align="right">31</td>
+   <td align="left">ss</td>
+   <td align="right">15</td>
+   <td align="right">8</td>
+   <td align="right"></td>
+   <td align="right">1</td>
+   <td align="right">25</td>
+   <td align="right">0</td>
+   <td align="right">25</td>
+   <td align="right">2</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">47</td>
+   <td align="right">33</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">31</td>
+   <td align="left" csk="Meriweather,Brandon"><a href="/players/M/MeriBr99.htm">Brandon Meriweather</a></td>
+   <td align="right">29</td>
+   <td align="left">FS/ss</td>
+   <td align="right">13</td>
+   <td align="right">12</td>
+   <td align="right">1.0</td>
+   <td align="right">2</td>
+   <td align="right">62</td>
+   <td align="right">0</td>
+   <td align="right">32</td>
+   <td align="right">3</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">53</td>
+   <td align="right">16</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">91</td>
+   <td align="left" csk="Kerrigan,Ryan"><a href="/players/K/KerrRy00.htm">Ryan Kerrigan</a></td>
+   <td align="right">25</td>
+   <td align="left">LOLB</td>
+   <td align="right">16</td>
+   <td align="right">16</td>
+   <td align="right">8.5</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">3</td>
+   <td align="right">4</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">47</td>
+   <td align="right">19</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">98</td>
+   <td align="left" csk="Orakpo,Brian"><a href="/players/O/OrakBr99.htm">Brian Orakpo</a>*</td>
+   <td align="right">27</td>
+   <td align="left">ROLB</td>
+   <td align="right">15</td>
+   <td align="right">15</td>
+   <td align="right">10.0</td>
+   <td align="right">1</td>
+   <td align="right">29</td>
+   <td align="right">1</td>
+   <td align="right">29</td>
+   <td align="right">4</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">2</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">43</td>
+   <td align="right">17</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">39</td>
+   <td align="left" csk="Amerson,David"><a href="/players/A/AmerDa00.htm">David Amerson</a></td>
+   <td align="right">22</td>
+   <td align="left">CB/fs</td>
+   <td align="right">16</td>
+   <td align="right">9</td>
+   <td align="right"></td>
+   <td align="right">2</td>
+   <td align="right">45</td>
+   <td align="right">1</td>
+   <td align="right">45</td>
+   <td align="right">10</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">40</td>
+   <td align="right">8</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">24</td>
+   <td align="left" csk="Rambo,Bacarri"><a href="/players/R/RambBa00.htm">Bacarri Rambo</a></td>
+   <td align="right">23</td>
+   <td align="left">FS/fs</td>
+   <td align="right">11</td>
+   <td align="right">3</td>
+   <td align="right">1.0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">31</td>
+   <td align="right">11</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">30</td>
+   <td align="left" csk="Biggers,E.J."><a href="/players/B/BiggE.99.htm">E.J. Biggers</a></td>
+   <td align="right">26</td>
+   <td align="left">CB/fs</td>
+   <td align="right">16</td>
+   <td align="right">5</td>
+   <td align="right"></td>
+   <td align="right">1</td>
+   <td align="right">15</td>
+   <td align="right">0</td>
+   <td align="right">15</td>
+   <td align="right">2</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">23</td>
+   <td align="right">12</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">96</td>
+   <td align="left" csk="Cofield,Barry"><a href="/players/C/CofiBa20.htm">Barry Cofield</a></td>
+   <td align="right">29</td>
+   <td align="left">NT</td>
+   <td align="right">16</td>
+   <td align="right">16</td>
+   <td align="right">2.5</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">17</td>
+   <td align="right">15</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">92</td>
+   <td align="left" csk="Baker,Chris"><a href="/players/B/BakeCh99.htm">Chris Baker</a></td>
+   <td align="right">26</td>
+   <td align="left">rde</td>
+   <td align="right">15</td>
+   <td align="right">3</td>
+   <td align="right">1.0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">1</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">16</td>
+   <td align="right">12</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">99</td>
+   <td align="left" csk="Jenkins,Jarvis"><a href="/players/J/JenkJa01.htm">Jarvis Jenkins</a></td>
+   <td align="right">25</td>
+   <td align="left">lde</td>
+   <td align="right">12</td>
+   <td align="right">5</td>
+   <td align="right">2.0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">11</td>
+   <td align="right">10</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">64</td>
+   <td align="left" csk="Golston,Kedric"><a href="/players/G/GolsKe20.htm">Kedric Golston</a></td>
+   <td align="right">30</td>
+   <td align="left">LDE/lde/rde</td>
+   <td align="right">16</td>
+   <td align="right">8</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">10</td>
+   <td align="right">11</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">72</td>
+   <td align="left" csk="Bowen,Stephen"><a href="/players/B/BoweSt20.htm">Stephen Bowen</a></td>
+   <td align="right">29</td>
+   <td align="left">RDE</td>
+   <td align="right">10</td>
+   <td align="right">10</td>
+   <td align="right"></td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">1</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">11</td>
+   <td align="right">8</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">50</td>
+   <td align="left" csk="Jackson,Rob"><a href="/players/J/JackRo99.htm">Rob Jackson</a></td>
+   <td align="right">28</td>
+   <td align="left">rolb</td>
+   <td align="right">12</td>
+   <td align="right">1</td>
+   <td align="right">2.0</td>
+   <td align="right">1</td>
+   <td align="right">4</td>
+   <td align="right">0</td>
+   <td align="right">4</td>
+   <td align="right">1</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">8</td>
+   <td align="right">11</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">58</td>
+   <td align="left" csk="Hull,Josh"><a href="/players/H/HullJo99.htm">Josh Hull</a></td>
+   <td align="right">26</td>
+   <td align="left"></td>
+   <td align="right">11</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">8</td>
+   <td align="right">6</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">84</td>
+   <td align="left" csk="Paul,Niles"><a href="/players/P/PaulNi00.htm">Niles Paul</a></td>
+   <td align="right">24</td>
+   <td align="left">fb</td>
+   <td align="right">15</td>
+   <td align="right">4</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">9</td>
+   <td align="right">3</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">55</td>
+   <td align="left" csk="Barnett,Nick"><a href="/players/B/BarnNi20.htm">Nick Barnett</a></td>
+   <td align="right">32</td>
+   <td align="left"></td>
+   <td align="right">14</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">7</td>
+   <td align="right">5</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">34</td>
+   <td align="left" csk="Robinson,Trent"><a href="/players/R/RobiTr02.htm">Trent Robinson</a></td>
+   <td align="right">23</td>
+   <td align="left"></td>
+   <td align="right">11</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">2</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">7</td>
+   <td align="right">4</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">54</td>
+   <td align="left" csk="Tapp,Darryl"><a href="/players/T/TappDa20.htm">Darryl Tapp</a></td>
+   <td align="right">29</td>
+   <td align="left"></td>
+   <td align="right">11</td>
+   <td align="right">0</td>
+   <td align="right">1.0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">7</td>
+   <td align="right">3</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">10</td>
+   <td align="left" csk="Griffin,Robert"><a href="/players/G/GrifRo01.htm">Robert Griffin</a></td>
+   <td align="right">23</td>
+   <td align="left">QB</td>
+   <td align="right">13</td>
+   <td align="right">13</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">0</td>
+   <td align="right">11</td>
+   <td align="right">2</td>
+   <td align="right">-36</td>
+   <td align="right">0</td>
+   <td align="right">2</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">88</td>
+   <td align="left" csk="Garcon,Pierre"><a href="/players/G/GarcPi00.htm">Pierre Garcon</a></td>
+   <td align="right">27</td>
+   <td align="left">WR</td>
+   <td align="right">16</td>
+   <td align="right">16</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">0</td>
+   <td align="right">1</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">7</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">82</td>
+   <td align="left" csk="Paulsen,Logan"><a href="/players/P/PaulLo00.htm">Logan Paulsen</a></td>
+   <td align="right">26</td>
+   <td align="left">TE</td>
+   <td align="right">16</td>
+   <td align="right">14</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">0</td>
+   <td align="right">2</td>
+   <td align="right">2</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">6</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">48</td>
+   <td align="left" csk="Gumbs,Jose"><a href="/players/G/GumbJo00.htm">Jose Gumbs</a></td>
+   <td align="right">25</td>
+   <td align="left">ss</td>
+   <td align="right">8</td>
+   <td align="right">1</td>
+   <td align="right"></td>
+   <td align="right">1</td>
+   <td align="right">2</td>
+   <td align="right">0</td>
+   <td align="right">2</td>
+   <td align="right">1</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">6</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">36</td>
+   <td align="left" csk="Young,Darrel"><a href="/players/Y/YounDa01.htm">Darrel Young</a></td>
+   <td align="right">26</td>
+   <td align="left">FB</td>
+   <td align="right">13</td>
+   <td align="right">7</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">5</td>
+   <td align="right">2</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">53</td>
+   <td align="left" csk="Kehl,Bryan"><a href="/players/K/KehlBr99.htm">Bryan Kehl</a></td>
+   <td align="right">29</td>
+   <td align="left"></td>
+   <td align="right">5</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">5</td>
+   <td align="right">1</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">45</td>
+   <td align="left" csk="Murphy,Jerome"><a href="/players/M/MurpJe99.htm">Jerome Murphy</a></td>
+   <td align="right">26</td>
+   <td align="left"></td>
+   <td align="right">11</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">5</td>
+   <td align="right">1</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">95</td>
+   <td align="left" csk="Neild,Chris"><a href="/players/N/NeilCh00.htm">Chris Neild</a></td>
+   <td align="right">26</td>
+   <td align="left"></td>
+   <td align="right">8</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">4</td>
+   <td align="right">2</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">29</td>
+   <td align="left" csk="Helu,Roy"><a href="/players/H/HeluRo00.htm">Roy Helu</a></td>
+   <td align="right">25</td>
+   <td align="left"></td>
+   <td align="right">16</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">0</td>
+   <td align="right">2</td>
+   <td align="right">2</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">2</td>
+   <td align="right">1</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">71</td>
+   <td align="left" csk="Williams,Trent"><a href="/players/W/WillTr21.htm">Trent Williams</a>*</td>
+   <td align="right">25</td>
+   <td align="left">LT</td>
+   <td align="right">16</td>
+   <td align="right">16</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">4</td>
+   <td align="right">1</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">46</td>
+   <td align="left" csk="Morris,Alfred"><a href="/players/M/MorrAl00.htm">Alfred Morris</a>*</td>
+   <td align="right">25</td>
+   <td align="left">RB</td>
+   <td align="right">16</td>
+   <td align="right">16</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">0</td>
+   <td align="right">5</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">89</td>
+   <td align="left" csk="Moss,Santana"><a href="/players/M/MossSa00.htm">Santana Moss</a></td>
+   <td align="right">34</td>
+   <td align="left"></td>
+   <td align="right">16</td>
+   <td align="right">1</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">0</td>
+   <td align="right">2</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">3</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">22</td>
+   <td align="left" csk="Royster,Evan"><a href="/players/R/RoysEv00.htm">Evan Royster</a></td>
+   <td align="right">26</td>
+   <td align="left"></td>
+   <td align="right">10</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">3</td>
+   <td align="right">1</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">13</td>
+   <td align="left" csk="Williams,Nick"><a href="/players/W/WillNi02.htm">Nick Williams</a></td>
+   <td align="right">23</td>
+   <td align="left"></td>
+   <td align="right">5</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">0</td>
+   <td align="right">1</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">2</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">66</td>
+   <td align="left" csk="Chester,Chris"><a href="/players/C/ChesCh21.htm">Chris Chester</a></td>
+   <td align="right">30</td>
+   <td align="left">RG</td>
+   <td align="right">16</td>
+   <td align="right">16</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">2</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">74</td>
+   <td align="left" csk="Polumbus,Tyler"><a href="/players/P/PoluTy20.htm">Tyler Polumbus</a></td>
+   <td align="right">28</td>
+   <td align="left">RT</td>
+   <td align="right">16</td>
+   <td align="right">16</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">2</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">87</td>
+   <td align="left" csk="Bellamy,Josh"><a href="/players/B/BellJo02.htm">Josh Bellamy</a></td>
+   <td align="right">24</td>
+   <td align="left"></td>
+   <td align="right">5</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">1</td>
+   <td align="right">1</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">12</td>
+   <td align="left" csk="Cousins,Kirk"><a href="/players/C/CousKi00.htm">Kirk Cousins</a></td>
+   <td align="right">25</td>
+   <td align="left"></td>
+   <td align="right">5</td>
+   <td align="right">3</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">0</td>
+   <td align="right">3</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">51</td>
+   <td align="left" csk="Jenkins,Brandon"><a href="/players/J/JenkBr00.htm">Brandon Jenkins</a></td>
+   <td align="right">23</td>
+   <td align="left"></td>
+   <td align="right">6</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">1</td>
+   <td align="right">1</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">78</td>
+   <td align="left" csk="Lichtensteiger,Kory"><a href="/players/L/LichKo20.htm">Kory Lichtensteiger</a></td>
+   <td align="right">28</td>
+   <td align="left">LG</td>
+   <td align="right">16</td>
+   <td align="right">16</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">93</td>
+   <td align="left" csk="Merling,Phillip"><a href="/players/M/MerlPh99.htm">Phillip Merling</a></td>
+   <td align="right">28</td>
+   <td align="left"></td>
+   <td align="right">3</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">1</td>
+   <td align="right">1</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">15</td>
+   <td align="left" csk="Morgan,Josh"><a href="/players/M/MorgJo00.htm">Josh Morgan</a></td>
+   <td align="right">28</td>
+   <td align="left">WR</td>
+   <td align="right">14</td>
+   <td align="right">7</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">0</td>
+   <td align="right">2</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">32</td>
+   <td align="left" csk="Pugh,Jordan"><a href="/players/P/PughJo99.htm">Jordan Pugh</a></td>
+   <td align="right">25</td>
+   <td align="left"></td>
+   <td align="right">4</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right">1</td>
+   <td align="right">16</td>
+   <td align="right">0</td>
+   <td align="right">16</td>
+   <td align="right">1</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">6</td>
+   <td align="left" csk="Rocca,Saverio"><a href="/players/R/RoccSa20.htm">Saverio Rocca</a></td>
+   <td align="right">40</td>
+   <td align="left">p</td>
+   <td align="right">16</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">53</td>
+   <td align="left" csk="Compton,William"><a href="/players/C/CompWi00.htm">William Compton</a></td>
+   <td align="right">24</td>
+   <td align="left"></td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">63</td>
+   <td align="left" csk="Montgomery,Will"><a href="/players/M/MontWi20.htm">Will Montgomery</a></td>
+   <td align="right">30</td>
+   <td align="left">C</td>
+   <td align="right">16</td>
+   <td align="right">16</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">57</td>
+   <td align="left" csk="Sundberg,Nick"><a href="/players/S/SundNi00.htm">Nick Sundberg</a></td>
+   <td align="right">26</td>
+   <td align="left"></td>
+   <td align="right">5</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">40</td>
+   <td align="left" csk="Nelson,Kyle"><a href="/players/N/NelsKy00.htm">Kyle Nelson</a></td>
+   <td align="right">27</td>
+   <td align="left"></td>
+   <td align="right">11</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">0</td>
+   <td align="right">1</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+</tr>
+</tbody>
+<tfoot>
+<tr class=" stat_total">
+   <td align="right"></td>
+   <td align="left">Team Total</td>
+   <td align="right">26.3</td>
+   <td align="left"></td>
+   <td align="right">16</td>
+   <td align="right"></td>
+   <td align="right">36.0</td>
+   <td align="right">16</td>
+   <td align="right">247</td>
+   <td align="right">4</td>
+   <td align="right">45</td>
+   <td align="right">63</td>
+   <td align="right">12</td>
+   <td align="right">30</td>
+   <td align="right">24</td>
+   <td align="right">46</td>
+   <td align="right">1</td>
+   <td align="right">722</td>
+   <td align="right">352</td>
+   <td align="right"></td>
+</tr>
+<tr class=" stat_total">
+   <td align="right"></td>
+   <td align="left">Opp Total</td>
+   <td align="right"></td>
+   <td align="left"></td>
+   <td align="right">16</td>
+   <td align="right"></td>
+   <td align="right">43</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">0</td>
+   <td align="right">19</td>
+   <td align="right">9</td>
+   <td align="right">0</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">1</td>
+</tr>
+</tfoot>
+</table>
+</div><!-- div.table_container#div_xxxx -->
+</div><!-- stw -->
+<div class="stw clear_both" id="all_scoring">
+<div class="table_heading">
+<a name="scoring"></a><h2>Scoring Summary</h2><div class="table_heading_text">ProBowl(*), <a href="/about/allpro.htm">1st-team All-Pro</a>(+),</div></div>
+<div class="table_container" id="div_scoring">
+<table class="sortable stats_table" data-freeze="2" id="scoring">
+<colgroup><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col><col></col></colgroup>
+<thead>
+<tr class="">
+  <th align="center" class="tooltip sort_default_asc" data-stat="uniform_number" tip="Uniform number">No.</th>
+  <th align="left" class="tooltip sort_default_asc show_partial_when_sorting" data-stat="player"></th>
+  <th align="center" class="tooltip sort_default_asc" data-stat="age" tip="Player's age on December 31st of that year">Age</th>
+  <th align="left" class="tooltip sort_default_asc" data-stat="pos" tip="&lt;b&gt;Position&lt;/b&gt;&lt;br&gt;In player and team season stats,&lt;br&gt;Capitals indicates primary starter.&lt;br&gt;Lower-case means part-time starter.">Pos</th>
+  <th align="center" class="tooltip" data-stat="g" tip="Games played">G</th>
+  <th align="center" class="tooltip" data-stat="gs" tip="Games started as an offensive or defensive player&lt;br /&gt;Numbers are complete for 1920-49, 1970-72&lt;br /&gt;and 1975-present but are incomplete otherwise">GS</th>
+  <th align="center" class="tooltip" data-stat="rushtd">RshTD</th>
+  <th align="center" class="tooltip" data-stat="rectd">RecTD</th>
+  <th align="center" class="tooltip" data-stat="prtd">PR TD</th>
+  <th align="center" class="tooltip" data-stat="krtd">KR TD</th>
+  <th align="center" class="tooltip" data-stat="frtd">FblTD</th>
+  <th align="center" class="tooltip" data-stat="ditd">IntTD</th>
+  <th align="center" class="tooltip" data-stat="otd" tip="Other touchdowns from blocked kicks or missed field goals returned">OthTD</th>
+  <th align="center" class="tooltip" data-stat="alltd" tip="All touchdowns scored">AllTD</th>
+  <th align="center" class="tooltip" data-stat="two_pt_md" tip="Two-Point Conversions Made">2PM</th>
+  <th align="center" class="tooltip" data-stat="xpm" tip="Extra Points Made">XPM</th>
+  <th align="center" class="tooltip" data-stat="fgm" tip="Total Field Goals Made">FGM</th>
+  <th align="center" class="tooltip" data-stat="safety_md" tip="Safeties scored by player/team">Sfty</th>
+  <th align="center" class="tooltip" data-stat="scoring" tip="Total points scored by all means">Pts</th>
+  <th align="center" class="tooltip" data-stat="points_per_g" tip="Points per game">Pts/G</th>
+</tr>
+</thead>
+<tbody>
+<tr class="">
+   <td align="right">2</td>
+   <td align="left" csk="Forbath,Kai"><a href="/players/F/ForbKa00.htm">Kai Forbath</a></td>
+   <td align="right">26</td>
+   <td align="left">k</td>
+   <td align="right">13</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">26</td>
+   <td align="right">18</td>
+   <td align="right"></td>
+   <td align="right">80</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">46</td>
+   <td align="left" csk="Morris,Alfred"><a href="/players/M/MorrAl00.htm">Alfred Morris</a>*</td>
+   <td align="right">25</td>
+   <td align="left">RB</td>
+   <td align="right">16</td>
+   <td align="right">16</td>
+   <td align="right">7</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">7</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">42</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">88</td>
+   <td align="left" csk="Garcon,Pierre"><a href="/players/G/GarcPi00.htm">Pierre Garcon</a></td>
+   <td align="right">27</td>
+   <td align="left">WR</td>
+   <td align="right">16</td>
+   <td align="right">16</td>
+   <td align="right"></td>
+   <td align="right">5</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">5</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">30</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">29</td>
+   <td align="left" csk="Helu,Roy"><a href="/players/H/HeluRo00.htm">Roy Helu</a></td>
+   <td align="right">25</td>
+   <td align="left"></td>
+   <td align="right">16</td>
+   <td align="right">0</td>
+   <td align="right">4</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">4</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">24</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">36</td>
+   <td align="left" csk="Young,Darrel"><a href="/players/Y/YounDa01.htm">Darrel Young</a></td>
+   <td align="right">26</td>
+   <td align="left">FB</td>
+   <td align="right">13</td>
+   <td align="right">7</td>
+   <td align="right">3</td>
+   <td align="right">1</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">4</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">24</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">23</td>
+   <td align="left" csk="Hall,DeAngelo"><a href="/players/H/HallDe99.htm">DeAngelo Hall</a></td>
+   <td align="right">30</td>
+   <td align="left">LCB</td>
+   <td align="right">16</td>
+   <td align="right">16</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">1</td>
+   <td align="right">2</td>
+   <td align="right"></td>
+   <td align="right">3</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">18</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">85</td>
+   <td align="left" csk="Hankerson,Leonard"><a href="/players/H/HankLe00.htm">Leonard Hankerson</a></td>
+   <td align="right">25</td>
+   <td align="left">WR</td>
+   <td align="right">10</td>
+   <td align="right">7</td>
+   <td align="right"></td>
+   <td align="right">3</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">3</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">18</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">82</td>
+   <td align="left" csk="Paulsen,Logan"><a href="/players/P/PaulLo00.htm">Logan Paulsen</a></td>
+   <td align="right">26</td>
+   <td align="left">TE</td>
+   <td align="right">16</td>
+   <td align="right">14</td>
+   <td align="right"></td>
+   <td align="right">3</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">3</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">18</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">86</td>
+   <td align="left" csk="Reed,Jordan"><a href="/players/R/ReedJo02.htm">Jordan Reed</a></td>
+   <td align="right">23</td>
+   <td align="left"></td>
+   <td align="right">9</td>
+   <td align="right">4</td>
+   <td align="right"></td>
+   <td align="right">3</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">3</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">18</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">1</td>
+   <td align="left" csk="Potter,John"><a href="/players/P/PottJo00.htm">John Potter</a></td>
+   <td align="right">23</td>
+   <td align="left">k</td>
+   <td align="right">3</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">7</td>
+   <td align="right">3</td>
+   <td align="right"></td>
+   <td align="right">16</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">89</td>
+   <td align="left" csk="Moss,Santana"><a href="/players/M/MossSa00.htm">Santana Moss</a></td>
+   <td align="right">34</td>
+   <td align="left"></td>
+   <td align="right">16</td>
+   <td align="right">1</td>
+   <td align="right"></td>
+   <td align="right">2</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">2</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">12</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">11</td>
+   <td align="left" csk="Robinson,Aldrick"><a href="/players/R/RobiAl00.htm">Aldrick Robinson</a></td>
+   <td align="right">25</td>
+   <td align="left"></td>
+   <td align="right">16</td>
+   <td align="right">1</td>
+   <td align="right"></td>
+   <td align="right">2</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">2</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">12</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">39</td>
+   <td align="left" csk="Amerson,David"><a href="/players/A/AmerDa00.htm">David Amerson</a></td>
+   <td align="right">22</td>
+   <td align="left">CB/fs</td>
+   <td align="right">16</td>
+   <td align="right">9</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">1</td>
+   <td align="right"></td>
+   <td align="right">1</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">6</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">83</td>
+   <td align="left" csk="Davis,Fred"><a href="/players/D/DaviFr01.htm">Fred Davis</a></td>
+   <td align="right">27</td>
+   <td align="left">TE</td>
+   <td align="right">10</td>
+   <td align="right">3</td>
+   <td align="right"></td>
+   <td align="right">1</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">1</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">6</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">98</td>
+   <td align="left" csk="Orakpo,Brian"><a href="/players/O/OrakBr99.htm">Brian Orakpo</a>*</td>
+   <td align="right">27</td>
+   <td align="left">ROLB</td>
+   <td align="right">15</td>
+   <td align="right">15</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">1</td>
+   <td align="right"></td>
+   <td align="right">1</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">6</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">10</td>
+   <td align="left" csk="Griffin,Robert"><a href="/players/G/GrifRo01.htm">Robert Griffin</a></td>
+   <td align="right">23</td>
+   <td align="left">QB</td>
+   <td align="right">13</td>
+   <td align="right">13</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">1</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">2</td>
+   <td align="right"></td>
+</tr>
+<tr class="">
+   <td align="right">13</td>
+   <td align="left" csk="Williams,Nick"><a href="/players/W/WillNi02.htm">Nick Williams</a></td>
+   <td align="right">23</td>
+   <td align="left"></td>
+   <td align="right">5</td>
+   <td align="right">0</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">1</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">2</td>
+   <td align="right"></td>
+</tr>
+</tbody>
+<tfoot>
+<tr class=" stat_total">
+   <td align="right"></td>
+   <td align="left">Team Total</td>
+   <td align="right">26.3</td>
+   <td align="left"></td>
+   <td align="right">16</td>
+   <td align="right"></td>
+   <td align="right">14</td>
+   <td align="right">20</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">1</td>
+   <td align="right">4</td>
+   <td align="right"></td>
+   <td align="right">39</td>
+   <td align="right">2</td>
+   <td align="right">33</td>
+   <td align="right">21</td>
+   <td align="right"></td>
+   <td align="right">334</td>
+   <td align="right"></td>
+</tr>
+<tr class=" stat_total">
+   <td align="right"></td>
+   <td align="left">Opp Total</td>
+   <td align="right"></td>
+   <td align="left"></td>
+   <td align="right">16</td>
+   <td align="right"></td>
+   <td align="right">23</td>
+   <td align="right">29</td>
+   <td align="right">3</td>
+   <td align="right">1</td>
+   <td align="right"></td>
+   <td align="right">2</td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right"></td>
+   <td align="right">59</td>
+   <td align="right">21</td>
+   <td align="right">1</td>
+   <td align="right">478</td>
+   <td align="right"></td>
+</tr>
+</tfoot>
+</table>
+</div><!-- div.table_container#div_xxxx -->
+</div><!-- stw -->
+</div>
+
+
+<p>
+</p><div id="site_footer">
+<script type="text/javascript">
+if (location.pathname != '/') {
+   googletag.cmd.push(function() {
+      googletag.defineSlot('/117033896/sr_pagebottom', [[728, 90], [970, 90]], 'sr_pagebottom').addService(googletag.pubads());
+      googletag.pubads().set("adsense_channel_ids", "5516762052");
+      googletag.enableServices();
+   });
+}
+else {
+    // for the front page.
+   googletag.cmd.push(function() {
+      googletag.defineSlot('/5702/yb_Sports_Reference', [728,90], 'sr_pagebottom').addService(googletag.pubads());
+      googletag.enableServices();
+  });
+}
+</script>
+<!-- sr_pagebottom -->
+<div class="margin_bottom" id="sr_pagebottom" style="width:970px; height:90px;">
+<script type="text/javascript">
+   googletag.cmd.push(function() { googletag.display('sr_pagebottom'); });
+</script>
+</div>
+
+<div class="bold_text" id="sr_footer">
+  <div class="margin xx_large_text"><a href="http://www.sports-reference.com/feedback/">Question, Comment, Feedback or Correction?</a></div>
+  Copyright © 2000-2014
+<a href="http://www.sports-reference.com">Sports Reference LLC</a>.
+All rights reserved.
+
+<form action="/player_search.fcgi" class="inline" method="get" name="f_footer" style="margin-left:5em;" t="">
+<input class="search long" id="search" name="search" type="text" x-webkit-speech=""/> 
+<input class="submit" type="submit" value="Search"/>
+<a class="small_text" href="/about/findstuff.htm">Tips</a>
+</form>
+
+  <p><a href="/linker/">Automatic Player Linking</a> / <a href="/about/sharing.shtml">Statistical Sharing Tool</a> / <a href="/friv/link_players.cgi">Basic Player Linking</a></p></div>
+
+<div class="blockquote italic_text clear_both">
+Most data provided by <a href="http://www.247baseball.com">24-7
+Baseball</a>, creators of the <a href="http://www.amazon.com/ESPN-Football-Encyclopedia-Second-Espn/dp/1402752504/">ESPN
+Pro Football Encyclopedia</a>.
+</div>
+
+<p>
+<a href="http://www.sports-reference.com/">A Sports Reference Site</a>:
+<a href="/about/">About PFR</a> |
+<a href="/feedback/">Found a bug or have a suggestion?</a><br/>
+<a href="http://www.sports-reference.com/privacy.shtml">Privacy Statement</a> |
+<a href="http://www.sports-reference.com/termsofuse.shtml">Conditions &amp; Terms of Service</a> | 
+<a href="http://www.sports-reference.com/data_use.shtml">Use of Data</a>
+</p>
+
+<div class="clear_both align_center large_text bold_text margin">Part of the <a href="http://www.yardbarker.com/"><img border="0" height="33" src="http://d2ft4b0ve1aur1.cloudfront.net/images-349/ybn_badge_300.gif" width="300"/></a> Network</div>
+
+</div>
+
+<script defersrc="http://network.yardbarker.com/network/ybn_pixel/12488" type="text/deferscript"></script> <noscript></noscript>
+
+<script type="text/javascript"> 
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+   var pageTracker = _gat._createTracker("UA-1890630-3");
+   pageTracker._trackPageview();
+   pageTracker._trackPageLoadTime();   
+   var sr_tracker = _gat._createTracker("UA-1890630-9");
+   sr_tracker._setDomainName('none'); 
+   sr_tracker._setAllowLinker(true); 
+   sr_tracker._setAllowHash(false);
+   sr_tracker._setCustomVar(1,"site","pfr",3);
+   sr_tracker._trackPageview();
+} catch(err) {}</script>
+ 
+<script defersrc="http://connect.facebook.net/en_US/all.js#xfbml=1" type="text/deferscript"></script>
+<!-- google +1 code -->
+<script type="text/deferscript">
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+</script>
+
+</div><!-- Page container -->
+
+<div id="sr_js"></div>
+<script type="text/javascript">
+(function () {
+    var sr_js_file = 'http://d2ft4b0ve1aur1.cloudfront.net/js-361/sr-pfr-min.js';
+    if (sr_gzipEnabled) {
+       sr_js_file = 'http://d2ft4b0ve1aur1.cloudfront.net/js-361/sr-pfr-min.js.jgz';
+    }
+    var sr_script_tag = document.getElementById("sr_js");         
+    if (sr_script_tag) {
+	var scriptStyles = document.createElement("script");
+	scriptStyles.type = "text/javascript";
+	scriptStyles.src = sr_js_file;
+	sr_script_tag.appendChild(scriptStyles);
+	//alert('adding js to footer:'+sr_js_file);
+    }
+}());
+</script>
+
+
+
+</body></html>
