@@ -159,7 +159,7 @@ def findAverageCoefficient(stat, tableName, position):
 		coefficientSum = coefficientSum + calcCo
 		# print "calcCo: "  + str(calcCo) + " for " + str(year)
 	coefficientAvg = coefficientSum / 11
-	print "coefficientAvg: " + str(coefficientAvg)
+	# print "coefficientAvg: " + str(coefficientAvg)
 	return coefficientAvg
 
 
@@ -182,7 +182,7 @@ def findAllAverages(listOfTuples):
 
 	for t in listOfTuples:
 		key = str(t[2]).strip() + "-" + str(t[1]) + "-" + str(t[0])
-		print "\n" + str(key)
+		# print "\n" + str(key)
 
 		cDict[key] = findAverageCoefficient(t[0], t[1], t[2])
 
