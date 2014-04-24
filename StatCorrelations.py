@@ -24,7 +24,7 @@ def statPull(tableName, columnName, position, year, statsList=[]):
 	conn.text_factory = str # set sqlite3 connection to use unicode instead of 8-bit byte strings. 
 	with conn:
 		c = conn.cursor()	# Defines cursor
-		commandString = "SELECT PLAYER, " + str(columnName) + " FROM " + tableName + "_" + str(year) + " WHERE POS=\"" + position + "\";"
+		commandString = "SELECT PLAYER, " + str(columnName) + " FROM " + tableName + "_" + str(year) + " WHERE POS=\"" + position.strip() + "\";"
 		# print commandString
 		c.execute(commandString) # Create the table
 		dictionary = {}
@@ -153,6 +153,7 @@ def findAverageCoefficient(stat, tableName, position):
 	# print "Stat: " + str(stat)
 	for year in range(2002, 2013):
 		statsList = statPull(tableName, stat, position, year)
+		# print "findAverageCoefficient statsList: " + str(statsList)
 		pointsList = statPull("FantasyPoints", "Points", position, year + 1, statsList)
 		calcCo = calculateCoefficient(statsList, pointsList)
 		coefficientSum = coefficientSum + calcCo
@@ -182,6 +183,7 @@ def findAllAverages(listOfTuples):
 	for t in listOfTuples:
 		key = str(t[2]).strip() + "-" + str(t[1]) + "-" + str(t[0])
 		print "\n" + str(key)
+
 		cDict[key] = findAverageCoefficient(t[0], t[1], t[2])
 
 
@@ -191,27 +193,66 @@ def findAllAverages(listOfTuples):
 	return cDict
 
 
-def createListOfTuples():
-	lot = [("COMP", "Passing", " QB"), ("ATT", "Passing", " QB"), ("PCT", "Passing", " QB"), ("YDS", "Passing", " QB"), 
-	("YDS_PER_A", "Passing", " QB"), ("LONG", "Passing", " QB"), ("TD", "Passing", " QB"), ("INT", "Passing", " QB"), 
-	("SACK", "Passing", " QB"), ("RATE", "Passing", " QB"), ("YDS_PER_G", "Passing", " QB"), ("ATT", "Rushing", " QB"), 
-	("YDS", "Rushing", " QB"), ("YDS_PER_A", "Rushing", " QB"), ("LONG", "Rushing", " QB"), ("TWENTY_PLUS", "Rushing", " QB"), 
-	("TD", "Rushing", " QB"), ("YDS_PER_G", "Rushing", " QB"), ("FUM", "Rushing", " QB"), ("FIRST_DOWNS", "Rushing", " QB"), 
-	("ATT", "Rushing", " RB"), ("YDS", "Rushing", " RB"), ("YDS_PER_A", "Rushing", " RB"), ("LONG", "Rushing", " RB"), 
-	("TWENTY_PLUS", "Rushing", " RB"), ("TD", "Rushing", " RB"), ("YDS_PER_G", "Rushing", " RB"), ("FUM", "Rushing", " RB"), 
-	("FIRST_DOWNS", "Rushing", " RB"), ("REC", "Receiving", " RB"), ("TAR", "Receiving", " RB"), ("YDS", "Receiving", " RB"), 
-	("AVG", "Receiving", " RB"), ("TD", "Receiving", " RB"), ("LONG", "Receiving", " RB"), ("TWENTY_PLUS", "Receiving", " RB"), 
-	("YDS_PER_G", "Receiving", " RB"), ("FUM", "Receiving", " RB"), ("YAC", "Receiving", " RB"), ("FIRST_DOWNS", "Receiving", " RB"), 
-	("REC", "Receiving", " WR"), ("TAR", "Receiving", " WR"), ("YDS", "Receiving", " WR"), ("AVG", "Receiving", " WR"), 
-	("TD", "Receiving", " WR"), ("LONG", "Receiving", " WR"), ("TWENTY_PLUS", "Receiving", " WR"), ("YDS_PER_G", "Receiving", " WR"), 
-	("FUM", "Receiving", " WR"), ("YAC", "Receiving", " WR"), ("FIRST_DOWNS", "Receiving", " WR"), ("REC", "Receiving", " TE"), 
-	("TAR", "Receiving", " TE"), ("YDS", "Receiving", " TE"), ("AVG", "Receiving", " TE"), ("TD", "Receiving", " TE"), 
-	("LONG", "Receiving", " TE"), ("TWENTY_PLUS", "Receiving", " TE"), ("YDS_PER_G", "Receiving", " TE"), ("FUM", "Receiving", " TE"), 
-	("YAC", "Receiving", " TE"), ("FIRST_DOWNS", "Receiving", " TE"), ("FGM", "Kicking", " PK"), ("FGA", "Kicking", " PK"), 
-	("FGPCT", "Kicking", " PK"), ("LNG", "Kicking", " PK"), ("XPM", "Kicking", " PK"), 
-	("XPA", "Kicking", " PK"), ("PCT", "Kicking", " PK")]
-	return lot
+def findAllSortedAverages(listOfTuples):
+	cDict = {}
 
+	for t in listOfTuples:
+		key = str(t[2]).strip() + "-" + str(t[1]) + "-" + str(t[0])
+		print "\n" + str(key)
+
+		cDict[key] = findAverageCoefficient(t[0], t[1], t[2])
+
+
+	sortedDict = sorted(cDict.iteritems(), key=operator.itemgetter(1), reverse=True)
+
+	return sortedDict
+	# return cDict
+
+QB_PASSING_LOT = [("COMP", "Passing", " QB"), ("ATT", "Passing", " QB"), ("PCT", "Passing", " QB"), ("YDS", "Passing", " QB"), 
+("YDS_PER_A", "Passing", " QB"), ("LONG", "Passing", " QB"), ("TD", "Passing", " QB"), ("INT", "Passing", " QB"), 
+("SACK", "Passing", " QB"), ("RATE", "Passing", " QB"), ("YDS_PER_G", "Passing", " QB")]
+
+QB_RUSHING_LOT = [("ATT", "Rushing", " QB"), ("YDS", "Rushing", " QB"), ("YDS_PER_A", "Rushing", " QB"), ("LONG", "Rushing", " QB"), 
+("TWENTY_PLUS", "Rushing", " QB"), ("TD", "Rushing", " QB"), ("YDS_PER_G", "Rushing", " QB"), ("FUM", "Rushing", " QB"), 
+("FIRST_DOWNS", "Rushing", " QB")]
+
+RB_RUSHING_LOT = [("ATT", "Rushing", " RB"), ("YDS", "Rushing", " RB"), ("YDS_PER_A", "Rushing", " RB"), ("LONG", "Rushing", " RB"), 
+("TWENTY_PLUS", "Rushing", " RB"), ("TD", "Rushing", " RB"), ("YDS_PER_G", "Rushing", " RB"), ("FUM", "Rushing", " RB"), 
+("FIRST_DOWNS", "Rushing", " RB")] 
+
+RB_RECEIVING_LOT = [("REC", "Receiving", " RB"), ("TAR", "Receiving", " RB"), ("YDS", "Receiving", " RB"), ("AVG", "Receiving", " RB"), 
+("TD", "Receiving", " RB"), ("LONG", "Receiving", " RB"), ("TWENTY_PLUS", "Receiving", " RB"), ("YDS_PER_G", "Receiving", " RB"), 
+("FUM", "Receiving", " RB"), ("YAC", "Receiving", " RB"), ("FIRST_DOWNS", "Receiving", " RB")]
+
+WR_RECEIVING_LOT = [("REC", "Receiving", " WR"), ("TAR", "Receiving", " WR"), ("YDS", "Receiving", " WR"), ("AVG", "Receiving", " WR"), 
+("TD", "Receiving", " WR"), ("LONG", "Receiving", " WR"), ("TWENTY_PLUS", "Receiving", " WR"), ("YDS_PER_G", "Receiving", " WR"), 
+("FUM", "Receiving", " WR"), ("YAC", "Receiving", " WR"), ("FIRST_DOWNS", "Receiving", " WR")]
+
+TE_RECEIVING_LOT = [("REC", "Receiving", " TE"), ("TAR", "Receiving", " TE"), ("YDS", "Receiving", " TE"), ("AVG", "Receiving", " TE"), 
+("TD", "Receiving", " TE"), ("LONG", "Receiving", " TE"), ("TWENTY_PLUS", "Receiving", " TE"), ("YDS_PER_G", "Receiving", " TE"), 
+("FUM", "Receiving", " TE"), ("YAC", "Receiving", " TE"), ("FIRST_DOWNS", "Receiving", " TE")]
+
+PK_KICKING_LOT = [("FGM", "Kicking", " PK"), ("FGA", "Kicking", " PK"), ("FGPCT", "Kicking", " PK"), ("LNG", "Kicking", " PK"), 
+("XPM", "Kicking", " PK"), ("XPA", "Kicking", " PK"), ("PCT", "Kicking", " PK")]
+
+ALL_LOTS = [("COMP", "Passing", " QB"), ("ATT", "Passing", " QB"), ("PCT", "Passing", " QB"), ("YDS", "Passing", " QB"), 
+("YDS_PER_A", "Passing", " QB"), ("LONG", "Passing", " QB"), ("TD", "Passing", " QB"), ("INT", "Passing", " QB"), 
+("SACK", "Passing", " QB"), ("RATE", "Passing", " QB"), ("YDS_PER_G", "Passing", " QB"), ("ATT", "Rushing", " QB"), 
+("YDS", "Rushing", " QB"), ("YDS_PER_A", "Rushing", " QB"), ("LONG", "Rushing", " QB"), ("TWENTY_PLUS", "Rushing", " QB"), 
+("TD", "Rushing", " QB"), ("YDS_PER_G", "Rushing", " QB"), ("FUM", "Rushing", " QB"), ("FIRST_DOWNS", "Rushing", " QB"), 
+("ATT", "Rushing", " RB"), ("YDS", "Rushing", " RB"), ("YDS_PER_A", "Rushing", " RB"), ("LONG", "Rushing", " RB"), 
+("TWENTY_PLUS", "Rushing", " RB"), ("TD", "Rushing", " RB"), ("YDS_PER_G", "Rushing", " RB"), ("FUM", "Rushing", " RB"), 
+("FIRST_DOWNS", "Rushing", " RB"), ("REC", "Receiving", " RB"), ("TAR", "Receiving", " RB"), ("YDS", "Receiving", " RB"), 
+("AVG", "Receiving", " RB"), ("TD", "Receiving", " RB"), ("LONG", "Receiving", " RB"), ("TWENTY_PLUS", "Receiving", " RB"), 
+("YDS_PER_G", "Receiving", " RB"), ("FUM", "Receiving", " RB"), ("YAC", "Receiving", " RB"), ("FIRST_DOWNS", "Receiving", " RB"), 
+("REC", "Receiving", " WR"), ("TAR", "Receiving", " WR"), ("YDS", "Receiving", " WR"), ("AVG", "Receiving", " WR"), 
+("TD", "Receiving", " WR"), ("LONG", "Receiving", " WR"), ("TWENTY_PLUS", "Receiving", " WR"), ("YDS_PER_G", "Receiving", " WR"), 
+("FUM", "Receiving", " WR"), ("YAC", "Receiving", " WR"), ("FIRST_DOWNS", "Receiving", " WR"), ("REC", "Receiving", " TE"), 
+("TAR", "Receiving", " TE"), ("YDS", "Receiving", " TE"), ("AVG", "Receiving", " TE"), ("TD", "Receiving", " TE"), 
+("LONG", "Receiving", " TE"), ("TWENTY_PLUS", "Receiving", " TE"), ("YDS_PER_G", "Receiving", " TE"), ("FUM", "Receiving", " TE"), 
+("YAC", "Receiving", " TE"), ("FIRST_DOWNS", "Receiving", " TE"), ("FGM", "Kicking", " PK"), ("FGA", "Kicking", " PK"), 
+("FGPCT", "Kicking", " PK"), ("LNG", "Kicking", " PK"), ("XPM", "Kicking", " PK"), 
+("XPA", "Kicking", " PK"), ("PCT", "Kicking", " PK")]
 
 # listStat = statPull("Passing", "COMP", " QB", 2011)
 # print "\n listStat: " + str(listStat) + "\n"
@@ -221,4 +262,9 @@ def createListOfTuples():
 
 # findAverageCoefficient("COMP", "Passing", " QB")
 
-print findAllAverages(createListOfTuples())
+# print findAllSortedAverages(QB_PASSING_LOT)
+# print findAllSortedAverages(QB_RUSHING_LOT)
+# print findAllSortedAverages(RB_RUSHING_LOT)
+# print findAllSortedAverages(RB_RECEIVING_LOT)
+# print findAllSortedAverages(WR_RECEIVING_LOT)
+# print findAllSortedAverages(TE_RECEIVING_LOT)
