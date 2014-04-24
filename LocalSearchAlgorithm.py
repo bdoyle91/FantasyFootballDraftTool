@@ -124,6 +124,7 @@ class LocalSearchAlgorithm(GreedyByPositionAlgorithm):
 
 	def chooseNextPlayer(self):
 		print "------------------- Pick Number " + str(self.draftRound) + "----------------------"
+		startTime = time.time()
 		#Check Each Position and simulate rest of draft, draft position that yields highest result
 		for eachPosition in POSITIONLIST:
 			if self.projectionUse == False:
@@ -139,4 +140,6 @@ class LocalSearchAlgorithm(GreedyByPositionAlgorithm):
 		data = playerToAdd
 		self.bestPoint = 0
 		self.draftRound = self.draftRound + 1
+		timeToChoose =  time.time() - startTime
+		print timeToChoose
 		return data

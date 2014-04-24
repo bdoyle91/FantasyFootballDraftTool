@@ -14,17 +14,17 @@ def runSimulation(searchAlgoPosition, testYear):
 	algoTester = algorithmTester()
 	for teamNum in range(0, NUMBER_OF_TEAMS):
 		if teamNum == (searchAlgoPosition - 1):
-			#algoTester.algorithms.append(LocalSearchAlgorithm("LOCALSEARCH", NUMBER_OF_TEAMS, teamNum, True))
+			# algoTester.algorithms.append(LocalSearchAlgorithm("LOCALSEARCH", NUMBER_OF_TEAMS, teamNum, True))
 			algoTester.algorithms.append(GreedyByPositionAlgorithm("Greedy",True))
 		else:
-			algoTester.algorithms.append(GreedyByPositionAlgorithm("Greedy"))
+			algoTester.algorithms.append(GreedyByPositionAlgorithm("Greedy",True))
 
 	#Organize team instances
 	teamCounter = 0
 	for eachAlgorithm in algoTester.algorithms:
 		eachAlgorithm.team = TEAM_LIST[teamCounter]
 		if teamCounter == (searchAlgoPosition - 1):
-			#eachAlgorithm.team.setName("LocalSearch Team Draft Position " + str(teamCounter+1))
+			# eachAlgorithm.team.setName("LocalSearch Team Draft Position " + str(teamCounter+1))
 			eachAlgorithm.team.setName("Greedy Team Using Projection Draft Position " + str(teamCounter+1))
 			eachAlgorithm.team.setYear(testYear)
 		else:

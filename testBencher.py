@@ -19,13 +19,27 @@ import sqlite3 as lite
 def benchMark(players, year="2013"):
 	conn = lite.connect('ESPN.db')
 	benchTeam = teamClass.Team()
+	playerlist = []
 	for player in players:
 		c = conn.cursor()
+		print player
 		command = "SELECT Player,Pos,Points FROM FantasyPoints_" + str(year) + " WHERE Player='" + str(player) + "'"
 		c.execute(command)
 		data = c.fetchall()
+		if data == []:
+			newData = [player, 0, "QB"]
+		else:
+			newData = [data[0][0], int(data[0][2]), data[0][1]]
+		playerlist.append(newData)
+	print playerlist
+	playerlist.sort(key = lambda row: row[1])
+	print playerlist
+	print "-----------"
+	playerlist.reverse()
+	print playerlist
+	for data in playerlist:
 		print data
-		newPlayer = teamClass.Player(data[0][0], int(data[0][2]), data[0][1])
+		newPlayer = teamClass.Player(data[0], int(data[1]), data[2])
 		print "newPlayer " + str(newPlayer)
 		benchTeam.addPlayer(newPlayer)
 	conn.close()
@@ -45,11 +59,25 @@ def benchMark(players, year="2013"):
 #	1 K
 ######### UNIT TEST MAIN ################################################################
 
-CHITRADER2 = ["Jamaal Charles","Matt Forte","Demaryius Thomas","Jimmy Graham","Montee Ball","Russell Wilson","Antonio Brown","T.Y. Hilton","Cecil Shorts", "Andre Brown","Chicago","Jonathan Dwyer","Michael Vick","Bryce Brown","Matt Prater","Johnathan Franklin"]
-CHITRADER2pick = 6
-benchMark(CHITRADER2)
-TEAMJENKINS = ["Calvin Johnson","Dez Bryant","Jimmy Graham","Peyton Manning","Isaac Redman","Wes Welker","Houston","Ahmad Bradshaw","Shane Vereen","Knowshon Moreno","Stephen Gostkowski","Lance Moore","Kenny Britt","Denarius Moore","Fred Jackson","Sam Bradford"]
-TEAMJENKINSpick = 10
-benchMark(TEAMJENKINS)
-#print benchPoints
-
+BEST1ST = ["Adrian Peterson","Peyton Manning", "Brandon Marshall", "Vernon Davis", "David Wilson", "Jordy Nelson", "Seattle", "Golden Tate", "Stephen Gostkowski", "Tony Romo", "Mark Ingram", "Martellus Bennett", "Andre Brown", "Rueben Randle","Brandon Lloyd","Dwayne Allen"]
+BEST2ND = ["Peyton Manning","Jamaal Charles", "DeMarco Murray", "Chris Johnson", "Blair Walsh", "Vincent Jackson", "Pierre Garcon", "Lamar Miller", "Alshon Jeffery", "Steve Johnson", "Cincinnati", "Michael Vick", "Jordan Cameron", "Knowshon Moreno", "Rueben Randle", "Brandon Myers"]
+BEST3RD = ["Doug Martin", "Julio Jones", "Jimmy Graham", "Reggie Bush", "Antonio Brown", "Giovani Bernard", "Andrew Luck", "San Francisco", "Anquan Boldin", "Stephen Gostkowski", "Golden Tate", "Josh Gordon", "DeAndre Hopkins", "Denver", "Phil Dawson", "Greg Little"]
+BEST4TH = ["Marshawn Lynch","Peyton Manning","Matt Forte","Larry Fitzgerald","Marques Colston", "Dennis Pitta", "Danny Amendola", "Chicago", "Stephen Gostkowski", "Vick Ballard", "Miles Austin", "Michael Vick","Martellus Bennett", "Cincinnati","Greg Zuerlein","Jacquizz Rodgers"]
+BEST5TH = ["Peyton Manning","A.J. Green","Matt Forte","Jimmy Graham","Darren McFadden","Ahmad Bradshaw", "Chicago","Anquan Boldin","Lamar Miller","Phil Dawson","Mike Williams","Fred Jackson","Lance Moore","Josh Freeman","Brandon Myers","Kenbrell Thompkins"]
+BEST6TH = ["Jamaal Charles", "Peyton Manning", "Dez Bryant", "Frank Gore","Marques Colston","Jason Witten","Ahmad Bradshaw", "Jordy Nelson", "New England", "Stephen Gostkowski","Mike Williams","Knowshon Moreno","Denarius Moore","Bernard Pierce","Jacquizz Rodgers","Andy Dalton"]
+BEST7TH = ["Calvin Johnson","Peyton Manning","Jimmy Graham","Vincent Jackson","DeMarco Murray","Seattle","Ryan Mathews","Miles Austin","Brandon Myers","Michael Vick","Matt Prater","Kenny Britt","Isaac Redman", "St. Louis", "Sebastian Janikowski","Knowshon Moreno"]
+BEST8TH = ["Jamaal Charles","LeSean McCoy","Jimmy Graham","Randall Cobb","Danny Amendola","Eddie Lacy","DeSean Jackson","Andrew Luck","Miles Austin","Josh Gordon","San Francisco","Johnathan Franklin","Michael Vick","Coby Fleener","Ronnie Hillman","Sebastian Janikowski"]
+BEST9TH = ["Jamaal Charles", "LeSean McCoy", "Jimmy Graham", "Demaryius Thomas", "Reggie Wayne", "Matthew Stafford", "Giovani Bernard", "DeSean Jackson", "Shane Vereen", "San Francisco", "Josh Gordon", "Golden Tate", "Jared Cook", "Shonn Greene", "Malcom Floyd","Phil Dawson"]
+BEST10TH = ["Jamaal Charles","LeSean McCoy", "Brandon Marshall", "Jimmy Graham", "Robert Griffin III", "Matthew Stafford", "Jordy Nelson","Montee Ball","Russell Wilson", "Mike Williams", "Chicago", "Bryce Brown", "New England", "Brandon Pettigrew", "Felix Jones", "Matt Prater"]
+BESTPOSSIBLE = ["Peyton Manning", "Drew Brees", "Jamaal Charles", "LeSean McCoy", "Matt Forte", "Knowshon Moreno","Josh Gordon","Demaryius Thomas","Calvin Johnson","A.J. Green","Alex Smith", "Jimmy Graham","Carolina", "Seattle","Stephen Gostkowski","Matt Prater"]
+# benchMark(BEST1ST)
+# benchMark(BEST2ND)
+# benchMark(BEST3RD)
+# benchMark(BEST4TH)
+# benchMark(BEST5TH)
+# benchMark(BEST6TH)
+# benchMark(BEST7TH)
+# benchMark(BEST8TH)
+# benchMark(BEST9TH)
+# benchMark(BEST10TH)
+benchMark(BESTPOSSIBLE)
